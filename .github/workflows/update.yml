@@ -1,0 +1,40 @@
+on:
+  push:
+    branches:
+      - main
+  schedule:
+  - cron: "0 0 * * *"
+
+name: update
+
+jobs:
+  schedule-report:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.PAT }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: r-lib/actions/setup-r@v1
+
+      - uses: r-lib/actions/setup-pandoc@v1
+
+      - name: Install pak and query dependencies
+        run: |
+          install.packages("pak", repos = "https://r-lib.github.io/p/pak/dev/")
+          pak::pkg_system_requirements("flexdashboard", execute = TRUE)
+          pak::pak::pkg_install("flexdashboard")
+        shell: Rscript {0}
+
+      - name: Run job
+        run: |
+          source("R/job.R", echo = TRUE)
+        shell: Rscript {0}          
+        
+      - name: Commit files
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add --all
+          git commit -am "updating data and report" --author 'Joshua Kunst <jbkunst@gmail.com>'
+          git push
