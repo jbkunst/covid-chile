@@ -8,7 +8,7 @@ on:
 name: update
 
 jobs:
-  schedule-report:
+  update:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.PAT }}
@@ -23,7 +23,7 @@ jobs:
         run: |
           install.packages("pak", repos = "https://r-lib.github.io/p/pak/dev/")
           pak::pkg_system_requirements("flexdashboard", execute = TRUE)
-          pak::pak::pkg_install("flexdashboard")
+          pak::pkg_install("flexdashboard")
         shell: Rscript {0}
 
       - name: Run job
