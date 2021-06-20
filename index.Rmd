@@ -16,7 +16,8 @@ Column {data-width=650}
 ### `r Sys.time()`
 
 ```{r}
-
+x <- readRDS("data/data.rds")
+plot(ts(x))
 ```
 
 Column {data-width=350}
