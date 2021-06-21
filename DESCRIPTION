@@ -4,6 +4,5 @@ Description: Dashboard Covid19
 Version: 0.9
 Imports:
   tidyverse,
-  flexdashboard
-Remotes:  
-    jbkunst/highcharter
+  flexdashboard,
+  highcharter
