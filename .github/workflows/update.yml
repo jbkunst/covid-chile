@@ -28,7 +28,7 @@ jobs:
 
       - name: Run job
         run: |
-          source("R/job.R", echo = TRUE)
+          rmarkdown::render("index.Rmd")
         shell: Rscript {0}          
         
       - name: Commit files
