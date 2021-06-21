@@ -20,46 +20,69 @@ source("R/01-productos.R", encoding = "UTF-8")
 source("R/02-graficos.R", encoding = "UTF-8")
 ```
 
-Row {data-height=200}
+<i class="fa fa-tachometer-alt"></i> Inicio
+=====================================  
+
+Row {data-height=225}
 -----------------------------------------------------------------------
 
 ### 
 
 ```{r}
-valueBox(1, caption = NULL, icon = NULL, color = NULL, href = NULL)
+val <- "1.5 millones"
+
+met <- "Confirmados"
+
+datos <-  c(
+  "Dato interesante 1",
+  "Dato interesante 2",
+  "Dato interesante 3"
+  )
+
+cap <- purrr::map2(datos, length(datos):1, function(x, y){
+  
+  spn <- tags$span(x)
+  
+  if(y == 1) {
+    return(spn)
+  }
+  
+  shiny::tagList(spn, tags$br())
+  
+}) 
+
+cap <- tags$span(
+  # style = "display: flex; flex-direction: column;",
+  tags$b(met), tags$br(), shiny::tagList(cap)
+  )
+
+valueBox(
+  val,
+  caption = cap,
+  icon = "fa-check"
+  )
 ```
 
 ### 
 
 ```{r}
-valueBox(1, caption = NULL, icon = NULL, color = NULL, href = NULL)
+valueBox("31.234", caption = "Fallecidos", icon = NULL, color = NULL, href = NULL)
 ```
 
 ### 
 
 ```{r}
-valueBox(1, caption = NULL, icon = NULL, color = NULL, href = NULL)
+valueBox("65%", caption = "Vacunación", icon = NULL, color = NULL, href = NULL)
 ```
 
 ### 
 
 ```{r}
-valueBox(1, caption = NULL, icon = NULL, color = NULL, href = NULL)
+valueBox("3.230", caption = "UCI", icon = NULL, color = NULL, href = NULL)
 ```
 
-### 
 
-```{r}
-valueBox(1, caption = NULL, icon = NULL, color = NULL, href = NULL)
-```
-
-### 
-
-```{r}
-valueBox(1, caption = NULL, icon = NULL, color = NULL, href = NULL)
-```
-
-Row {data-height=400}
+Row 
 -----------------------------------------------------------------------
 
 ### 
@@ -80,7 +103,7 @@ grafico_pacientes_uci()
 
 
 
-Row {data-height=400}
+Row 
 -----------------------------------------------------------------------
 
 ### Chart 1
@@ -99,3 +122,43 @@ Row {data-height=400}
 ```
 
 
+<i class="fa fa-syringe"></i> Vacunación
+=====================================  
+
+### 
+
+```{r}
+```
+
+<i class="fa fa-route"></i>  Movilidad
+=====================================  
+
+### 
+
+```{r}
+```
+
+
+<i class="fa fa-skull"></i> Mortalidad
+=====================================  
+
+### Letalidad
+
+```{r}
+```
+
+### Fallecido histórico
+
+```{r}
+```
+
+<i class="fa fa-question-circle"></i>
+=====================================  
+
+Row {data-height=500}
+-------------------------------------
+
+### 
+
+```{r}
+```

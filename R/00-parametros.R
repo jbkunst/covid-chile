@@ -2,17 +2,26 @@ PARS <- list(
   debug = FALSE,
   colors = list(
     sparkline = "#F4F6F9", # color de fondo de value boxes "blancos"
-    primary = "#007bff",
-    danger = "#DC3545",
+    primary = "#0f69b4", #"#007bff",
+    secondary = "#eb3c46", #"#DC3545",
     gray = "#C0C0C0"
   ),
-  top = 5,
   hc = list(
     duration = 2500
   ),
   font = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
 )
 
+
+# css ---------------------------------------------------------------------
+css <- readr::read_lines("www/style_template.css")
+
+css %>% 
+  stringr::str_replace("PRIMARYCOLOR", PARS$colors$primary) %>% 
+  readr::write_lines("www/style.css")
+
+
+# highcharts --------------------------------------------------------------
 Sys.setlocale("LC_ALL", "Spanish_Spain.1252")
 # Sys.setlocale("LC_ALL","English")
 # f <- Sys.Date()
@@ -36,7 +45,7 @@ options(
   highcharter.theme = 
     hc_theme_smpl(
       
-      colors = c("#007bff", "#DC3545"),
+      colors = c(PARS$colors$primary, PARS$colors$secondary),
       
       title = list(
         style = list(fontSize = "1.2em", fontFamily = PARS$font)
@@ -56,6 +65,7 @@ options(
       ),
       
       yAxis = list(
+        opposite = TRUE,
         title = list(
           align = "high",
           style = list(
@@ -66,7 +76,8 @@ options(
       
       chart = list(
         backgroundColor = "white",
-        style = list(fontFamily = PARS$font, fontSize = "1.0em")
+        style = list(fontFamily = PARS$font, fontSize = "1.0em"),
+        zoomType = "x"
       ),
       
       plotOptions = list(
@@ -76,6 +87,15 @@ options(
         ),
         line = list(
           lineWidth = 4
+        ),
+        area = list(
+          fillColor = list(
+            linearGradient = list(x1 = 0, y1 = 1, x2 = 0, y2 = 0),
+            stops = list(
+              list(0.0, hex_to_rgba(PARS$color$primary, alpha = 0.1)),
+              list(1.0, PARS$color$sparkline)
+            )
+          )
         ),
         arearange = list(
           lineWidth = 1,
@@ -123,5 +143,6 @@ options(
         )
       )
   )
+
 
 rm(newlang_opts)

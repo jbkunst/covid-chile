@@ -15,18 +15,18 @@ grafico_pacientes_uci <- function() {
   eventos <- left_join(eventos, d, by = "x")
   eventos <- mutate(eventos, x = datetime_to_timestamp(x))
   
-  titulo <- "Número diario de pacientes en <b>UCI</b> a nivel nacional."
+  titulo <- "Número diario de <b>pacientes</b> en <b>UCI</b> a nivel nacional."
   
   hchart(
     d,
     hcaes(x, y),
-    type = "line",
+    type = "area",
     name = "Pacientes UCI",
     showInLegend = TRUE
     ) %>%
     hc_tooltip(table = TRUE, valueDecimals = 0) %>%
     # hc_xAxis(plotLines = list_parse(data_plotLine)) %>%
-    hc_yAxis(title = list(text = "Número de pacientes UCI")) %>%
+    hc_yAxis(title = list(text = "Cantidad")) %>%
     hc_xAxis(title = list(text = "Fecha")) %>%
     hc_subtitle(text = titulo) %>% 
     hc_annotations(
