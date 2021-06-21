@@ -21,6 +21,42 @@ source("R/02-graficos.R", encoding = "UTF-8")
 Row {data-height=200}
 -----------------------------------------------------------------------
 
+### 
+
+```{r}
+valueBox(1, caption = NULL, icon = NULL, color = NULL, href = NULL)
+```
+
+### 
+
+```{r}
+valueBox(1, caption = NULL, icon = NULL, color = NULL, href = NULL)
+```
+
+### 
+
+```{r}
+valueBox(1, caption = NULL, icon = NULL, color = NULL, href = NULL)
+```
+
+### 
+
+```{r}
+valueBox(1, caption = NULL, icon = NULL, color = NULL, href = NULL)
+```
+
+### 
+
+```{r}
+valueBox(1, caption = NULL, icon = NULL, color = NULL, href = NULL)
+```
+
+### 
+
+```{r}
+valueBox(1, caption = NULL, icon = NULL, color = NULL, href = NULL)
+```
+
 Row {data-height=400}
 -----------------------------------------------------------------------
 
