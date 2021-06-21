@@ -131,33 +131,50 @@ get_data_producto_78_unica_dosis <- function(){
 
 get_data_ine_proyeccion_poblacion_2021 <- function(){
  
-  d <- read_delim(
-    "https://www.ine.cl/docs/default-source/proyecciones-de-poblacion/cuadros-estadisticos/base-2017/ine_estimaciones-y-proyecciones-de-poblaci%C3%B3n-1992-2050_base-2017_base-de-datos.csv?sfvrsn=4022da86_11&download=true",
-    delim = ";",
-    skip = 1,
-    n_max = 102,
-    col_types = cols(
-      .default = col_character(),
-      EDAD = col_character()
+  fname <- "data/ine_proyeccion_poblacion_2021.txt"
+  
+  if(!file.exists(fname)){
+    d <- read_delim(
+      "https://www.ine.cl/docs/default-source/proyecciones-de-poblacion/cuadros-estadisticos/base-2017/ine_estimaciones-y-proyecciones-de-poblaci%C3%B3n-1992-2050_base-2017_base-de-datos.csv?sfvrsn=4022da86_11&download=true",
+      delim = ";",
+      skip = 1,
+      n_max = 102,
+      col_types = cols(
+        .default = col_character(),
+        EDAD = col_character()
       )
     )
-  
-  tail(d)
-  
-  d <- d %>% 
-    filter(EDAD != "TOTAL") %>% 
-    mutate(EDAD = str_remove(EDAD, "\\+")) %>% 
-    gather(ano, poblacion, -EDAD) %>% 
-    rename_all(str_to_lower) %>% 
-    mutate(
-      edad = as.numeric(edad),
-      poblacion = str_remove(poblacion, "\\."),
-      poblacion = as.numeric(poblacion)
+    
+    tail(d)
+    
+    d <- d %>% 
+      filter(EDAD != "TOTAL") %>% 
+      mutate(EDAD = str_remove(EDAD, "\\+")) %>% 
+      gather(ano, poblacion, -EDAD) %>% 
+      rename_all(str_to_lower) %>% 
+      mutate(
+        edad = as.numeric(edad),
+        poblacion = str_remove(poblacion, "\\."),
+        poblacion = as.numeric(poblacion)
       )
-  
-  # d %>% filter(!complete.cases(.))
-  
-  d <- d %>% filter(ano == 2021)
+    
+    # d %>% filter(!complete.cases(.))
+    
+    d <- d %>% filter(ano == 2021)
+    
+    write_tsv(d, fname)
+    
+  } else {
+    
+    d <- read_tsv(
+      fname,
+      col_types = cols(
+        edad = col_double(),
+        ano = col_double(),
+        poblacion = col_double()
+        )
+      )
+  }
   
   d
   

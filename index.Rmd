@@ -5,6 +5,7 @@ output:
     orientation: rows
     css: www/style.css
     favicon: www/favicon.png    
+    social: ["twitter", "facebook", "linkedin"]
 editor_options: 
   chunk_output_type: console
 ---
