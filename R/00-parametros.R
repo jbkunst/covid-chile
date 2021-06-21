@@ -1,5 +1,6 @@
 PARS <- list(
   debug = FALSE,
+  edad_breaks = c(15, 30, 40, 50, 60, 70, 80, Inf),
   colors = list(
     sparkline = "#F4F6F9", # color de fondo de value boxes "blancos"
     primary = "#0f69b4", #"#007bff",
@@ -11,6 +12,14 @@ PARS <- list(
   ),
   font = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
 )
+
+
+# data --------------------------------------------------------------------
+# from https://jkunst.com/blog/posts/2020-06-02-30diasdegraficos-parte-3/#d%C3%ADa-21-gr%C3%A1ficos-con-anotaciones
+EVENTOS <- tibble(
+  x = ymd(c("2020-05-15", "2021-05-9")),
+  text = c("Primera cuarentena<br>en la RM", "Día de la madre")
+) 
 
 
 # css ---------------------------------------------------------------------

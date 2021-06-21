@@ -5,4 +5,7 @@ Version: 0.9
 Imports:
   tidyverse,
   flexdashboard,
-  highcharter
+  highcharter,
+  RcppRoll,
+  fontawesome,
+  santoku
