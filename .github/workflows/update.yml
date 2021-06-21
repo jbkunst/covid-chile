@@ -22,8 +22,8 @@ jobs:
       - name: Install pak and query dependencies
         run: |
           install.packages("pak", repos = "https://r-lib.github.io/p/pak/dev/")
-          pak::local_system_requirements(execute = TRUE)
-          pak::local_install_dev_deps()
+          pak::pkg_system_requirements("flexdashboard", execute = TRUE)
+          pak::pkg_install("flexdashboard")
         shell: Rscript {0}
 
       - name: Run job
