@@ -147,12 +147,12 @@ Row
 Mortalidad {data-icon="fa-skull"}
 =====================================  
 
-### Letalidad
+### 
 
 ```{r}
 ```
 
-### Fallecido histórico
+### 
 
 ```{r}
 ```
