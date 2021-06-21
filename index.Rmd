@@ -2,36 +2,62 @@
 title: "Covid-Chile"
 output: 
   flexdashboard::flex_dashboard:
-    orientation: columns
-    vertical_layout: fill
+    orientation: rows
+    css: www/style.css
+    favicon: www/favicon.png    
 ---
 
 ```{r setup, include=FALSE}
 library(flexdashboard)
+library(tidyverse)
+library(lubridate)
+library(highcharter)
+
+source("R/00-parametros.R", encoding = "UTF-8")
+source("R/01-productos.R", encoding = "UTF-8")
+source("R/02-graficos.R", encoding = "UTF-8")
 ```
 
-Column {data-width=650}
+Row {data-height=200}
 -----------------------------------------------------------------------
 
-### `r Sys.time()`
-
-```{r}
-x <- readRDS("data/data.rds")
-plot(ts(x))
-```
-
-Column {data-width=350}
+Row {data-height=400}
 -----------------------------------------------------------------------
 
-### Chart B
+### 
 
 ```{r}
-
 ```
 
-### Chart C
+### 
 
 ```{r}
-
 ```
+
+### 
+
+```{r}
+grafico_pacientes_uci()
+```
+
+
+
+Row {data-height=400}
+-----------------------------------------------------------------------
+
+### Chart 1
+
+```{r}
+```
+
+### Chart 2
+
+```{r}
+```
+
+### Chart 3
+
+```{r}
+```
+
 
