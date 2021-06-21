@@ -107,6 +107,21 @@ options(
         itemStyle =  list(
           fontWeight = "normal"
         )
+      ),
+      
+      responsive = list(
+        rules = list(
+          list(
+            condition = list(maxWidth = 500, maxHeigth = 250),
+            chartOptions = list(
+              legend = list(enabled = FALSE),
+              xAxis = list(title = NULL),
+              yAxis = list(title = "", endOnTick = FALSE)
+              )
+            )
+          )
+        )
       )
-    )
-)
+  )
+
+rm(newlang_opts)
