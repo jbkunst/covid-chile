@@ -179,7 +179,7 @@ grafico_defunciones_esperadas_arima()
 grafico_defunciones_semanales_pandemia()
 ```
 
-{data-icon="fa-question-circle"}
+Acerca {data-icon="fa-question-circle"}
 =====================================  
 
 Row {data-height=500}
