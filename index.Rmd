@@ -76,6 +76,7 @@ grafico_confirmados_diarios()
 ### 
 
 ```{r}
+grafico_defunciones_diarias()
 ```
 
 ### 
@@ -156,6 +157,7 @@ Row
 ### 
 
 ```{r}
+grafico_defunciones_diarias()
 ```
 
 ### 

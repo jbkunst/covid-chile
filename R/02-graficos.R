@@ -268,7 +268,8 @@ grafico_letalidad <- function() {
       linkedTo = "fallecidos_contagiados",
       zIndex = -3,
       showInLegend = FALSE, 
-      name = "Intervalo de Confianza (99%)"
+      name = "Intervalo de Confianza (99%)",
+      color = PARS$colors$gray
     ) %>% 
     hc_yAxis(
       allowDecimals = TRUE,
@@ -463,6 +464,80 @@ grafico_defunciones_semanales_pandemia <- function(){
   
 }
 
+grafico_defunciones_diarias <- function(){
+  
+  d <- get_data_producto_14()
+  
+  d <- d %>%
+    group_by(x = dia) %>%
+    summarise(y = sum(fallecimientos))
+  
+  d <- d %>% 
+    mutate(
+      y_new = lag(y),
+      y_new = ifelse(is.na(y_new), y, y - y_new)
+    )
+  
+  d %>% filter(y_new == max(y_new))
+  d %>% arrange(desc(y_new))
+  
+  d_outlier <- d %>%
+    filter(x == ymd("2020-07-17") | x == ymd("2020-06-07"))
+
+  d <- d %>% anti_join(d_outlier, by = "x")
+  
+  d <- d %>% 
+    mutate(
+      y_movavg_7 = roll_mean(y_new, n = 7, fill = NA, align = "right"),
+      y_movavg_7 = round(y_movavg_7, 0)
+    )
+  
+  eventos <- left_join(EVENTOS, d %>% select(x, y = y_new), by = "x")
+  eventos <- mutate(eventos, x = datetime_to_timestamp(x))
+  
+  titulo <- str_glue("Total de fallecidos diarios reportados a nivel nacional.")
+  
+  hchart(
+    d %>% select(x, y = y_new),
+    hcaes(x, y),
+    type = "line",
+    name = "Fallecimientos Diarios",
+    showInLegend = TRUE,
+    lineWidth = 1
+  ) %>% 
+    hc_add_series(
+      d %>% select(x, y = y_movavg_7),
+      hcaes(x, y),
+      type = "line",
+      name = "Media Móvil 7 días",
+      showInLegend = TRUE
+    ) %>%
+    hc_add_series(
+      d_outlier %>% select(x, y = y_new),
+      hcaes(x, y),
+      type = "scatter",
+      showInLegend = TRUE,
+      visible = FALSE,
+      name = "Datos de 2020-07-17 y  2020-06-07"
+    ) %>% 
+    hc_tooltip(table = TRUE, valueDecimals = 0) %>%
+    hc_yAxis(title = list(text = "Cantidad")) %>%
+    hc_xAxis(title = list(text = "Fecha")) %>%
+    hc_subtitle(text = titulo) %>% 
+    hc_annotations(
+      list(
+        labelOptions = list(
+          shape = "connector",
+          align = "right",
+          justify = FALSE,
+          crop = TRUE,
+          style = list(fontSize = "0.8em", textOutline = "1px white")
+        ),
+        labels = df_to_annotations_labels(eventos)
+      )
+    )
+  
+}
 
 
 
