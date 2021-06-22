@@ -225,3 +225,266 @@ grafico_porcentaje_vacunacion_edad_fecha <- function(){
     hc_subtitle(text = titulo) 
   
 }
+
+grafico_letalidad <- function() {
+  
+  dc <- get_data_producto_3()
+  df <- get_data_producto_14()
+  
+  d <- list(dc, df) %>% 
+    map(group_by, dia) %>% 
+    map(summarise_if, is.numeric, sum) %>% 
+    reduce(inner_join, by = "dia") %>% 
+    mutate(
+      y = fallecimientos/nro_casos,
+      ic = map2(y, nro_casos, function(eval = 1.4410024, n = 14365){ 
+        binom.test(round(n*c(eval, 1 - eval)), conf.level = .99)[["conf.int"]] 
+        }),
+      low = map_dbl(ic, first),
+      low = ifelse(low < 0, 0, low),
+      high = map_dbl(ic, last),
+      high = ifelse(high > 1, 1, high)
+    ) %>% 
+    select(-ic) %>% 
+    mutate(across(.cols = c(y, low, high), .fns = ~ round(.x * 100, 2)))
+  
+  d
+  
+  texto <- str_glue("<b>Tasa de Letalidad</b>, razón entre el número de fallecidos totales registrados
+      hasta la fecha, sobre el número de casos totales reportados hasta la fecha")
+  
+  hchart(
+    d %>% select(x = dia, y = y), 
+    "line",
+    hcaes(x, y),
+    name = "Tasa de Letalidad",
+    id = "fallecidos_contagiados",
+    showInLegend = TRUE
+  ) %>% 
+    hc_add_series(
+      d %>% filter(fallecimientos > 100) %>% select(x = dia, low, high),
+      type = "arearange",
+      hcaes(x, low = low, high = high),
+      linkedTo = "fallecidos_contagiados",
+      zIndex = -3,
+      showInLegend = FALSE, 
+      name = "Intervalo de Confianza (99%)"
+    ) %>% 
+    hc_yAxis(
+      allowDecimals = TRUE,
+      labels = list(format = "{value}%"),
+      title = list(text = "Tasa de Letalidad"),
+      min = 0
+    ) %>% 
+    hc_xAxis(title = list(text = "Fecha")) %>% 
+    hc_tooltip(valueSuffix = " %", valueDecimals = 2, shared = TRUE) %>% 
+    hc_subtitle(text =  texto) 
+  
+  
+}
+
+grafico_defunciones_esperadas_arima <- function(){
+  
+  d <- get_data_producto_32()
+  
+  d <- d %>% 
+    group_by(nro_semana, anio) %>% 
+    summarise(
+      nro_fallecidos = sum(nro_fallecidos), 
+      n_dias = dplyr::n_distinct(dia),
+      .groups = "drop") %>% 
+    arrange(-anio) %>% 
+    mutate(anio = as.character(anio))
+  
+  d
+  
+  dnormal <- d %>% 
+    arrange(anio, nro_semana) %>% 
+    filter(nro_semana != 53) %>% 
+    filter(anio <= 2019)
+  
+  # serie de tiempo
+  fname <- "data/modelo_arima.rds"
+  
+  if(file.exists(fname)) {
+    
+    mod <- readRDS(fname)
+    
+  } else {
+    
+
+    x <- ts(dnormal$nro_fallecidos, frequency = 52)
+    
+    plot(x)
+    
+    mod <- forecast::auto.arima(x, trace = TRUE)  
+    
+    plot(mod)
+    
+    tsdiag(mod, 52*3)
+    
+    saveRDS(mod, fname)
+    
+  }
+  
+  mod
+  
+  dcovid <- d %>% 
+    arrange(anio, nro_semana) %>% 
+    filter(anio >= 2020) %>% 
+    # removemos si ultima semana/fila no tiene 7 dias de defuncionaes
+    filter(!(row_number() == n() & n_dias != 7)) %>% 
+    # removemos semanas 53 dado que arima usa frecuencia 52
+    filter(nro_semana < 53)
+  
+  dfct <- forecast::forecast(mod, h = nrow(dcovid), level = 95) %>% 
+    as.data.frame() %>% 
+    as_tibble() %>% 
+    janitor::clean_names()
+  
+  dcovid <- bind_cols(dcovid, dfct)
+  
+  dcovid <- dcovid %>% 
+    mutate(fecha = ymd(as.numeric(anio)*10000 + 101) + weeks(nro_semana - 1))
+  
+  dnormal <- dnormal %>% 
+    mutate(fecha = ymd(as.numeric(anio)*10000 + 101) + weeks(nro_semana - 1))
+  
+  titulo <- "Exceso de mortalidad. Comparación entre las defunciones semanales
+  esperadas según patrón histórico de 2010-2019 y las observadas en pademia."
+  
+  hchart(
+    dcovid %>% select(x = fecha, y = nro_fallecidos),
+    "line",
+    hcaes(x, y),
+    name = "Fallecimientos semanales en pandemia",
+    color = PARS$color$secondary,
+    showInLegend = TRUE
+  ) %>% 
+    hc_add_series(
+      dcovid %>% select(x = fecha, y = point_forecast),
+      "line",
+      hcaes(x, y),
+      name = "Número de fallecimientos esperados",
+      id = "numero_fallecidos_esperados",
+      color = PARS$color$primary,
+      showInLegend = TRUE
+    ) %>% 
+    hc_add_series(
+      dcovid %>% select(x = fecha, low = lo_95, high = hi_95),
+      type = "arearange",
+      hcaes(x = x, low = low, high = high),
+      color = PARS$color$gray,
+      linkedTo = "numero_fallecidos_esperados",
+      zIndex = -3,
+      showInLegend = FALSE,
+      name = "Intervalo 95% confianza"
+    ) %>% 
+    hc_add_series(
+      dnormal %>% filter(anio %in% 2019) %>% select(x = fecha, y = nro_fallecidos),
+      "line",
+      hcaes(x, y),
+      name = "Fallecimientos semanales 2019",
+      showInLegend = TRUE,
+      visible = FALSE,
+      color = PARS$colors$gray
+      ) %>% 
+    hc_add_series(
+      dnormal %>% filter(anio %in% 2010:2018) %>% select(x = fecha, y = nro_fallecidos),
+      "line",
+      hcaes(x, y),
+      name = "Fallecimientos semanales 2010-2018",
+      showInLegend = TRUE,
+      visible = FALSE,
+      color = PARS$colors$gray
+    ) %>% 
+    hc_tooltip(shared = TRUE, valueDecimals = 0) %>% 
+    hc_yAxis(title = list(text = "Número de fallecidos"), min = 0, endOndTick = FALSE) %>%
+    hc_xAxis(title = list(text = "Fecha")) %>% 
+    hc_subtitle(text = titulo)
+  
+}
+
+grafico_defunciones_semanales_pandemia <- function(){
+  
+  d <- get_data_producto_32()
+  
+  d %>% count(region)
+  
+  d <- d %>% 
+    filter(dia >= ymd(20200401)) %>% 
+    mutate(group = ifelse(region == "Metropolitana de Santiago", "RM", "Regiones")) %>% 
+    group_by(group, anio, nro_semana) %>% 
+    summarise(
+      nro_fallecidos = sum(nro_fallecidos), 
+      dias = n_distinct(dia),
+      .groups = "drop"
+      ) %>% 
+    filter(dias == 7)
+  
+  d <- d %>% 
+    mutate(fecha_auxiliar = ymd(as.numeric(2020)*10000 + 101) + weeks(nro_semana - 1)) 
+    
+  dtot <- d %>% 
+    group_by(anio, nro_semana) %>% 
+    summarise(nro_fallecidos = sum(nro_fallecidos), .groups = "drop") %>% 
+    mutate(fecha = ymd(as.numeric(2020)*10000 + 101) + weeks(nro_semana - 1))
+  
+  hchart(
+    d %>% mutate(g = paste(anio, group)) %>% select(x = fecha_auxiliar, y = nro_fallecidos, group = g),
+    type = "line",
+    hcaes(x, y, group = group)
+  )
+  
+  titulo <- "Defunciones semanales 2020 vs 2021"
+  
+  hchart(
+    dtot %>% select(x = fecha, y = nro_fallecidos, group = anio),
+    type = "line",
+    hcaes(x, y, group = group),
+    # name = c("Totale 2020 2021", FALSE),
+    linkedTo = c(NULL, ":previous")
+  ) %>% 
+    hc_tooltip(shared = TRUE, valueDecimals = 0) %>% 
+    hc_yAxis(title = list(text = "Número de fallecidos"), min = 0, endOndTick = FALSE) %>%
+    hc_xAxis(title = list(text = "Semana")) %>% 
+    hc_subtitle(text = titulo)
+  # %>% 
+  #   hc_add_series(
+  #     d %>%
+  #       mutate(group = paste(anio, group)) %>%
+  #       select(x = fecha_auxiliar, y = nro_fallecidos, group),
+  #     type = "line",
+  #     hcaes(x, y, group = group),
+  #     id = c("a", NULL, NULL, NULL),
+  #     linkedTo = c(NULL, "a", "a", "a", "a")
+  #   )
+  
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

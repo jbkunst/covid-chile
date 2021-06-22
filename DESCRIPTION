@@ -8,4 +8,6 @@ Imports:
   highcharter,
   RcppRoll,
   fontawesome,
-  santoku
+  santoku,
+  forecast,
+  janitor

@@ -16,10 +16,7 @@ get_data_producto_1 <- function(){
 }
 
 get_data_producto_3 <- function(){
-  
-  # Datos acumulados en formato largo 
-  # SIN Total
-  
+
   d <- read_csv(
     "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto3/CasosTotalesCumulativo.csv",
     col_types = cols(
@@ -31,10 +28,10 @@ get_data_producto_3 <- function(){
   d %>% count(Region)
   
   d <- d %>% 
-    rename_all(str_to_lower) %>% 
-    filter(region != "Total") %>%
-    gather(dia, nro_casos, -region) %>% 
-    mutate(dia = ymd(dia)) 
+    filter(Region != "Total") %>%
+    gather(dia, nro_casos, -Region) %>% 
+    mutate(dia = ymd(dia)) %>% 
+    janitor::clean_names() 
   
   d
   
@@ -70,12 +67,64 @@ get_data_producto_8 <- function(){
   d <- d %>% 
     filter(!Region %in% c("Codigo region", "Poblacion")) %>% 
     gather(ciudad, valor, -Region) %>% 
-    rename_all(str_to_lower) %>% 
+    janitor::clean_names() %>% 
     rename(dia = region, region = ciudad, nro_pascientes_uci = valor) %>% 
     mutate(
       dia = ymd(dia),
       nro_pascientes_uci = as.numeric(nro_pascientes_uci)
     )
+  
+  d
+  
+}
+
+get_data_producto_14 <- function(){
+  
+  d <- read_csv(
+    "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto14/FallecidosCumulativo.csv",
+    col_types = cols(
+      .default = col_double(),
+      Region = col_character()
+      )
+    )
+  
+  d
+  
+  d <- d %>% 
+    filter(!Region %in% c("Total")) %>% 
+    gather(ciudad, valor, -Region) %>% 
+    janitor::clean_names() %>% 
+    rename(dia = ciudad, fallecimientos = valor) %>% 
+    mutate(
+      dia = ymd(dia),
+      fallecimientos = as.numeric(fallecimientos)
+    )
+  
+  d
+  
+}
+
+get_data_producto_32 <- function(){
+  
+  d <- read_csv(
+    "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto32/Defunciones.csv",
+    col_types = cols(
+      .default = col_double(),
+      Region = col_character(),
+      Comuna = col_character()
+    )
+  )
+  
+  dim(d)
+  
+  d <- d %>% 
+    gather(dia, nro_fallecidos, -Region, -`Codigo region`, -Comuna, -`Codigo comuna`) %>% 
+    mutate(
+      dia = ymd(dia),
+      nro_semana = week(dia),
+      anio = year(dia)
+      ) %>% 
+    janitor::clean_names()
   
   d
   
@@ -90,7 +139,7 @@ get_data_producto_78_1ra_dosis <- function(){
   
   d <- d %>% 
     gather(dia, n, -Edad) %>% 
-    rename_all(str_to_lower) %>% 
+    janitor::clean_names() %>% 
     mutate(dia = ymd(dia), n = replace_na(n, 0))
   
   d
@@ -106,7 +155,7 @@ get_data_producto_78_2da_dosis <- function(){
   
   d <- d %>% 
     gather(dia, n, -Edad) %>% 
-    rename_all(str_to_lower) %>% 
+    janitor::clean_names() %>% 
     mutate(dia = ymd(dia), n = replace_na(n, 0))
   
   d
@@ -122,7 +171,7 @@ get_data_producto_78_unica_dosis <- function(){
   
   d <- d %>% 
     gather(dia, n, -Edad) %>% 
-    rename_all(str_to_lower) %>% 
+    janitor::clean_names() %>% 
     mutate(dia = ymd(dia), n = replace_na(n, 0))
   
   d
@@ -151,7 +200,7 @@ get_data_ine_proyeccion_poblacion_2021 <- function(){
       filter(EDAD != "TOTAL") %>% 
       mutate(EDAD = str_remove(EDAD, "\\+")) %>% 
       gather(ano, poblacion, -EDAD) %>% 
-      rename_all(str_to_lower) %>% 
+      janitor::clean_names() %>% 
       mutate(
         edad = as.numeric(edad),
         poblacion = str_remove(poblacion, "\\."),

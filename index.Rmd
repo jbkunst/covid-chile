@@ -161,6 +161,7 @@ Row
 ### 
 
 ```{r}
+grafico_letalidad()
 ```
 
 Row 
@@ -169,11 +170,13 @@ Row
 ### 
 
 ```{r}
+grafico_defunciones_esperadas_arima()
 ```
 
 ### 
 
 ```{r}
+grafico_defunciones_semanales_pandemia()
 ```
 
 {data-icon="fa-question-circle"}
