@@ -43,4 +43,11 @@ categorizar_edad <- function(d) {
   d
   
 }
+comma_1 <- function(x) {
+  scales::comma(x, decimal.mark = ",", big.mark = ".", accuracy = 1)
+} 
+
+comma_01 <- function(x) {
+  scales::comma(x, decimal.mark = ",", big.mark = ".", accuracy = 0.1)
+}
 

@@ -166,10 +166,6 @@ grafico_porcentaje_vacunacion_edad <- function(){
         grouping = FALSE,
         dataLabels = list(
           enabled = FALSE, 
-          style = list(
-            color = "opposite"
-            # textOutline = "2px #FFFFFFAA",
-            ),
           format = "{y:.1f}%"
           )
         )
@@ -206,11 +202,14 @@ grafico_porcentaje_vacunacion_edad_fecha <- function(){
       ) %>% 
     ungroup()
     
-  d
+  d <- d %>% filter(dia >= ymd(20210201))
   
   titulo <- "Porcentaje de población con almenos una dosis por grupo de edad"
   
-  colores <- viridisLite::cividis(7, begin = 0.1, end = 0.9) %>% 
+  colores <- d %>% 
+    count(edad_c) %>% 
+    nrow() %>% 
+    viridisLite::inferno(., begin = .1, end = .9) %>% 
     hex_to_rgba()
   
   hchart(

@@ -64,19 +64,19 @@ valueBox("3.230", caption = "UCI", icon = NULL, color = NULL, href = NULL)
 Row 
 -----------------------------------------------------------------------
 
-### 
+###
 
 ```{r}
 grafico_confirmados_diarios()
 ```
 
-### 
+###
 
 ```{r}
 grafico_defunciones_diarias()
 ```
 
-### 
+###
 
 ```{r}
 grafico_porcentaje_vacunacion_edad()
@@ -95,7 +95,7 @@ Row
 ```{r}
 ```
 
-### 
+###
 
 ```{r}
 grafico_pacientes_uci()

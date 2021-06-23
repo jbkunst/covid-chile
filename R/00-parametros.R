@@ -1,6 +1,6 @@
 PARS <- list(
   debug = FALSE,
-  edad_breaks = c(15, 30, 40, 50, 60, 70, 80, Inf),
+  edad_breaks = c(12, 18, 30, 40, 50, 60, 70, 80, Inf),
   colors = list(
     sparkline = "#F4F6F9", # color de fondo de value boxes "blancos"
     primary = "#0f69b4", #"#007bff",
@@ -91,8 +91,16 @@ options(
       
       plotOptions = list(
         series = list(
-          dataLabels = list(color = "#222d32", style = list(fontWeight = "normal", textShadow = FALSE, textOutline = FALSE)),
-          animation = list(duration = PARS$hc$duration)
+          # dataLabels = list(
+          #   color = "#222d32",
+          #   style = 
+          #     list(
+          #       fontWeight = "normal",
+          #       textShadow = TRUE, 
+          #       textOutline = TRUE)
+          #   ),
+          animation = list(duration = PARS$hc$duration),
+          marker = list(symbol = "circle")
         ),
         line = list(
           lineWidth = 4
@@ -155,8 +163,3 @@ options(
 
 
 rm(newlang_opts)
-
-# Formatos ----------------------------------------------------------------
-
-comma_1 <- function(x) scales::comma(x, decimal.mark = ",", big.mark = ".", accuracy = 1)
-comma_01 <- function(x) scales::comma(x, decimal.mark = ",", big.mark = ".", accuracy = 0.1)
