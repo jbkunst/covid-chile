@@ -21,6 +21,7 @@ source("R/00-parametros.R", encoding = "UTF-8")
 source("R/01-productos.R", encoding = "UTF-8")
 source("R/02-graficos.R", encoding = "UTF-8")
 source("R/03-funciones_auxiliares.R", encoding = "UTF-8")
+source("R/04-value_boxes.R", encoding = "UTF-8")
 ```
 
 Inicio {data-icon="fa-tachometer-alt"}
@@ -32,14 +33,10 @@ Row {data-height=250}
 ### 
 
 ```{r}
-value <- "1.5 millones"
+value <- vb_confirmados() %>% filter(tipo == "total") %>% pull(descripcion)
 caption <- "Confirmados"
 
-info <- c(
-"Dato interesante 1",
-"Dato interesante 2",
-"Dato interesante 3"
-)
+info <- vb_confirmados() %>% filter(tipo != "total") %>% pull(descripcion)
 
 valueBoxCaptions(value, caption, info)
 

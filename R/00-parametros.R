@@ -155,3 +155,8 @@ options(
 
 
 rm(newlang_opts)
+
+# Formatos ----------------------------------------------------------------
+
+comma_1 <- function(x) scales::comma(x, decimal.mark = ",", big.mark = ".", accuracy = 1)
+comma_01 <- function(x) scales::comma(x, decimal.mark = ",", big.mark = ".", accuracy = 0.1)
