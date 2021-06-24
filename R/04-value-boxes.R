@@ -3,46 +3,30 @@
 # Confirmados -------------------------------------------------------------
 
 vb_confirmados <- function(){
-  d <- get_data_producto_3() 
   
-  d <- d %>%
-    group_by(x = dia) %>%
-    summarise(y = sum(nro_casos))
+  d <- hc_to_data_frame(grafico_confirmados_diarios())
   
-  d <- d %>% 
-    mutate(
-      y_new = lag(y),
-      y_new = ifelse(is.na(y_new), y, y - y_new)
-    )
-  
-  d %>% filter(y_new == max(y_new))
-  
-  d_outlier <- d %>% 
-    filter(x == ymd("20200617"))
-  
-  d <- d %>% filter(x != ymd("20200617"))
-  
-  d <- d %>% 
-    mutate(
-      y_movavg_7 = roll_mean(y_new, n = 7, fill = NA, align = "right"),
-      y_movavg_7 = round(y_movavg_7, 0)
-    )
-  
-  d %>% 
+  rest <- d %>% 
+    group_by(serie) %>% 
     filter(x == max(x)) %>% 
-    gather(tipo, valor, -x) %>% 
+    ungroup() %>% 
+    filter(! str_detect(serie, "17")) %>% 
     mutate(
-      tipo = c(
-        "total",
-        "ultimos confirmados",
-        "medía móvil 7 días"
-      )
+      tipo = c("últimos confirmados", "promedio últimos 7 días"), 
+      descripcion = paste0(comma_1(y), " ", tipo)
     ) %>% 
-    mutate(
-      descripcion = ifelse(tipo == "total",
-                           paste0(comma_01(valor / 1e6), " millones"),
-                           paste0(comma_1(valor), " ", tipo)
-      )
-    )
+    select(tipo, descripcion) %>% 
+    bind_rows(
+      d %>% 
+        filter(str_detect(serie, "Diarios")) %>% 
+        group_by(serie) %>% 
+        summarise(y = sum(y)) %>% 
+        ungroup() %>% 
+        mutate(tipo = "total", descripcion = comma_01(y / 1e6)) %>% 
+        select(tipo, descripcion)
+    ) %>% 
+    mutate_all(as.character)
+  
+  rest
 }
          

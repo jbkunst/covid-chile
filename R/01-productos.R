@@ -178,7 +178,7 @@ get_data_producto_78_2da_dosis <- function(){
     col_types = cols(.default = col_double())
   )
   
-  d <- d %>% 
+  d <- d %>% tail(10)
     gather(dia, n, -Edad) %>% 
     janitor::clean_names() %>% 
     mutate(dia = ymd(dia), n = replace_na(n, 0))
@@ -201,6 +201,24 @@ get_data_producto_78_unica_dosis <- function(){
   
   d
   
+}
+
+
+get_data_producto_76_1ra_2da_unica_dosis <- function(){
+  
+  d <- read_csv(
+    "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto76/vacunacion_std.csv",
+    col_types = cols(
+      Region = col_character(),
+      Dosis  = col_character(),
+      Fecha = col_date(),
+      .default = col_double())
+  )
+  
+  d <- d %>% 
+    janitor::clean_names() 
+  
+  d
 }
 
 get_data_ine_proyeccion_poblacion_2021 <- function(){
@@ -266,6 +284,30 @@ get_data_consolidado_region <- function(){
     ungroup() %>% 
     filter(dia == max(dia)) 
   
+  dcasos <- get_data_producto_3() 
+  
+  dcasos <- dcasos %>% 
+    arrange(dia) %>% 
+    group_by(region) %>% 
+    mutate(casos_ultimos = nro_casos - lag(nro_casos)) %>% 
+    ungroup() %>% 
+    filter(dia == max(dia)) %>% 
+    rename(casos_totales = nro_casos)
+  
+  dpoblacion <- get_data_producto_1()
+  
+  dpoblacion <- dpoblacion %>% 
+    group_by(region = Region) %>% 
+    summarise(poblacion_total = sum(Poblacion, na.rm = TRUE))
+  
+  ddosis <- get_data_producto_76_1ra_2da_unica_dosis()
+  
+  ddosis <- ddosis %>% 
+    filter(fecha == max(fecha)) %>% 
+    filter(!str_detect(region, "Total")) %>%
+    select(-fecha) %>% 
+    mutate(dosis = paste0("dosis_", str_to_lower(dosis))) %>% 
+    spread(dosis, cantidad)
   
   # get_data_producto_1()
   # 
@@ -278,8 +320,11 @@ get_data_consolidado_region <- function(){
   
   d <- list(
     dfallecidos,
-    duci
-    ) %>% reduce(full_join, by = c("region", "dia"))
+    duci,
+    dcasos
+    ) %>% reduce(full_join, by = c("region", "dia")) %>% 
+    left_join(dpoblacion, by = "region") %>% 
+    left_join(ddosis, by = "region")
   
   d
   

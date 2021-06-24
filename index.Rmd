@@ -35,7 +35,6 @@ Row {data-height=250}
 ```{r}
 value <- vb_confirmados() %>% filter(tipo == "total") %>% pull(descripcion)
 caption <- "Confirmados"
-
 info <- vb_confirmados() %>% filter(tipo != "total") %>% pull(descripcion)
 
 valueBoxCaptions(value, caption, info)

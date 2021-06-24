@@ -50,6 +50,30 @@ paleta_colores <- function(n = 6) {
   
 }
 
+
+hc_to_data_frame <- function(hc = grafico_confirmados_diarios()){
+  
+  series <- hc$x$hc_opts$series
+  datas <- map(series, pluck, "data")
+  
+  names <- map_chr(series, pluck, "name")
+  
+  res <- map(datas, function(x){
+    
+    map_df(x, as.data.frame) %>%
+      as_tibble()
+    
+  })
+  
+  res <- setNames(res, names)
+  
+  res2 <- map2_df(names, res, ~ mutate(.y, serie = .x, .before = 1))
+  
+  res2
+  
+}
+
+
 comma_1 <- function(x) {
   scales::comma(x, decimal.mark = ",", big.mark = ".", accuracy = 1)
 } 
