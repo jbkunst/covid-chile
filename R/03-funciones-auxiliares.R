@@ -43,6 +43,13 @@ categorizar_edad <- function(d) {
   d
   
 }
+
+paleta_colores <- function(n = 6) {
+  
+  viridisLite::inferno(n, begin = .1, end = .9) 
+  
+}
+
 comma_1 <- function(x) {
   scales::comma(x, decimal.mark = ",", big.mark = ".", accuracy = 1)
 } 

@@ -206,11 +206,7 @@ grafico_porcentaje_vacunacion_edad_fecha <- function(){
   
   titulo <- "Porcentaje de población con almenos una dosis por grupo de edad"
   
-  colores <- d %>% 
-    count(edad_c) %>% 
-    nrow() %>% 
-    viridisLite::inferno(., begin = .1, end = .9) %>% 
-    hex_to_rgba()
+  colores <- paleta_colores(nrow(d %>% count(edad_c)))
   
   hchart(
     d %>% select(x = dia, y = p_cum, group = edad_c),
@@ -234,10 +230,12 @@ grafico_letalidad <- function() {
     map(group_by, dia) %>% 
     map(summarise_if, is.numeric, sum) %>% 
     reduce(inner_join, by = "dia") %>% 
+    mutate(y = fallecimientos/nro_casos)
+  
+  d <- d %>% 
     mutate(
-      y = fallecimientos/nro_casos,
       ic = map2(y, nro_casos, function(eval = 1.4410024, n = 14365){ 
-        binom.test(round(n*c(eval, 1 - eval)), conf.level = .99)[["conf.int"]] 
+        as.vector(prop.test(n*eval, n)$conf.int)
         }),
       low = map_dbl(ic, first),
       low = ifelse(low < 0, 0, low),
@@ -538,7 +536,63 @@ grafico_defunciones_diarias <- function(){
   
 }
 
+grafico_defunciones_por_edad <- function(){
+  
+  d <- get_data_producto_10()
+  
+  colores <- paleta_colores(nrow(d %>% count(grupo_de_edad)))
+  
+  d <- d %>% 
+    select(x = dia, y = fallecimientos, group = grupo_de_edad )
+  
+  hchart(
+    d,
+    hcaes(x, y, group = group),
+    type = "area",
+    color = colores,
+    stacking = "normal",
+    fillColor = NA
+  ) %>% 
+    hc_tooltip(table = TRUE, valueDecimals = 0, valueSuffix =  "{value:.0f}", sort = TRUE) %>%
+    hc_xAxis(title = list(text = "Fecha")) %>%
+    hc_yAxis(title = list(text = "Porcentaje"), labels = list(format =  "{value:.0f}")) %>% 
+    hc_subtitle(text = titulo) 
+  
+}
 
+tabla_region <- function() {
+  
+  d <- get_data_consolidado_region()
+  
+  id_num <- d %>%
+    map_lgl(is.numeric) %>% 
+    which(1:length(.)) %>% 
+    as.vector()
+  
+  DT::datatable(
+    d, 
+    rownames = FALSE,
+    selection = "single",
+    extensions = "Responsive",
+    callback =   JS("table.on('click.dt', 'td', function() {
+            var data = table.row(this).data();
+            Shiny.onInputChange('click_tbl_chile',data);});"),
+    options = list(
+      searching = FALSE,
+      bPaginate = FALSE,
+      bInfo = FALSE,
+      columnDefs = list(list(className = 'dt-right', targets = 1:4)),
+      initComplete = JS(
+        "function(settings, json) {",
+        "$('td').css({'cursor': 'pointer'});",
+        "$('th').css({'cursor': 'pointer'});",
+        # "$(this.api().tables().header()).css({'font-family': 'Alegreya Sans SC', sans-serif'});",
+        "$(this.api().tables().body()).css({'font-size': '0.9em'});",
+        "}")
+    )) %>% 
+    DT::formatRound(id_num, mark = ".", digits = 0)
+  
+}
 
 
 

@@ -78,6 +78,31 @@ get_data_producto_8 <- function(){
   
 }
 
+get_data_producto_10 <- function(){
+  
+  d <- read_csv(
+    "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto10/FallecidosEtario.csv",
+    col_types = cols(
+      .default = col_double(),
+      `Grupo de edad` = col_character()
+    )
+  )
+  
+  d
+  
+  d <- d %>% 
+    gather(dia, valor, -`Grupo de edad`) %>% 
+    janitor::clean_names() %>% 
+    rename(fallecimientos = valor) %>% 
+    mutate(
+      dia = ymd(dia),
+      fallecimientos = as.numeric(fallecimientos)
+    )
+  
+  d
+  
+}
+
 get_data_producto_14 <- function(){
   
   d <- read_csv(
@@ -228,3 +253,35 @@ get_data_ine_proyeccion_poblacion_2021 <- function(){
   d
   
 }
+
+# consolidados ------------------------------------------------------------
+get_data_consolidado_region <- function(){
+  
+  dfallecidos <- get_data_producto_14()
+  
+  dfallecidos <- dfallecidos %>% 
+    arrange(dia) %>% 
+    group_by(region) %>% 
+    mutate(fallecimientos_ultimos = fallecimientos - lag(fallecimientos)) %>% 
+    ungroup() %>% 
+    filter(dia == max(dia)) 
+  
+  
+  # get_data_producto_1()
+  # 
+  # casos_nuevos <- get_productoreadRDS("data/producto13/CasosNuevosCumulativo_std.rds")
+  # 
+  # casos_nuevos <- casos_nuevos %>% rename(casos_nuevos = Total)
+  
+  duci <- get_data_producto_8() %>% 
+    filter(dia == max(dia))
+  
+  d <- list(
+    dfallecidos,
+    duci
+    ) %>% reduce(full_join, by = c("region", "dia"))
+  
+  d
+  
+}
+

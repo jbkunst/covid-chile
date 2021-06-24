@@ -10,4 +10,5 @@ Imports:
   fontawesome,
   santoku,
   forecast,
-  janitor
+  janitor,
+  DT
