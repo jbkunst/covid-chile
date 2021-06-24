@@ -177,18 +177,10 @@ grafico_defunciones_esperadas_arima()
 grafico_defunciones_semanales_pandemia()
 ```
 
-Region {data-orientation=columns}
+Region 
 =====================================  
 
-Column {data-width=200}
------------------------------------------------------------------------
-
-### 
-
-```{r}
-```
-
-Column {data-width=400}
+Row {data-height=800}
 -----------------------------------------------------------------------
 
 ### 
@@ -197,8 +189,23 @@ Column {data-width=400}
 tabla_region()
 ```
 
-Column {data-width=400}
+Row
 -----------------------------------------------------------------------
+
+### 
+
+```{r}
+```
+
+### 
+
+```{r}
+```
+
+### 
+
+```{r}
+```
 
 ### 
 

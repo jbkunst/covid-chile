@@ -593,26 +593,3 @@ tabla_region <- function() {
     DT::formatRound(id_num, mark = ".", digits = 0)
   
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

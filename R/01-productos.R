@@ -178,7 +178,7 @@ get_data_producto_78_2da_dosis <- function(){
     col_types = cols(.default = col_double())
   )
   
-  d <- d %>% tail(10)
+  d <- d %>% 
     gather(dia, n, -Edad) %>% 
     janitor::clean_names() %>% 
     mutate(dia = ymd(dia), n = replace_na(n, 0))
@@ -202,7 +202,6 @@ get_data_producto_78_unica_dosis <- function(){
   d
   
 }
-
 
 get_data_producto_76_1ra_2da_unica_dosis <- function(){
   
@@ -272,7 +271,6 @@ get_data_ine_proyeccion_poblacion_2021 <- function(){
   
 }
 
-# consolidados ------------------------------------------------------------
 get_data_consolidado_region <- function(){
   
   dfallecidos <- get_data_producto_14()
