@@ -50,6 +50,15 @@ paleta_colores <- function(n = 6) {
   
 }
 
+str_make_id <- function(x){
+  
+  x %>% 
+    str_to_id() %>% 
+    str_remove_all("'") %>% 
+    stringi::stri_trans_general("Latin-ASCII") %>% 
+    str_remove_all("'")
+  
+}
 
 hc_to_data_frame <- function(hc = grafico_confirmados_diarios()){
   
@@ -72,7 +81,6 @@ hc_to_data_frame <- function(hc = grafico_confirmados_diarios()){
   res2
   
 }
-
 
 comma_1 <- function(x) {
   scales::comma(x, decimal.mark = ",", big.mark = ".", accuracy = 1)

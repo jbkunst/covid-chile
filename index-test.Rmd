@@ -1,0 +1,64 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(lubridate)
+library(highcharter)
+library(RcppRoll)
+
+source("R/00-parametros.R", encoding = "UTF-8")
+source("R/01-productos.R", encoding = "UTF-8")
+source("R/02-graficos-tablas.R", encoding = "UTF-8")
+source("R/03-funciones-auxiliares.R", encoding = "UTF-8")
+source("R/04-value-boxes.R", encoding = "UTF-8")
+```
+
+```{r}
+tabla_region()
+```
+
+```{r}
+grafico_defunciones_por_region_100k_hab()
+```
+
+```{js}
+document.addEventListener('DOMContentLoaded', function() {
+  
+  var table = $('#DataTables_Table_0').DataTable()
+  
+  var hc_fall = $('#hc_fallecimientos_region').highcharts();
+  
+  $('#tabla_region tbody').on('mouseover', 'tr', function () {
+  
+    var d = table.row( this ).data();
+    
+    console.log(d);
+    
+    var idn = d[1]
+    
+    for (var i = 0; i <= (16 - 1); i++) {
+      hc_fall.series[i].update({color: 'gray', lineWidth: 1});
+    }
+    
+    hc_fall.get(idn).update({color: 'red', lineWidth: 3});
+    
+    // console.log(chart);
+   
+   // chart.update({chart: {inverted: false, polar: true}, subtitle: {text: 'Polar'}});
+   
+   
+   
+   // chart.get(id0).update({color: 'green', lineWidth: 3});
+   
+   // chart.series[id0].update({color: 'red', lineWidth: 3});
+   
+    
+  });
+    
+}, false);
+```

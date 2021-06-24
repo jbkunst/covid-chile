@@ -560,6 +560,44 @@ grafico_defunciones_por_edad <- function(){
   
 }
 
+grafico_defunciones_por_region_100k_hab <- function(){
+  
+  dpoblacion <- get_data_producto_1()
+  
+  dpoblacion <- dpoblacion %>% 
+    group_by(region = Region) %>% 
+    summarise(poblacion_total = sum(Poblacion, na.rm = TRUE))
+  
+  d <- get_data_producto_14()
+  
+  d <- d %>% 
+    left_join(dpoblacion, by = "region") %>% 
+    mutate(fallecimientos = round(100000 * fallecimientos / poblacion_total)) 
+  
+  d <- d %>% 
+    group_by(region) %>% 
+    filter(wday(dia) == 2 | row_number() == dplyr::n())
+   
+  d <- d %>% 
+    ungroup() %>% 
+    mutate(region = factor(region, levels = PARS$region_levels))
+  
+  d %>% count(region)
+  
+  hchart(
+    d %>% select(x = dia, y = fallecimientos, group = region),
+    hcaes(x, y, group = group),
+    type = "line",
+    showInLegend = FALSE,
+    lineWidth = 1,
+    color = PARS$colors$gray,
+    id = PARS$region_ids
+  ) %>% 
+    hc_elementId("hc_fallecimientos_region") %>% 
+    hc_yAxis(endOnTick = FALSE)
+
+}
+
 tabla_region <- function() {
   
   d <- get_data_consolidado_region()
@@ -571,25 +609,34 @@ tabla_region <- function() {
   
   DT::datatable(
     d, 
-    rownames = FALSE,
-    selection = "single",
-    extensions = "Responsive",
-    callback =   JS("table.on('click.dt', 'td', function() {
-            var data = table.row(this).data();
-            Shiny.onInputChange('click_tbl_chile',data);});"),
+    elementId = "tabla_region",
     options = list(
       searching = FALSE,
       bPaginate = FALSE,
       bInfo = FALSE,
-      columnDefs = list(list(className = 'dt-right', targets = 1:4)),
-      initComplete = JS(
-        "function(settings, json) {",
-        "$('td').css({'cursor': 'pointer'});",
-        "$('th').css({'cursor': 'pointer'});",
-        # "$(this.api().tables().header()).css({'font-family': 'Alegreya Sans SC', sans-serif'});",
-        "$(this.api().tables().body()).css({'font-size': '0.9em'});",
-        "}")
-    )) %>% 
-    DT::formatRound(id_num, mark = ".", digits = 0)
+      columnDefs = list(
+        list(visible = FALSE, targets = 0:1)
+        )
+      # initComplete = JS(
+      #   "function(settings, json) {",
+      #   "$('td').css({'cursor': 'pointer'});",
+      #   "$('th').css({'cursor': 'pointer'});",
+      # "$(this.api().tables().header()).css({'font-family': 'Alegreya Sans SC', sans-serif'});",
+      #   "$(this.api().tables().body()).css({'font-size': '0.7em'});",
+      #   "}")
+      ),
+    rownames = FALSE,
+    selection = "single",
+    extensions = "Responsive",
+    callback =   JS("table.on('mouseover', 'td', function() {
+      
+
+      
+      
+      });"),
+    ) 
+  
+
+    
   
 }

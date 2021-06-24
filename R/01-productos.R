@@ -215,9 +215,11 @@ get_data_producto_76_1ra_2da_unica_dosis <- function(){
   )
   
   d <- d %>% 
+    filter(Region != "Total") %>% 
     janitor::clean_names() 
   
   d
+  
 }
 
 get_data_ine_proyeccion_poblacion_2021 <- function(){
@@ -323,6 +325,12 @@ get_data_consolidado_region <- function(){
     ) %>% reduce(full_join, by = c("region", "dia")) %>% 
     left_join(dpoblacion, by = "region") %>% 
     left_join(ddosis, by = "region")
+  
+  d <- d %>% 
+    mutate(region = factor(region, levels = PARS$region_levels)) %>% 
+    mutate(id_region = str_make_id(region), .before = 1) %>% 
+    mutate(id0 = row_number() - 1, .before = 1) %>% 
+    arrange(region)
   
   d
   

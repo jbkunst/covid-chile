@@ -7,6 +7,14 @@ PARS <- list(
     secondary = "#eb3c46", #"#DC3545",
     gray = "#C0C0C0"
   ),
+  region_levels = c("Arica y Parinacota", "Tarapacá", "Antofagasta", "Atacama", 
+                    "Coquimbo", "Valparaíso", "Metropolitana", "O’Higgins", "Maule", 
+                    "Ñuble", "Biobío", "Araucanía", "Los Ríos", "Los Lagos", "Aysén", 
+                    "Magallanes"),
+  region_ids = c("arica_y_parinacota", "tarapaca", "antofagasta", "atacama", 
+                 "coquimbo", "valparaiso", "metropolitana", "ohiggins", "maule", 
+                 "nuble", "biobio", "araucania", "los_rios", "los_lagos", "aysen", 
+                 "magallanes"),
   hc = list(
     duration = 2500
   ),
@@ -153,13 +161,14 @@ options(
             chartOptions = list(
               legend = list(enabled = FALSE),
               xAxis = list(title = NULL),
-              yAxis = list(title = "", endOnTick = FALSE)
-              )
+              yAxis = list(title = "", endOnTick = FALSE),
+              plotOptions = list(series = list(lineWidth = 1))
             )
           )
         )
       )
-  )
+    )
+)
 
 
 rm(newlang_opts)
