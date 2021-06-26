@@ -132,16 +132,16 @@ Row
 ```{r}
 ```
 
-`r fontawesome::fa("route")` Movilidad
-=====================================  
+<!-- `r fontawesome::fa("route")` Movilidad -->
+<!-- =====================================   -->
 
-Row 
------------------------------------------------------------------------
+<!-- Row  -->
+<!-- ----------------------------------------------------------------------- -->
 
-### 
+<!-- ###  -->
 
-```{r}
-```
+<!-- ```{r} -->
+<!-- ``` -->
 
 
 Mortalidad {data-icon="fa-ribbon"}
@@ -201,6 +201,7 @@ grafico_defunciones_por_region_100k_hab()
 ### 
 
 ```{r}
+grafico_activos_media_movil_7_dias_por_region_100k_hab()
 ```
 
 ### 
@@ -210,12 +211,18 @@ grafico_defunciones_por_region_100k_hab()
 
 ### 
 
+<script>
+PARS = `r jsonlite::toJSON(PARS)`
+</script>
+
 ```{js}
 document.addEventListener('DOMContentLoaded', function() {
   
   var table = $('#DataTables_Table_0').DataTable()
   
-  var hc_fall = $('#hc_fallecimientos_region').highcharts();
+  var hc_falle = $('#hc_fallecimientos_region').highcharts();
+  
+  var hc_act7m = $('#hc_activos_media_movil_7_dias_region').highcharts();
   
   $('#tabla_region tbody').on('mouseover', 'tr', function () {
   
@@ -226,21 +233,12 @@ document.addEventListener('DOMContentLoaded', function() {
     var idn = d[1]
     
     for (var i = 0; i <= (16 - 1); i++) {
-      hc_fall.series[i].update({color: '#C0C0C0', lineWidth: 1, zIndex: 0});
+      hc_falle.series[i].update({color: PARS.colors.gray[0], lineWidth: 1, zIndex: 0});
+      hc_act7m.series[i].update({color: PARS.colors.gray[0], lineWidth: 1, zIndex: 0});
     }
     
-    hc_fall.get(idn).update({color: 'red', lineWidth: 4, zIndex: 1});
-    
-    // console.log(chart);
-   
-   // chart.update({chart: {inverted: false, polar: true}, subtitle: {text: 'Polar'}});
-   
-   
-   
-   // chart.get(id0).update({color: 'green', lineWidth: 3});
-   
-   // chart.series[id0].update({color: 'red', lineWidth: 3});
-   
+    hc_falle.get(idn).update({color: PARS.colors.primary[0], lineWidth: 4, zIndex: 1});
+    hc_act7m.get(idn).update({color: PARS.colors.primary[0], lineWidth: 4, zIndex: 1});
     
   });
     
