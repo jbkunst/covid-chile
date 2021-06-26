@@ -4,28 +4,24 @@
 
 vb_confirmados <- function(){
   
-  d <- hc_to_data_frame(grafico_confirmados_diarios())
+  d <- get_data_consolidado_region()
   
   rest <- d %>% 
-    group_by(serie) %>% 
-    filter(x == max(x)) %>% 
-    ungroup() %>% 
-    filter(! str_detect(serie, "17")) %>% 
-    mutate(
-      tipo = c("últimos confirmados", "promedio últimos 7 días"), 
-      descripcion = paste0(comma_1(y), " ", tipo)
-    ) %>% 
-    select(tipo, descripcion) %>% 
-    bind_rows(
-      d %>% 
-        filter(str_detect(serie, "Diarios")) %>% 
-        group_by(serie) %>% 
-        summarise(y = sum(y)) %>% 
-        ungroup() %>% 
-        mutate(tipo = "total", descripcion = comma_01(y / 1e6), "millones") %>% 
-        select(tipo, descripcion)
-    ) %>% 
-    mutate_all(as.character)
+    select_if(is.numeric) %>% 
+    summarise_all(sum) %>% 
+    select( casos_totales, casos_ultimos, casos_media_movil_7_dias) %>% 
+    gather(tipo, descripcion) %>% 
+    mutate(aux = c(
+      "millones",
+      "últimos confirmados",
+      "media móvil ult. 7 días"
+    )) %>% 
+    mutate(descripcion = ifelse(
+      tipo == "casos_totales", 
+      paste0(comma_01(descripcion / 1e6), " ", aux),
+      paste0(comma_1(descripcion), " ", aux)
+    )) %>% 
+    select(-aux)
   
   rest
 }

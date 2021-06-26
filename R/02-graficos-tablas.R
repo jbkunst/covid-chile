@@ -608,11 +608,12 @@ grafico_activos_media_movil_7_dias_por_region_100k_hab <- function(){
   
   d <- get_data_producto_75()
   
-  d <- d %>% 
+  d <- d %>%
+    select(-casos_media_movil_7_dias) %>% 
     filter(!str_detect(region, "Total")) %>% 
-    filter(!is.na(media_movil_7_dias)) %>% 
+    filter(!is.na(activos_media_movil_7_dias)) %>% 
     left_join(dpoblacion, by = "region") %>% 
-    mutate(media_movil_7_dias = round(100000 * media_movil_7_dias / poblacion_total)) 
+    mutate(activos_media_movil_7_dias = round(100000 * activos_media_movil_7_dias / poblacion_total)) 
   
   d <- d %>% 
     group_by(region) %>% 
@@ -625,7 +626,7 @@ grafico_activos_media_movil_7_dias_por_region_100k_hab <- function(){
   d %>% count(region)
   
   hchart(
-    d %>% select(x = dia, y = media_movil_7_dias, group = region),
+    d %>% select(x = dia, y = activos_media_movil_7_dias, group = region),
     hcaes(x, y, group = group),
     type = "line",
     showInLegend = FALSE,
@@ -635,6 +636,51 @@ grafico_activos_media_movil_7_dias_por_region_100k_hab <- function(){
   ) %>% 
     hc_elementId("hc_activos_media_movil_7_dias_region") %>% 
     hc_yAxis(endOnTick = FALSE)
+  
+}
+
+grafico_activos_media_movil_7_dias_totales <- function(){
+  
+  d <- get_data_producto_75()
+  
+  d <- d %>%
+    select(-casos_media_movil_7_dias) %>% 
+    filter(str_detect(region, "Total")) %>%
+    filter(!is.na(activos_media_movil_7_dias))
+  
+  d <- d %>% 
+    select(x = dia, y = activos_media_movil_7_dias)
+  
+  eventos <- left_join(EVENTOS, d %>% select(x, y), by = "x")
+  eventos <- mutate(eventos, x = datetime_to_timestamp(x))
+  
+  titulo <- "Corresponde al promedio móvil de los últimos 7 días de casos <b>activos</b>  en todo el país."
+  
+  hchart(
+    d,
+    hcaes(x, y),
+    type = "line",
+    name = "Media Móvil 7 días",
+    showInLegend = TRUE,
+    color = "#eb3c46"
+  ) %>% 
+    hc_tooltip(table = TRUE, valueDecimals = 0) %>%
+    hc_yAxis(title = list(text = "Cantidad")) %>%
+    hc_xAxis(title = list(text = "Fecha")) %>%
+    hc_subtitle(text = titulo) %>% 
+    hc_annotations(
+      list(
+        labelOptions = list(
+          shape = "connector",
+          align = "right",
+          justify = FALSE,
+          crop = TRUE,
+          style = list(fontSize = "0.8em", textOutline = "1px white")
+        ),
+        labels = df_to_annotations_labels(eventos)
+      )
+    )
+
   
 }
 

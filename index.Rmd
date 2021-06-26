@@ -27,15 +27,15 @@ source("R/04-value-boxes.R", encoding = "UTF-8")
 Inicio {data-icon="fa-tachometer-alt"}
 =====================================  
 
-Row {data-height=250}
+Row {data-height=230}
 -----------------------------------------------------------------------
 
 ### 
 
 ```{r}
-value <- vb_confirmados() %>% filter(tipo == "total") %>% pull(descripcion)
+value <- vb_confirmados() %>% filter(tipo == "casos_totales") %>% pull(descripcion)
 caption <- "Confirmados"
-info <- vb_confirmados() %>% filter(tipo != "total") %>% pull(descripcion)
+info <- vb_confirmados() %>% filter(tipo != "casos_totales") %>% pull(descripcion)
 
 valueBoxCaptions(value, caption, info)
 
@@ -87,17 +87,18 @@ Row
 ### 
 
 ```{r}
+grafico_activos_media_movil_7_dias_totales()
 ```
 
 ### 
 
 ```{r}
+grafico_pacientes_uci()
 ```
 
 ###
 
 ```{r}
-grafico_pacientes_uci()
 ```
 
 

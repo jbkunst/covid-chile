@@ -200,9 +200,34 @@ get_data_producto_32 <- function(){
   
 }
 
-get_data_producto_75 <- function(){
+get_data_producto_65 <- function(){
   
   d <- read_csv(
+    "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto65/PositividadPorComuna.csv",
+    col_types = cols(
+      .default = col_double(),
+      Region = col_character(),
+      Comuna = col_character()
+    )
+  )
+  
+  d
+  
+  d <- d %>% 
+    gather(dia, positividad, -Region, -`Codigo region`, -Comuna, -`Codigo comuna`, -Poblacion) %>% 
+    mutate(
+      dia = ymd(dia)
+    ) %>% 
+    group_by(Region, dia) %>% 
+    summarise(positividad = weighted.mean(positividad, Poblacion, na.rm = TRUE)) %>% 
+    janitor::clean_names() 
+  
+  d 
+}
+
+get_data_producto_75 <- function(){
+  
+  d1 <- read_csv(
     "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto75/MediaMovil_casos_activos.csv",
     col_types = cols(
       Region = col_character(),
@@ -210,16 +235,29 @@ get_data_producto_75 <- function(){
     )
   )
   
-  d
+  d2 <- read_csv(
+    "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto75/MediaMovil_casos_nuevos.csv",
+    col_types = cols(
+      Region = col_character(),
+      .default = col_double()
+    )
+  )
   
-  d <- d %>% 
-    gather(dia, media_movil_7_dias, -Region) %>% 
+  d1 <- d1 %>% 
+    gather(dia, activos_media_movil_7_dias, -Region) %>% 
     mutate(
       dia = ymd(dia)
     ) %>% 
     janitor::clean_names()
   
-  d 
+  d2 <- d2 %>% 
+    gather(dia, casos_media_movil_7_dias, -Region) %>% 
+    mutate(
+      dia = ymd(dia)
+    ) %>% 
+    janitor::clean_names()
+  
+  d1 %>% left_join(d2, by = c("region", "dia")) 
   
 }
 
@@ -381,8 +419,7 @@ get_data_consolidado_region <- function(){
   
   dactivos_media_movil_7_dias <- dactivos_media_movil_7_dias %>% 
     filter(dia == max(dia)) %>% 
-    filter(!str_detect(region, "Total")) %>% 
-    rename(activos_media_movil_7_dias = media_movil_7_dias)
+    filter(!str_detect(region, "Total")) 
   # get_data_producto_1()
   # 
   # casos_nuevos <- get_productoreadRDS("data/producto13/CasosNuevosCumulativo_std.rds")
