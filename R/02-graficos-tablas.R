@@ -726,3 +726,55 @@ tabla_region <- function() {
   
   
 }
+
+tabla_region2 <- function() {
+  
+  d <- get_data_consolidado_region()
+  
+  d <- d %>% 
+    select(-id0, -id_region) %>% 
+    
+    mutate(dosis_completa_pct = (dosis_segunda + dosis_unica) / poblacion_total ) %>% 
+    select(-dosis_segunda, -dosis_unica, -dosis_primera) %>% 
+    
+    select(1:4, dosis_completa_pct) %>% 
+    
+    filter(TRUE)
+  
+  reactable::reactable(
+    d,
+    pagination = FALSE, 
+    sortable = TRUE, 
+    highlight = TRUE,
+    columns = list(
+      dosis_completa_pct = colDef(
+        name = "% Dosis completa",
+        cell = JS("function(cellInfo) {
+        // Format as percentage
+        const pct = (cellInfo.value * 100).toFixed(1) + '%'
+        // Pad single-digit numbers
+        let value = pct.padStart(5)
+        // Show % on first row only
+        if (cellInfo.viewIndex > 0) {
+          value = value.replace('%', ' ')
+        }
+        // Render bar chart
+        return (
+          '<div class=\"bar-cell\">' +
+            '<span class=\"number\">' + value + '</span>' +
+            '<div class=\"bar-chart\" style=\"background-color: #e1e1e1\">' +
+              '<div class=\"bar\" style=\"height: 100%;width: ' + pct + '; background-color: #fc5185\"></div>' +
+            '</div>' +
+          '</div>'
+        )
+      }"),
+        html = TRUE
+      )
+    ),
+    onClick = JS("function(rowInfo, colInfo) {
+      var id = PARS.region_ids[rowInfo.index];
+      myFunction(id);
+      }")
+    )
+  
+}

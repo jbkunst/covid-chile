@@ -18,7 +18,6 @@ PARS <- list(
   font = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
 )
 
-
 # data --------------------------------------------------------------------
 # from https://jkunst.com/blog/posts/2020-06-02-30diasdegraficos-parte-3/#d%C3%ADa-21-gr%C3%A1ficos-con-anotaciones
 EVENTOS <- tibble(
@@ -150,8 +149,8 @@ options(
             chartOptions = list(
               legend = list(enabled = FALSE),
               xAxis = list(title = NULL),
-              yAxis = list(title = "", endOnTick = FALSE),
-              plotOptions = list(series = list(lineWidth = 1))
+              yAxis = list(title = "", endOnTick = FALSE)
+              # plotOptions = list(series = list(lineWidth = 1))
             )
           )
         )
