@@ -683,7 +683,7 @@ grafico_activos_media_movil_7_dias_totales <- function(){
 
   
 }
-
+ 
 tabla_region <- function() {
   
   d <- get_data_consolidado_region()

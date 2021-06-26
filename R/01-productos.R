@@ -212,7 +212,7 @@ get_data_producto_65 <- function(){
   )
   
   d
-  
+   
   d <- d %>% 
     gather(dia, positividad, -Region, -`Codigo region`, -Comuna, -`Codigo comuna`, -Poblacion) %>% 
     mutate(
