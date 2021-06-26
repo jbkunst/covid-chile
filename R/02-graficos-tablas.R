@@ -768,7 +768,7 @@ tabla_region2 <- function() {
   }
   
   with_tooltip <- function(value, tooltip) {
-    tags$abbr(style = "text-decoration: underline; text-decoration-style: dotted; cursor: help",
+    tags$abbr(style = "text-decoration: underline; text-decoration-color: #C0C0C0;text-decoration-style: dotted; cursor: help",
               title = tooltip, value)
   }
   

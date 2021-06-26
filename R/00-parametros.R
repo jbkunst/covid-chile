@@ -1,3 +1,4 @@
+# parametros generales ----------------------------------------------------
 PARS <- list(
   debug = FALSE,
   colors = list(
@@ -25,14 +26,12 @@ EVENTOS <- tibble(
   text = c("Primera cuarentena<br>en la RM", "Día de la madre")
 ) 
 
-
 # css ---------------------------------------------------------------------
-css <- readr::read_lines("www/style_template.css")
+css <- readr::read_lines("css/style_template.css")
 
 css %>% 
   stringr::str_replace("PRIMARYCOLOR", PARS$colors$primary) %>% 
-  readr::write_lines("www/style.css")
-
+  readr::write_lines("css/style.css")
 
 # highcharts --------------------------------------------------------------
 Sys.setlocale("LC_ALL", "Spanish_Spain.1252")
@@ -42,15 +41,14 @@ Sys.setlocale("LC_ALL", "Spanish_Spain.1252")
 
 newlang_opts <- getOption("highcharter.lang")
 
-newlang_opts$weekdays <- c("domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado")
-newlang_opts$months <- c("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", 
-                         "agosto", "septiembre", "octubre", "noviembre", "diciembre")
-newlang_opts$shortMonths <- c("ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", 
-                              "oct", "nov", "dic")
-
 newlang_opts$thousandsSep <- "."
-
 newlang_opts$decimalPoint <- ","
+newlang_opts$weekdays     <- c("domingo", "lunes", "martes", "miércoles", 
+                               "jueves", "viernes", "sábado")
+newlang_opts$months       <- c("enero", "febrero", "marzo", "abril", "mayo",
+                               "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre")
+newlang_opts$shortMonths  <- c("ene", "feb", "mar", "abr", "may", "jun", "jul", 
+                               "ago", "sep", "oct", "nov", "dic")
 
 options(
   highcharter.lang = newlang_opts,
@@ -157,6 +155,5 @@ options(
       )
     )
 )
-
 
 rm(newlang_opts)
