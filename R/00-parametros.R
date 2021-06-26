@@ -1,12 +1,12 @@
 PARS <- list(
   debug = FALSE,
-  edad_breaks = c(12, 18, 30, 40, 50, 60, 70, 80, Inf),
   colors = list(
     sparkline = "#F4F6F9", # color de fondo de value boxes "blancos"
     primary = "#0f69b4", #"#007bff",
     secondary = "#eb3c46", #"#DC3545",
     gray = "#C0C0C0"
   ),
+  edad_breaks = c(12, 18, 30, 40, 50, 60, 70, 80, Inf),
   region_levels = c("Arica y Parinacota", "Tarapacá", "Antofagasta", "Atacama", 
                     "Coquimbo", "Valparaíso", "Metropolitana", "O’Higgins", "Maule", 
                     "Ñuble", "Biobío", "Araucanía", "Los Ríos", "Los Lagos", "Aysén", 
@@ -15,9 +15,6 @@ PARS <- list(
                  "coquimbo", "valparaiso", "metropolitana", "ohiggins", "maule", 
                  "nuble", "biobio", "araucania", "los_rios", "los_lagos", "aysen", 
                  "magallanes"),
-  hc = list(
-    duration = 2500
-  ),
   font = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
 )
 
@@ -99,15 +96,7 @@ options(
       
       plotOptions = list(
         series = list(
-          # dataLabels = list(
-          #   color = "#222d32",
-          #   style = 
-          #     list(
-          #       fontWeight = "normal",
-          #       textShadow = TRUE, 
-          #       textOutline = TRUE)
-          #   ),
-          animation = list(duration = PARS$hc$duration),
+          animation = list(duration = 2000),
           marker = list(symbol = "circle")
         ),
         line = list(
