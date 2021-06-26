@@ -22,7 +22,7 @@ vb_confirmados <- function(){
         group_by(serie) %>% 
         summarise(y = sum(y)) %>% 
         ungroup() %>% 
-        mutate(tipo = "total", descripcion = comma_01(y / 1e6)) %>% 
+        mutate(tipo = "total", descripcion = comma_01(y / 1e6), "millones") %>% 
         select(tipo, descripcion)
     ) %>% 
     mutate_all(as.character)

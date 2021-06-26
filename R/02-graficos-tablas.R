@@ -640,3 +640,86 @@ tabla_region <- function() {
     
   
 }
+
+grafico_activos_media_movil_7_dias_por_region_100k_hab <- function(){
+  
+  dpoblacion <- get_data_producto_1()
+  
+  dpoblacion <- dpoblacion %>% 
+    group_by(region = Region) %>% 
+    summarise(poblacion_total = sum(Poblacion, na.rm = TRUE))
+  
+  d <- get_data_producto_75()
+  
+  d <- d %>% 
+    filter(!str_detect(region, "Total")) %>% 
+    filter(!is.na(media_movil_7_dias)) %>% 
+    left_join(dpoblacion, by = "region") %>% 
+    mutate(media_movil_7_dias = round(100000 * media_movil_7_dias / poblacion_total)) 
+  
+  d <- d %>% 
+    group_by(region) %>% 
+    filter(wday(dia) == 2 | row_number() == dplyr::n())
+  
+  d <- d %>% 
+    ungroup() %>% 
+    mutate(region = factor(region, levels = PARS$region_levels))
+  
+  d %>% count(region)
+  
+  hchart(
+    d %>% select(x = dia, y = media_movil_7_dias, group = region),
+    hcaes(x, y, group = group),
+    type = "line",
+    showInLegend = FALSE,
+    lineWidth = 1,
+    color = PARS$colors$gray,
+    id = PARS$region_ids
+  ) %>% 
+    hc_elementId("hc_activos_media_movil_7_dias_region") %>% 
+    hc_yAxis(endOnTick = FALSE)
+  
+}
+
+tabla_region <- function() {
+  
+  d <- get_data_consolidado_region()
+  
+  id_num <- d %>%
+    map_lgl(is.numeric) %>% 
+    which(1:length(.)) %>% 
+    as.vector()
+  
+  DT::datatable(
+    d, 
+    elementId = "tabla_region",
+    options = list(
+      searching = FALSE,
+      bPaginate = FALSE,
+      bInfo = FALSE,
+      columnDefs = list(
+        list(visible = FALSE, targets = 0:1)
+      )
+      # initComplete = JS(
+      #   "function(settings, json) {",
+      #   "$('td').css({'cursor': 'pointer'});",
+      #   "$('th').css({'cursor': 'pointer'});",
+      # "$(this.api().tables().header()).css({'font-family': 'Alegreya Sans SC', sans-serif'});",
+      #   "$(this.api().tables().body()).css({'font-size': '0.7em'});",
+      #   "}")
+    ),
+    rownames = FALSE,
+    selection = "single",
+    extensions = "Responsive",
+    callback =   JS("table.on('mouseover', 'td', function() {
+      
+
+      
+      
+      });"),
+  ) 
+  
+  
+  
+  
+}

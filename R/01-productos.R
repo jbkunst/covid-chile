@@ -37,6 +37,23 @@ get_data_producto_3 <- function(){
   
 }
 
+get_data_producto_5 <- function(){
+  
+  d <- read_csv(
+    "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto5/TotalesNacionales_T.csv",
+    col_types = cols(
+      Fecha = col_date(),
+      .default = col_double()
+    )
+  )
+  
+  d <- d %>% 
+    janitor::clean_names() 
+  
+  d
+  
+}
+
 get_data_producto_8 <- function(){
   
   d <- read_csv(
@@ -129,6 +146,34 @@ get_data_producto_14 <- function(){
   
 }
 
+get_data_producto_19 <- function(){
+  
+  d <- read_csv(
+    "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto19/CasosActivosPorComuna.csv",
+    col_types = cols(
+      Region = col_character(),
+      Comuna = col_character(),
+      .default = col_double()
+    )
+  )
+  
+  d %>% distinct(Comuna) 
+  
+  d <- d %>% 
+    filter(!Comuna %in% c("Total")) %>% 
+    filter(!str_detect(Comuna, "Desconocido")) %>% 
+    select(-Poblacion, -`Codigo region`, -`Codigo comuna`) %>% 
+    gather(fecha, activos,-Region, -Comuna) %>% 
+    janitor::clean_names() %>% 
+    mutate(
+      fecha = ymd(fecha),
+      activos = as.numeric(activos)
+    )
+  
+  d
+  
+}
+
 get_data_producto_32 <- function(){
   
   d <- read_csv(
@@ -152,6 +197,29 @@ get_data_producto_32 <- function(){
     janitor::clean_names()
   
   d
+  
+}
+
+get_data_producto_75 <- function(){
+  
+  d <- read_csv(
+    "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto75/MediaMovil_casos_activos.csv",
+    col_types = cols(
+      Region = col_character(),
+      .default = col_double()
+    )
+  )
+  
+  d
+  
+  d <- d %>% 
+    gather(dia, media_movil_7_dias, -Region) %>% 
+    mutate(
+      dia = ymd(dia)
+    ) %>% 
+    janitor::clean_names()
+  
+  d 
   
 }
 
@@ -309,6 +377,12 @@ get_data_consolidado_region <- function(){
     mutate(dosis = paste0("dosis_", str_to_lower(dosis))) %>% 
     spread(dosis, cantidad)
   
+  dactivos_media_movil_7_dias <- get_data_producto_75()
+  
+  dactivos_media_movil_7_dias <- dactivos_media_movil_7_dias %>% 
+    filter(dia == max(dia)) %>% 
+    filter(!str_detect(region, "Total")) %>% 
+    rename(activos_media_movil_7_dias = media_movil_7_dias)
   # get_data_producto_1()
   # 
   # casos_nuevos <- get_productoreadRDS("data/producto13/CasosNuevosCumulativo_std.rds")
@@ -321,7 +395,8 @@ get_data_consolidado_region <- function(){
   d <- list(
     dfallecidos,
     duci,
-    dcasos
+    dcasos,
+    dactivos_media_movil_7_dias
     ) %>% reduce(full_join, by = c("region", "dia")) %>% 
     left_join(dpoblacion, by = "region") %>% 
     left_join(ddosis, by = "region")
