@@ -17,6 +17,7 @@ library(lubridate)
 library(highcharter)
 library(RcppRoll)
 library(reactable)
+library(htmltools)
 
 source("R/00-parametros.R", encoding = "UTF-8")
 source("R/01-productos.R", encoding = "UTF-8")
@@ -134,18 +135,6 @@ Row
 ```{r}
 ```
 
-<!-- `r fontawesome::fa("route")` Movilidad -->
-<!-- =====================================   -->
-
-<!-- Row  -->
-<!-- ----------------------------------------------------------------------- -->
-
-<!-- ###  -->
-
-<!-- ```{r} -->
-<!-- ``` -->
-
-
 Mortalidad {data-icon="fa-ribbon"}
 =====================================  
 
@@ -218,9 +207,8 @@ grafico_activos_media_movil_7_dias_por_region_100k_hab()
 
 
 <style>
-.bar-cell {
-  display: flex;
-  align-items: center;
+.rt-tbody {
+  cursor: pointer;
 }
 
 .number {
@@ -229,14 +217,6 @@ grafico_activos_media_movil_7_dias_por_region_100k_hab()
   white-space: pre;
 }
 
-.bar-chart {
-  flex-grow: 1;
-  margin-left: 6px;
-  height: 14px;
-}
-
-.bar {
-  height: 100
 </style>
 
 <script>
