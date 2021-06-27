@@ -686,12 +686,12 @@ grafico_activos_media_movil_7_dias_totales <- function(){
  
 grafico_region <- function(){
   
-  ruta_geojson <- dir("geojson", full.names = TRUE, pattern = "\\.json") %>% 
-    sample(size = 1)
-  
-  gjson <- jsonlite::fromJSON(ruta_geojson)
-  
-  gjson <- geojsonio::as.json(gjson)
+  # ruta_geojson <- dir("geojson", full.names = TRUE, pattern = "\\.json") %>% 
+  #   sample(size = 1)
+  # 
+  # gjson <- jsonlite::fromJSON(ruta_geojson)
+  # 
+  # gjson <- geojsonio::as.json(gjson)
   
   hcm <- highchart(type = "map") %>%
     hc_add_series(mapData = JS("Highcharts.maps['tarapaca']"))
