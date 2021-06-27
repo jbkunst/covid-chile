@@ -85,10 +85,10 @@ get_data_producto_8 <- function(){
     filter(!Region %in% c("Codigo region", "Poblacion")) %>% 
     gather(ciudad, valor, -Region) %>% 
     janitor::clean_names() %>% 
-    rename(dia = region, region = ciudad, nro_pascientes_uci = valor) %>% 
+    rename(dia = region, region = ciudad, nro_pacientes_uci = valor) %>% 
     mutate(
       dia = ymd(dia),
-      nro_pascientes_uci = as.numeric(nro_pascientes_uci)
+      nro_pacientes_uci = as.numeric(nro_pacientes_uci)
     )
   
   d

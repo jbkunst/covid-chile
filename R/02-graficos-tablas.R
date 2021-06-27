@@ -4,7 +4,7 @@ grafico_pacientes_uci <- function() {
   
   d <- d %>%
     group_by(x = dia) %>%
-    summarise(y = sum(nro_pascientes_uci))
+    summarise(y = sum(nro_pacientes_uci))
   
   eventos <- left_join(EVENTOS, d, by = "x")
   eventos <- mutate(eventos, x = datetime_to_timestamp(x))
