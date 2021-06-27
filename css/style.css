@@ -9,9 +9,20 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
 }
 
 .navbar-inverse {
-    background-color: PRIMARYCOLOR;
+    background-color: #0f69b4;
 }
 
 .bg-primary {
-    background-color: PRIMARYCOLOR;
+    background-color: #0f69b4;
+}
+
+/* react-table*/
+.rt-tbody {
+  cursor: pointer;
+}
+
+.number {
+  font-family: "Fira Mono", Consolas, Monaco, monospace;
+  font-size: 13.5px;
+  white-space: pre;
 }

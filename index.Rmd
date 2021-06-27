@@ -2,8 +2,10 @@
 title: "Covid-Chile"
 output: 
   flexdashboard::flex_dashboard:
+    self_contained: false
+    lib_dir: www
     orientation: rows
-    css: www/style.css
+    css: css/style.css
     favicon: www/favicon.png    
     social: ["twitter", "facebook", "linkedin"]
 editor_options: 
@@ -16,6 +18,8 @@ library(tidyverse)
 library(lubridate)
 library(highcharter)
 library(RcppRoll)
+library(reactable)
+library(htmltools)
 
 source("R/00-parametros.R", encoding = "UTF-8")
 source("R/01-productos.R", encoding = "UTF-8")
@@ -133,18 +137,6 @@ Row
 ```{r}
 ```
 
-<!-- `r fontawesome::fa("route")` Movilidad -->
-<!-- =====================================   -->
-
-<!-- Row  -->
-<!-- ----------------------------------------------------------------------- -->
-
-<!-- ###  -->
-
-<!-- ```{r} -->
-<!-- ``` -->
-
-
 Mortalidad {data-icon="fa-ribbon"}
 =====================================  
 
@@ -186,9 +178,11 @@ Row {data-height=800}
 
 ### 
 
-```{r}
-tabla_region()
+```{r una_de_dos}
+# tabla_region()
+tabla_region2()
 ```
+
 
 Row
 -----------------------------------------------------------------------
@@ -210,20 +204,53 @@ grafico_activos_media_movil_7_dias_por_region_100k_hab()
 ```{r}
 ```
 
+
 ### 
+
+
+<style>
+.rt-tbody {
+  cursor: pointer;
+}
+
+.number {
+  font-family: "Fira Mono", Consolas, Monaco, monospace;
+  font-size: 13.5px;
+  white-space: pre;
+}
+
+</style>
 
 <script>
 PARS = `r jsonlite::toJSON(PARS)`
 </script>
 
-```{js}
-document.addEventListener('DOMContentLoaded', function() {
+```{js reactable}
+  function myFunction(id) {
   
+    var hc_falle = $('#hc_fallecimientos_region').highcharts();
+    var hc_act7m = $('#hc_activos_media_movil_7_dias_region').highcharts();
+    
+    var idn = id;
+  
+    for (var i = 0; i <= (16 - 1); i++) {
+      hc_falle.series[i].update({color: PARS.colors.gray[0], lineWidth: 1, zIndex: 0});
+      hc_act7m.series[i].update({color: PARS.colors.gray[0], lineWidth: 1, zIndex: 0});
+    }
+    
+    hc_falle.get(idn).update({color: PARS.colors.primary[0], lineWidth: 4, zIndex: 1});
+    hc_act7m.get(idn).update({color: PARS.colors.primary[0], lineWidth: 4, zIndex: 1});
+  
+  }
+```
+
+```{js DT}  
+document.addEventListener('DOMContentLoaded', function() {
+
   var table = $('#DataTables_Table_0').DataTable()
   
-  var hc_falle = $('#hc_fallecimientos_region').highcharts();
-  
-  var hc_act7m = $('#hc_activos_media_movil_7_dias_region').highcharts();
+  // var hc_falle = $('#hc_fallecimientos_region').highcharts();
+  // var hc_act7m = $('#hc_activos_media_movil_7_dias_region').highcharts();
   
   $('#tabla_region tbody').on('mouseover', 'tr', function () {
   
@@ -233,21 +260,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     var idn = d[1]
     
-    for (var i = 0; i <= (16 - 1); i++) {
-      hc_falle.series[i].update({color: PARS.colors.gray[0], lineWidth: 1, zIndex: 0});
-      hc_act7m.series[i].update({color: PARS.colors.gray[0], lineWidth: 1, zIndex: 0});
-    }
-    
-    hc_falle.get(idn).update({color: PARS.colors.primary[0], lineWidth: 4, zIndex: 1});
-    hc_act7m.get(idn).update({color: PARS.colors.primary[0], lineWidth: 4, zIndex: 1});
+    myFunction(idn);
     
   });
+  
     
 }, false);
 ```
-
-
-
 
 
 Acerca {data-icon="fa-question-circle"}

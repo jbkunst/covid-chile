@@ -382,32 +382,30 @@ get_data_ine_proyeccion_poblacion_2021 <- function(){
 get_data_consolidado_region <- function(){
   
   dfallecidos <- get_data_producto_14()
-  
   dfallecidos <- dfallecidos %>% 
     arrange(dia) %>% 
     group_by(region) %>% 
     mutate(fallecimientos_ultimos = fallecimientos - lag(fallecimientos)) %>% 
     ungroup() %>% 
-    filter(dia == max(dia)) 
+    filter(dia == max(dia)) %>% 
+    select(-dia)
   
   dcasos <- get_data_producto_3() 
-  
   dcasos <- dcasos %>% 
     arrange(dia) %>% 
     group_by(region) %>% 
     mutate(casos_ultimos = nro_casos - lag(nro_casos)) %>% 
     ungroup() %>% 
     filter(dia == max(dia)) %>% 
-    rename(casos_totales = nro_casos)
+    rename(casos_totales = nro_casos) %>% 
+    select(-dia)
   
   dpoblacion <- get_data_producto_1()
-  
   dpoblacion <- dpoblacion %>% 
     group_by(region = Region) %>% 
     summarise(poblacion_total = sum(Poblacion, na.rm = TRUE))
   
   ddosis <- get_data_producto_76_1ra_2da_unica_dosis()
-  
   ddosis <- ddosis %>% 
     filter(fecha == max(fecha)) %>% 
     filter(!str_detect(region, "Total")) %>%
@@ -416,27 +414,24 @@ get_data_consolidado_region <- function(){
     spread(dosis, cantidad)
   
   dactivos_media_movil_7_dias <- get_data_producto_75()
-  
   dactivos_media_movil_7_dias <- dactivos_media_movil_7_dias %>% 
     filter(dia == max(dia)) %>% 
-    filter(!str_detect(region, "Total")) 
-  # get_data_producto_1()
-  # 
-  # casos_nuevos <- get_productoreadRDS("data/producto13/CasosNuevosCumulativo_std.rds")
-  # 
-  # casos_nuevos <- casos_nuevos %>% rename(casos_nuevos = Total)
+    filter(!str_detect(region, "Total")) %>% 
+    select(-dia)
   
   duci <- get_data_producto_8() %>% 
-    filter(dia == max(dia))
+    filter(dia == max(dia)) %>% 
+    select(-dia)
   
   d <- list(
     dfallecidos,
     duci,
     dcasos,
-    dactivos_media_movil_7_dias
-    ) %>% reduce(full_join, by = c("region", "dia")) %>% 
-    left_join(dpoblacion, by = "region") %>% 
-    left_join(ddosis, by = "region")
+    dactivos_media_movil_7_dias,
+    dpoblacion,
+    ddosis
+    ) %>%
+    reduce(full_join, by = c("region")) 
   
   d <- d %>% 
     mutate(region = factor(region, levels = PARS$region_levels)) %>% 

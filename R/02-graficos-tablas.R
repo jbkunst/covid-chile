@@ -726,3 +726,80 @@ tabla_region <- function() {
   
   
 }
+
+tabla_region2 <- function() {
+  
+  d <- get_data_consolidado_region()
+  
+  d <- d %>% 
+    select(-id0, -id_region) %>% 
+    
+    mutate(dosis_completa_pct = round(100 * (dosis_segunda + dosis_unica) / poblacion_total, 1)) %>% 
+    select(-dosis_segunda, -dosis_unica, -dosis_primera) %>% 
+    
+    select(1:4, dosis_completa_pct) %>% 
+    
+    filter(TRUE)
+  
+  # Render a bar chart with a label on the left
+  bar_chart <- function(label, width = "100%", height = "16px", fill = "#00bfc4", background = NULL) {
+    
+    bar <- div(style = list(background = fill, width = width, height = height))
+    chart <- div(style = list(flexGrow = 1, marginLeft = "8px", background = background), bar)
+    div(style = list(display = "flex", alignItems = "center"), label, chart)
+    
+  }
+  bar_style <- function(width = 1, fill = "#e6e6e6", height = "75%", align = c("left", "right"), color = NULL) {
+    align <- match.arg(align)
+    if (align == "left") {
+      position <- paste0(width * 100, "%")
+      image <- sprintf("linear-gradient(90deg, %1$s %2$s, transparent %2$s)", fill, position)
+    } else {
+      position <- paste0(100 - width * 100, "%")
+      image <- sprintf("linear-gradient(90deg, transparent %1$s, %2$s %1$s)", position, fill)
+    }
+    list(
+      backgroundImage = image,
+      backgroundSize = paste("100%", height),
+      backgroundRepeat = "no-repeat",
+      backgroundPosition = "center",
+      color = color
+    )
+  }
+  
+  with_tooltip <- function(value, tooltip) {
+    tags$abbr(style = "text-decoration: underline; text-decoration-color: #C0C0C0;text-decoration-style: dotted; cursor: help",
+              title = tooltip, value)
+  }
+  
+  reactable::reactable(
+    d,
+    pagination = FALSE, 
+    sortable = TRUE, 
+    highlight = TRUE,
+    
+    onClick = JS("function(rowInfo, colInfo) { myFunction(PARS.region_ids[rowInfo.index]);}"),
+    
+    columns = list(
+      fallecimientos = colDef(
+        # name = "Fallecimientos",
+        header = with_tooltip("Fallecimientos", "Fallecimientos registrados desde 22 Marzo 2020"),
+        align = "right",
+        style = function(value) {
+          bar_style(width = value / max(d$fallecimientos), fill = "hsl(208, 70%, 90%)", align = "right")
+        },
+        format = colFormat(digits = 0, separators = TRUE, locales = "es-CL")
+        
+      ),
+      dosis_completa_pct = colDef(
+        name = "% Dosis completa",
+        align = "left",
+        cell = function(value) {
+          width <- paste0(value / 100 * 100, "%")
+          bar_chart(value, width = width, fill = "#fc5185", background = "#e1e1e1")
+          }
+        )
+      )
+    )
+  
+}

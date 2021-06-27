@@ -1,12 +1,13 @@
+# parametros generales ----------------------------------------------------
 PARS <- list(
   debug = FALSE,
-  edad_breaks = c(12, 18, 30, 40, 50, 60, 70, 80, Inf),
   colors = list(
     sparkline = "#F4F6F9", # color de fondo de value boxes "blancos"
     primary = "#0f69b4", #"#007bff",
     secondary = "#eb3c46", #"#DC3545",
     gray = "#C0C0C0"
   ),
+  edad_breaks = c(12, 18, 30, 40, 50, 60, 70, 80, Inf),
   region_levels = c("Arica y Parinacota", "Tarapacá", "Antofagasta", "Atacama", 
                     "Coquimbo", "Valparaíso", "Metropolitana", "O’Higgins", "Maule", 
                     "Ñuble", "Biobío", "Araucanía", "Los Ríos", "Los Lagos", "Aysén", 
@@ -15,12 +16,8 @@ PARS <- list(
                  "coquimbo", "valparaiso", "metropolitana", "ohiggins", "maule", 
                  "nuble", "biobio", "araucania", "los_rios", "los_lagos", "aysen", 
                  "magallanes"),
-  hc = list(
-    duration = 2500
-  ),
   font = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
 )
-
 
 # data --------------------------------------------------------------------
 # from https://jkunst.com/blog/posts/2020-06-02-30diasdegraficos-parte-3/#d%C3%ADa-21-gr%C3%A1ficos-con-anotaciones
@@ -29,14 +26,12 @@ EVENTOS <- tibble(
   text = c("Primera cuarentena<br>en la RM", "Día de la madre")
 ) 
 
-
 # css ---------------------------------------------------------------------
-css <- readr::read_lines("www/style_template.css")
+css <- readr::read_lines("css/style_template.css")
 
 css %>% 
   stringr::str_replace("PRIMARYCOLOR", PARS$colors$primary) %>% 
-  readr::write_lines("www/style.css")
-
+  readr::write_lines("css/style.css")
 
 # highcharts --------------------------------------------------------------
 Sys.setlocale("LC_ALL", "Spanish_Spain.1252")
@@ -46,15 +41,14 @@ Sys.setlocale("LC_ALL", "Spanish_Spain.1252")
 
 newlang_opts <- getOption("highcharter.lang")
 
-newlang_opts$weekdays <- c("domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado")
-newlang_opts$months <- c("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", 
-                         "agosto", "septiembre", "octubre", "noviembre", "diciembre")
-newlang_opts$shortMonths <- c("ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", 
-                              "oct", "nov", "dic")
-
 newlang_opts$thousandsSep <- "."
-
 newlang_opts$decimalPoint <- ","
+newlang_opts$weekdays     <- c("domingo", "lunes", "martes", "miércoles", 
+                               "jueves", "viernes", "sábado")
+newlang_opts$months       <- c("enero", "febrero", "marzo", "abril", "mayo",
+                               "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre")
+newlang_opts$shortMonths  <- c("ene", "feb", "mar", "abr", "may", "jun", "jul", 
+                               "ago", "sep", "oct", "nov", "dic")
 
 options(
   highcharter.lang = newlang_opts,
@@ -99,15 +93,7 @@ options(
       
       plotOptions = list(
         series = list(
-          # dataLabels = list(
-          #   color = "#222d32",
-          #   style = 
-          #     list(
-          #       fontWeight = "normal",
-          #       textShadow = TRUE, 
-          #       textOutline = TRUE)
-          #   ),
-          animation = list(duration = PARS$hc$duration),
+          animation = list(duration = 2000),
           marker = list(symbol = "circle")
         ),
         line = list(
@@ -161,14 +147,13 @@ options(
             chartOptions = list(
               legend = list(enabled = FALSE),
               xAxis = list(title = NULL),
-              yAxis = list(title = "", endOnTick = FALSE),
-              plotOptions = list(series = list(lineWidth = 1))
+              yAxis = list(title = "", endOnTick = FALSE)
+              # plotOptions = list(series = list(lineWidth = 1))
             )
           )
         )
       )
     )
 )
-
 
 rm(newlang_opts)
