@@ -36,7 +36,7 @@ grafico_pacientes_uci <- function() {
       )
   
 }
-
+ 
 grafico_confirmados_diarios <- function(){
   
   d <- get_data_producto_3() 

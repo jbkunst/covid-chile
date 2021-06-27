@@ -379,7 +379,7 @@ get_data_ine_proyeccion_poblacion_2021 <- function(){
   
 }
 
-get_data_consolidado_region <- function(){
+get_data_consolidado_region <- function(){ 
   
   dfallecidos <- get_data_producto_14()
   dfallecidos <- dfallecidos %>% 
