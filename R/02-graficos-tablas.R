@@ -654,7 +654,7 @@ grafico_activos_media_movil_7_dias_totales <- function(){
   eventos <- left_join(EVENTOS, d %>% select(x, y), by = "x")
   eventos <- mutate(eventos, x = datetime_to_timestamp(x))
   
-  titulo <- "Corresponde al promedio móvil de los últimos 7 días de casos <b>activos</b>  en todo el país."
+  titulo <- "Promedio móvil de los últimos 7 días de casos <b>activos</b>  en todo el país."
   
   hchart(
     d,
