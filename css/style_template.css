@@ -19,6 +19,11 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
 /* react-table*/
 .rt-tbody {
   cursor: pointer;
+  height: 90%;
+}
+
+.rt-tr {
+  align-items: center;
 }
 
 .number {

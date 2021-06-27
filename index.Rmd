@@ -170,13 +170,15 @@ grafico_defunciones_esperadas_arima()
 grafico_defunciones_semanales_pandemia()
 ```
 
-Region {data-icon="fa-map-marked-alt"}
+Region {data-icon="fa-map-marked-alt" data-orientation=columns}
 =====================================  
 
-Row {data-height=800}
+Column {data-width=900}
 -----------------------------------------------------------------------
 
 ### 
+
+<script src="geojson/regiones_geojson.js"></script>
 
 ```{r una_de_dos}
 # tabla_region()
@@ -184,9 +186,15 @@ tabla_region2()
 ```
 
 
-Row
+Column
 -----------------------------------------------------------------------
 
+### 
+
+```{r}
+grafico_region()
+```
+ 
 ### 
 
 ```{r}
@@ -199,52 +207,31 @@ grafico_defunciones_por_region_100k_hab()
 grafico_activos_media_movil_7_dias_por_region_100k_hab()
 ```
 
-### 
-
-```{r}
-```
-
-
-### 
-
-
-<style>
-.rt-tbody {
-  cursor: pointer;
-}
-
-.number {
-  font-family: "Fira Mono", Consolas, Monaco, monospace;
-  font-size: 13.5px;
-  white-space: pre;
-}
-
-</style>
 
 <script>
 PARS = `r jsonlite::toJSON(PARS)`
 </script>
 
 ```{js reactable}
-  function myFunction(id) {
+function myFunction(id) {
+
+  var hc_falle = $('#hc_fallecimientos_region').highcharts();
+  var hc_act7m = $('#hc_activos_media_movil_7_dias_region').highcharts();
   
-    var hc_falle = $('#hc_fallecimientos_region').highcharts();
-    var hc_act7m = $('#hc_activos_media_movil_7_dias_region').highcharts();
-    
-    var idn = id;
-  
-    for (var i = 0; i <= (16 - 1); i++) {
-      hc_falle.series[i].update({color: PARS.colors.gray[0], lineWidth: 1, zIndex: 0});
-      hc_act7m.series[i].update({color: PARS.colors.gray[0], lineWidth: 1, zIndex: 0});
-    }
-    
-    hc_falle.get(idn).update({color: PARS.colors.primary[0], lineWidth: 4, zIndex: 1});
-    hc_act7m.get(idn).update({color: PARS.colors.primary[0], lineWidth: 4, zIndex: 1});
-  
+  var idn = id;
+
+  for (var i = 0; i <= (16 - 1); i++) {
+    hc_falle.series[i].update({color: PARS.colors.gray[0], lineWidth: 1, zIndex: 0});
+    hc_act7m.series[i].update({color: PARS.colors.gray[0], lineWidth: 1, zIndex: 0});
   }
+  
+  hc_falle.get(idn).update({color: PARS.colors.primary[0], lineWidth: 4, zIndex: 1});
+  hc_act7m.get(idn).update({color: PARS.colors.primary[0], lineWidth: 4, zIndex: 1});
+
+}
 ```
 
-```{js DT}  
+```{js DT, eval=FALSE}  
 document.addEventListener('DOMContentLoaded', function() {
 
   var table = $('#DataTables_Table_0').DataTable()
