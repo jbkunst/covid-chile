@@ -112,6 +112,81 @@ grafico_confirmados_diarios <- function(){
   
 }
 
+grafico_porcentaje_vacunacion <- function(){
+  
+  d1ra <- get_data_producto_78_1ra_dosis()
+  d2da <- get_data_producto_78_2da_dosis()
+  duni <- get_data_producto_78_unica_dosis()
+  
+  dpry <- get_data_ine_proyeccion_poblacion_2021()
+  
+  dpry <- dpry %>% 
+    categorizar_edad() %>% 
+    group_by(edad_c) %>% 
+    summarise(poblacion = sum(poblacion, na.rm = TRUE), .groups = "drop")
+  
+  d <- list(d1ra, d2da, duni) %>% 
+    map(categorizar_edad) %>% 
+    map(group_by, edad_c) %>% 
+    map(summarise, n = sum(n, na.rm = TRUE)) %>% 
+    map2_df(c("1ª dosis", "2ª dosis", "Única dosis"), ~ mutate(.x, group = .y))
+  
+  d <- d %>% 
+    mutate(group = ifelse(group == "1ª dosis", "1ª dosis", "2ª dosis")) %>% 
+    group_by(edad_c, group) %>% 
+    summarise(n = sum(n, na.rm = TRUE), .groups = "drop")
+  
+  d <- d %>%
+    left_join(dpry, by = "edad_c")
+  
+  d <- d %>% mutate(prop = n/poblacion)
+  
+  d <- d %>% 
+    ungroup() %>% 
+    group_by(group) %>% 
+    summarise(prop = weighted.mean(prop, n)) %>% 
+    mutate(prop2 = lag(prop) - prop) %>% 
+    mutate(prop2 = coalesce(prop2, prop))
+  
+  d <- d %>% 
+    add_row(group = "Sin vacunar", prop2 = 1 - sum(d$prop2)) %>% 
+    select(-prop)
+  
+  d <- d %>% 
+    mutate(n = round(100 * prop2))
+  
+  # forzar suma 100
+  diff <- 100 - sum(d$n)
+  
+  d <- d %>% 
+    mutate(n = ifelse(row_number() == 1, n + diff, n))
+  
+  titulo <- "Porcentaje de población vacunada por grupo de edad"
+  
+  hchart(
+    d,
+    "item",
+    hcaes(name = group, y = n),
+    name = "Vacunación",
+    showInLegend = TRUE,
+    marker = list(symbol = "square")
+  ) %>% 
+    hc_colors(as.vector(unlist(c(rev(PARS$colors[1:2]), PARS$colors["gray"])))) %>% 
+    hc_plotOptions(
+      # avoid hide series due bug
+      series = list(point = list(events = list(legendItemClick = JS("function(e) {e.preventDefault() }"))))
+    ) %>% 
+    hc_legend(
+      labelFormat =  '{name} <span style="opacity: 0.4">{y}</span>',
+      # force squere legend 
+      # https://jsfiddle.net/BlackLabel/kfmnjcdp
+      symbolHeight = 11,
+      symbolWidth = 11,
+      symbolRadius = 0
+    )
+  
+}
+
 grafico_porcentaje_vacunacion_edad <- function(){
   
   d1ra <- get_data_producto_78_1ra_dosis()
@@ -639,7 +714,7 @@ grafico_activos_media_movil_7_dias_por_region_100k_hab <- function(){
   
 }
 
-grafico_activos_media_movil_7_dias_totales <- function(){
+grafico_activos_media_movil_7_dias <- function(){
   
   d <- get_data_producto_75()
   
@@ -662,7 +737,7 @@ grafico_activos_media_movil_7_dias_totales <- function(){
     type = "line",
     name = "Media Móvil 7 días",
     showInLegend = TRUE,
-    color = "#eb3c46"
+    color = PARS$colors[[2]]
   ) %>% 
     hc_tooltip(table = TRUE, valueDecimals = 0) %>%
     hc_yAxis(title = list(text = "Cantidad")) %>%
@@ -680,7 +755,6 @@ grafico_activos_media_movil_7_dias_totales <- function(){
         labels = df_to_annotations_labels(eventos)
       )
     )
-
   
 }
  
@@ -757,7 +831,7 @@ tabla_region2 <- function() {
   d <- d %>% 
     select(-id0, -id_region) %>% 
     
-    mutate(dosis_completa_pct = round(100 * (dosis_segunda + dosis_unica) / poblacion_total, 1)) %>% 
+    mutate(dosis_completa_pct = round(100 * (dosis_segunda + dosis_unica) / poblacion_total, 0)) %>% 
     select(-dosis_segunda, -dosis_unica, -dosis_primera) %>% 
     
     select(1:4, dosis_completa_pct) %>% 
@@ -772,6 +846,7 @@ tabla_region2 <- function() {
     div(style = list(display = "flex", alignItems = "center"), label, chart)
     
   }
+  
   bar_style <- function(width = 1, fill = "#e6e6e6", height = "75%", align = c("left", "right"), color = NULL) {
     align <- match.arg(align)
     if (align == "left") {
@@ -812,7 +887,6 @@ tabla_region2 <- function() {
           bar_style(width = value / max(d$fallecimientos), fill = "hsl(208, 70%, 90%)", align = "right")
         },
         format = colFormat(digits = 0, separators = TRUE, locales = "es-CL")
-        
       ),
       dosis_completa_pct = colDef(
         name = "% Dosis completa",

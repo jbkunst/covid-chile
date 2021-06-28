@@ -46,7 +46,8 @@ categorizar_edad <- function(d) {
 
 paleta_colores <- function(n = 6) {
   
-  viridisLite::inferno(n, begin = .1, end = .9) 
+  # viridisLite::inferno(n, begin = .1, end = .9) 
+  viridisLite::cividis(n, begin = .1, end = .9) 
   
 }
 

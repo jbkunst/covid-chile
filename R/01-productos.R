@@ -257,7 +257,9 @@ get_data_producto_75 <- function(){
     ) %>% 
     janitor::clean_names()
   
-  d1 %>% left_join(d2, by = c("region", "dia")) 
+  d <- left_join(d1, d2, by = c("region", "dia")) 
+  
+  d
   
 }
 

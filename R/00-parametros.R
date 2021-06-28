@@ -2,10 +2,11 @@
 PARS <- list(
   debug = FALSE,
   colors = list(
-    sparkline = "#F4F6F9", # color de fondo de value boxes "blancos"
-    primary = "#0f69b4", #"#007bff",
-    secondary = "#eb3c46", #"#DC3545",
-    gray = "#C0C0C0"
+    primary = "#014B7A", # "#0f69b4", #"#007bff",
+    secondary = "#44B7C2", # "#eb3c46", #"#DC3545",
+    tertiary = "#FFAE49",
+    gray = "#C0C0C0",
+    sparkline = "#F4F6F9"
   ),
   edad_breaks = c(12, 18, 30, 40, 50, 60, 70, 80, Inf),
   region_levels = c("Arica y Parinacota", "Tarapacá", "Antofagasta", "Atacama", 
@@ -27,11 +28,11 @@ EVENTOS <- tibble(
 ) 
 
 # css ---------------------------------------------------------------------
-css <- readr::read_lines("css/style_template.css")
-
-css %>% 
-  stringr::str_replace("PRIMARYCOLOR", PARS$colors$primary) %>% 
-  readr::write_lines("css/style.css")
+# css <- readr::read_lines("css/style_template.css")
+# 
+# css %>% 
+#   stringr::str_replace("PRIMARYCOLOR", PARS$colors$primary) %>% 
+#   readr::write_lines("css/style.css")
 
 # highcharts --------------------------------------------------------------
 Sys.setlocale("LC_ALL", "Spanish_Spain.1252")
@@ -56,7 +57,7 @@ options(
   highcharter.theme = 
     hc_theme_smpl(
       
-      colors = c(PARS$colors$primary, PARS$colors$secondary),
+      colors = as.vector(unlist(PARS$colors)),
       
       title = list(
         style = list(fontSize = "1.2em", fontFamily = PARS$font)
@@ -100,6 +101,7 @@ options(
           lineWidth = 4
         ),
         area = list(
+          lineWidth = 1,
           fillColor = list(
             linearGradient = list(x1 = 0, y1 = 1, x2 = 0, y2 = 0),
             stops = list(
