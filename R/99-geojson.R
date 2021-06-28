@@ -27,7 +27,9 @@ d <- d %>%
 dr <- d %>% 
   distinct(id_region, region, codigo_region)
 
-walk(regiones, function(r = 2) {
+dr
+
+walk(regiones, function(r = 12) {
 
   message(r)
     
@@ -52,12 +54,24 @@ walk(regiones, function(r = 2) {
   
   geojson <- geojsonio::as.json(gjson)
   
-  highchart(type = "map") %>%
+  hc <- highchart(type = "map") %>%
     hc_add_series(mapData = geojson)
+  
+  hc$x$fonts <- ""
+  
+  hc
   
   idr <- dr %>% 
     filter(codigo_region == r) %>% 
     pull(id_region)
+  
+  idr <- case_when(
+    str_detect(idr, "magallanes") ~ "magallanes",
+    str_detect(idr, "ohiggins") ~ "ohiggins",
+    str_detect(idr, "araucania") ~ "araucania",
+    
+    TRUE ~ idr
+  )
   
   fout <- fs::path("geojson", idr, ext = "json")
   

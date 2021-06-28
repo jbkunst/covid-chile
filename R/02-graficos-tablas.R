@@ -694,7 +694,12 @@ grafico_region <- function(){
   # gjson <- geojsonio::as.json(gjson)
   
   hcm <- highchart(type = "map") %>%
-    hc_add_series(mapData = JS("Highcharts.maps['tarapaca']"))
+    hc_add_series(
+      id = "region",
+      mapData = JS("Highcharts.maps['tarapaca']"),
+      region = 'tarapaca'
+      ) %>% 
+    hc_elementId("hc_mapa_region") 
   
   hcm$x$fonts <- ""
   

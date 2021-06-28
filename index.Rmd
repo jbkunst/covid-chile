@@ -215,18 +215,29 @@ PARS = `r jsonlite::toJSON(PARS)`
 ```{js reactable}
 function myFunction(id) {
 
+  var hc_mapar = $('#hc_mapa_region').highcharts();
   var hc_falle = $('#hc_fallecimientos_region').highcharts();
   var hc_act7m = $('#hc_activos_media_movil_7_dias_region').highcharts();
+
+  //hc_mapar.get('region').update({ mapData: Highcharts.maps[id] });
+  // while (hc_mapar.series.length) { hc_mapar.series[0].remove(); }
   
-  var idn = id;
+  
+  
+  if(id != hc_mapar.get('region').options.region) {
+    hc_mapar.get('region').remove();
+    hc_mapar.addSeries({id: 'region', mapData: Highcharts.maps[id], region: id});
+  }
+  
+  
 
   for (var i = 0; i <= (16 - 1); i++) {
     hc_falle.series[i].update({color: PARS.colors.gray[0], lineWidth: 1, zIndex: 0});
     hc_act7m.series[i].update({color: PARS.colors.gray[0], lineWidth: 1, zIndex: 0});
   }
   
-  hc_falle.get(idn).update({color: PARS.colors.primary[0], lineWidth: 4, zIndex: 1});
-  hc_act7m.get(idn).update({color: PARS.colors.primary[0], lineWidth: 4, zIndex: 1});
+  hc_falle.get(id).update({color: PARS.colors.primary[0], lineWidth: 4, zIndex: 1});
+  hc_act7m.get(id).update({color: PARS.colors.primary[0], lineWidth: 4, zIndex: 1});
 
 }
 ```
@@ -236,21 +247,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var table = $('#DataTables_Table_0').DataTable()
   
-  // var hc_falle = $('#hc_fallecimientos_region').highcharts();
-  // var hc_act7m = $('#hc_activos_media_movil_7_dias_region').highcharts();
-  
   $('#tabla_region tbody').on('mouseover', 'tr', function () {
   
     var d = table.row( this ).data();
-    
-    console.log(d);
-    
     var idn = d[1]
-    
     myFunction(idn);
     
   });
-  
     
 }, false);
 ```
