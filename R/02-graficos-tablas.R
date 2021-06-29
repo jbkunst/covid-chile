@@ -828,15 +828,9 @@ tabla_region2 <- function() {
   
   d <- get_data_consolidado_region()
   
-  d <- d %>% 
-    select(-id0, -id_region) %>% 
-    
-    mutate(dosis_completa_pct = round(100 * (dosis_segunda + dosis_unica) / poblacion_total, 0)) %>% 
-    select(-dosis_segunda, -dosis_unica, -dosis_primera) %>% 
-    
-    select(1:4, dosis_completa_pct) %>% 
-    
-    filter(TRUE)
+  d <- d %>% select(-id0, -id_region, -codigo_region) 
+  
+  d <- d %>% relocate(poblacion, .after = last_col())
   
   # Render a bar chart with a label on the left
   bar_chart <- function(label, width = "100%", height = "16px", fill = "#00bfc4", background = NULL) {
@@ -878,24 +872,27 @@ tabla_region2 <- function() {
     
     onClick = JS("function(rowInfo, colInfo) { myFunction(PARS.region_ids[rowInfo.index]);}"),
     
+    defaultColDef = colDef(
+      format = colFormat(digits = 0, separators = TRUE, locales = "es-CL")
+    ),
+    
     columns = list(
-      fallecimientos = colDef(
+      nro_fallecidos  = colDef(
         # name = "Fallecimientos",
         header = with_tooltip("Fallecimientos", "Fallecimientos registrados desde 22 Marzo 2020"),
         align = "right",
         style = function(value) {
-          bar_style(width = value / max(d$fallecimientos), fill = "hsl(208, 70%, 90%)", align = "right")
-        },
-        format = colFormat(digits = 0, separators = TRUE, locales = "es-CL")
-      ),
-      dosis_completa_pct = colDef(
-        name = "% Dosis completa",
-        align = "left",
-        cell = function(value) {
-          width <- paste0(value / 100 * 100, "%")
-          bar_chart(value, width = width, fill = "#fc5185", background = "#e1e1e1")
-          }
-        )
+          bar_style(width = value / max(d$nro_fallecidos), fill = "hsl(208, 70%, 90%)", align = "right")
+        }
+      )
+      # dosis_completa_pct = colDef(
+      #   name = "% Dosis completa",
+      #   align = "left",
+      #   cell = function(value) {
+      #     width <- paste0(value / 100 * 100, "%")
+      #     bar_chart(value, width = width, fill = "#fc5185", background = "#e1e1e1")
+      #     }
+      #   )
       )
     )
   

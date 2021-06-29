@@ -51,6 +51,31 @@ paleta_colores <- function(n = 6) {
   
 }
 
+region_to_factor <- function(x) {
+  
+  # x <- d$region
+  
+  xn <- case_when(
+    str_detect(x, "Magallanes") ~ "Magallanes",
+    str_detect(x, "O’Higgins") ~ "O’Higgins",
+    str_detect(x, "Araucanía|Araucania") ~ "Araucanía",
+    str_detect(x, "Aysen") ~ "Aysén",
+    str_detect(x, "Nuble") ~ "Ñuble",
+    str_detect(x, "Biobio") ~ "Biobío",
+    str_detect(x, "Rios") ~ "Los Ríos",
+    str_detect(x, "Tarapaca") ~ "Tarapacá",
+    str_detect(x, "Valparaiso") ~ "Valparaíso",
+    TRUE ~ x
+  )
+  
+  # tibble(x, xn, factor(xn, levels = PARS$region_levels))
+  
+  xn <- factor(xn, levels = PARS$region_levels)
+  
+  xn
+  
+}
+
 str_make_id <- function(x){
   
   x %>% 

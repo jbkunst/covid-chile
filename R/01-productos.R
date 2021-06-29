@@ -454,62 +454,58 @@ get_data_ine_proyeccion_poblacion_2021 <- function(){
   
 }
 
-get_data_consolidado_region <- function(){ 
+get_data_consolidado_region_comuna_fecha <- function(){ 
   
-  dfallecidos <- get_data_producto_14()
-  dfallecidos <- dfallecidos %>% 
+  # diarios
+  dcasos      <- get_data_producto_25()
+  
+  # acumulados
+  dfallecidos <- get_data_producto_38() %>%
+    select(-poblacion) %>% 
     arrange(dia) %>% 
-    group_by(region) %>% 
-    mutate(fallecimientos_ultimos = fallecimientos - lag(fallecimientos)) %>% 
-    ungroup() %>% 
-    filter(dia == max(dia)) %>% 
-    select(-dia)
+    group_by(region, codigo_region, comuna, codigo_comuna) %>% 
+    mutate(nro_fallecidos_ultimo = nro_fallecidos - lag(nro_fallecidos))
   
-  dcasos <- get_data_producto_3() 
-  dcasos <- dcasos %>% 
-    arrange(dia) %>% 
-    group_by(region) %>% 
-    mutate(casos_ultimos = nro_casos - lag(nro_casos)) %>% 
-    ungroup() %>% 
-    filter(dia == max(dia)) %>% 
-    rename(casos_totales = nro_casos) %>% 
-    select(-dia)
-  
-  dpoblacion <- get_data_producto_1()
-  dpoblacion <- dpoblacion %>% 
-    group_by(region = Region) %>% 
-    summarise(poblacion_total = sum(Poblacion, na.rm = TRUE))
-  
-  ddosis <- get_data_producto_76_1ra_2da_unica_dosis()
-  ddosis <- ddosis %>% 
-    filter(fecha == max(fecha)) %>% 
-    filter(!str_detect(region, "Total")) %>%
-    select(-fecha) %>% 
-    mutate(dosis = paste0("dosis_", str_to_lower(dosis))) %>% 
-    spread(dosis, cantidad)
-  
-  dactivos_media_movil_7_dias <- get_data_producto_75()
-  dactivos_media_movil_7_dias <- dactivos_media_movil_7_dias %>% 
-    filter(dia == max(dia)) %>% 
-    filter(!str_detect(region, "Total")) %>% 
-    select(-dia)
-  
-  duci <- get_data_producto_8() %>% 
-    filter(dia == max(dia)) %>% 
-    select(-dia)
+  dfallecidos %>% filter(comuna == "Santiago") %>% tail()
   
   d <- list(
-    dfallecidos,
-    duci,
     dcasos,
-    dactivos_media_movil_7_dias,
-    dpoblacion,
-    ddosis
-    ) %>%
-    reduce(full_join, by = c("region")) 
+    dfallecidos
+  ) %>%
+    reduce(left_join, by = c("region", "codigo_region", "comuna", "codigo_comuna", "dia")) 
+  
+  d %>% filter(!complete.cases(.))
+  
+  d %>% filter(comuna == "Pica") %>% filter(complete.cases(.))
+  
+  d
+  
+}
+
+get_data_consolidado_region_fecha <- function() {
+  
+  d <- get_data_consolidado_region_comuna_fecha()
   
   d <- d %>% 
-    mutate(region = factor(region, levels = PARS$region_levels)) %>% 
+    select(-comuna, -codigo_comuna) %>% 
+    group_by(region, codigo_region, dia) %>% 
+    summarise_all(sum, na.rm = TRUE) %>% 
+    ungroup()
+  
+  d
+  
+}
+
+get_data_consolidado_region <- function(){ 
+  
+  d <- get_data_consolidado_region_fecha()
+  
+  d <- d %>%
+    filter(dia == max(dia)) %>% 
+    select(-dia)
+  
+  d <- d %>% 
+    mutate(region = region_to_factor(region)) %>% 
     mutate(id_region = str_make_id(region), .before = 1) %>% 
     mutate(id0 = row_number() - 1, .before = 1) %>% 
     arrange(region)
@@ -517,18 +513,4 @@ get_data_consolidado_region <- function(){
   d
   
 }
-
-get_data_consolidado_region_comuna_fecha <- function(){ 
-  
-  dcasos <- get_data_producto_25()
-  dfallecidos <- get_data_producto_38() %>% select(-poblacion)
-    
-  d <- list(
-    dcasos,
-    dfallecidos
-  ) %>%
-    reduce(left_join, by = c("region", "codigo_region", "comuna", "codigo_comuna", "dia")) 
-  
-}
-
 

@@ -38,11 +38,12 @@ Row {data-height=230}
 ### 
 
 ```{r}
-value <- vb_confirmados() %>% filter(tipo == "casos_totales") %>% pull(descripcion)
-caption <- "Confirmados"
-info <- vb_confirmados() %>% filter(tipo != "casos_totales") %>% pull(descripcion)
+# value <- vb_confirmados() %>% filter(tipo == "casos_totales") %>% pull(descripcion)
+# caption <- "Confirmados"
+# info <- vb_confirmados() %>% filter(tipo != "casos_totales") %>% pull(descripcion)
 
-valueBoxCaptions(value, caption, info)
+# valueBoxCaptions(value, caption, info)
+valueBox("1.4 millones", caption = "Fallecidos", icon = NULL, color = NULL, href = NULL)
 
 ```
 
