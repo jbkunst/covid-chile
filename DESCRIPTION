@@ -12,5 +12,6 @@ Imports:
   forecast,
   janitor,
   DT,
-  reactable
+  reactable,
+  RJSONIO
   
