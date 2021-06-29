@@ -773,6 +773,13 @@ grafico_region <- function(){
       mapData = JS("Highcharts.maps['tarapaca']"),
       region = 'tarapaca'
       ) %>% 
+    hc_colorAxis(
+      stops = color_stops(n = 100, colors = paleta_colores(30)),
+      startOnTick = TRUE,
+      min = 0,
+      endOnTick =  FALSE
+    ) %>%
+    hc_legend(symbolWidth = 400, align = "center", verticalAlign = "top") %>% 
     hc_elementId("hc_mapa_region") 
   
   hcm$x$fonts <- ""
@@ -870,7 +877,9 @@ tabla_region2 <- function() {
     sortable = TRUE, 
     highlight = TRUE,
     
-    onClick = JS("function(rowInfo, colInfo) { myFunction(PARS.region_ids[rowInfo.index]);}"),
+    onClick = JS("function(rowInfo, colInfo) {
+                    myFunction(rowInfo.index, colInfo.id);
+                }"),
     
     defaultColDef = colDef(
       format = colFormat(digits = 0, separators = TRUE, locales = "es-CL")

@@ -116,6 +116,7 @@ Column {data-width=900}
 ### 
 
 <script src="geojson/regiones_geojson.js"></script>
+<script src="data/data_comunas.js"></script>
 
 ```{r una_de_dos}
 # tabla_region()
@@ -142,7 +143,13 @@ PARS = `r jsonlite::toJSON(PARS)`
 </script>
 
 ```{js reactable}
-function myFunction(id) {
+function myFunction(id, col) {
+
+
+  var id = PARS.region_ids[id];
+
+  //id region
+  //col colname
 
   var hc_mapar = $('#hc_mapa_region').highcharts();
   var hc_falle = $('#hc_fallecimientos_region').highcharts();
@@ -153,7 +160,23 @@ function myFunction(id) {
   
   if(id != hc_mapar.get('region').options.region) {
     hc_mapar.get('region').remove();
-    hc_mapar.addSeries({id: 'region', mapData: Highcharts.maps[id], region: id});
+    hc_mapar.addSeries({
+      id: 'region',
+      region: id,
+      mapData: Highcharts.maps[id],
+      data: data_comunas[id][col],
+      name: col,
+      joinBy: ['codigo_comuna','codigo_comuna']
+      });
+  } else {
+    hc_mapar.get('region').update({
+      data: data_comunas[id][col],
+      name: col,
+      joinBy: ['codigo_comuna','codigo_comuna']
+      });
+  
+  
+  
   }
 
   for (var i = 0; i <= (16 - 1); i++) {

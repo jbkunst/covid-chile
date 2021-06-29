@@ -477,7 +477,7 @@ get_data_consolidado_region_comuna_fecha <- function(){
   d %>% filter(!complete.cases(.))
   
   d %>% filter(comuna == "Pica") %>% filter(complete.cases(.))
-  
+
   d
   
 }
@@ -485,6 +485,35 @@ get_data_consolidado_region_comuna_fecha <- function(){
 get_data_consolidado_region_fecha <- function() {
   
   d <- get_data_consolidado_region_comuna_fecha()
+  
+  message("Exportando regiones_comuna_last_fecha.json")
+  djson <- d %>%
+    filter(dia == max(dia)) %>% 
+    select(-dia)
+  
+  djson <- djson %>% 
+    mutate(
+      region_idn = as.numeric(region_to_factor(region)),
+      region_id = str_make_id(region_to_factor(region)),
+      codigo_comuna = str_pad(codigo_comuna, width = 5, pad = "0")
+      ) %>% 
+    select(-region, -comuna, -codigo_region) %>% 
+    gather(key, value, -region_id, -region_idn, -codigo_comuna) %>% 
+    group_by(region_idn, region_id, key) %>% 
+    nest() %>% 
+    mutate(data = map(data, list_parse)) %>% 
+    ungroup() %>% 
+    arrange(region_idn, region_id, key) %>% 
+    group_by(region_idn, region_id) %>% 
+    summarise(d = list(set_names(data, key)), .groups = "drop") %>% 
+    ungroup() %>% 
+    select(-region_idn) %>% 
+    deframe()
+  
+  jsonlines <- RJSONIO::toJSON(djson, pretty = TRUE) 
+  write_lines(jsonlines, "data/data_comunas.json")
+  jsonlines <- str_c("var data_comunas = ", jsonlines, ";")
+  write_lines(jsonlines, "data/data_comunas.js")
   
   d <- d %>% 
     select(-comuna, -codigo_comuna) %>% 
