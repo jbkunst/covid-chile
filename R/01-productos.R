@@ -10,7 +10,7 @@ get_data_producto_1 <- function(){
       `Codigo comuna` = col_character()
     )
   )
-  
+
   d
   
 }
@@ -174,6 +174,31 @@ get_data_producto_19 <- function(){
   
 }
 
+get_data_producto_25 <- function(){
+  
+  d <- read_csv(
+    "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto25/CasosActualesPorComuna.csv",
+    col_types = cols(
+      Region = col_character(),
+      Comuna = col_character(),
+      .default = col_double()
+    )
+  )
+  
+  d <- d %>% 
+    filter(!Comuna %in% c("Total")) %>% 
+    filter(!str_detect(Comuna, "Desconocido")) %>% 
+    gather(dia, casos_activos,-Region, -Comuna, -Poblacion, -`Codigo region`, -`Codigo comuna`) %>% 
+    janitor::clean_names() %>% 
+    mutate(
+      dia = ymd(dia),
+      casos_activos = as.numeric(casos_activos)
+    )
+  
+  d
+  
+}
+
 get_data_producto_32 <- function(){
   
   d <- read_csv(
@@ -200,6 +225,31 @@ get_data_producto_32 <- function(){
   
 }
 
+get_data_producto_38 <- function(){
+  
+  d <- read_csv(
+    "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto38/CasosFallecidosPorComuna.csv",
+    col_types = cols(
+      Region = col_character(),
+      Comuna = col_character(),
+      .default = col_double()
+    )
+  )
+  
+  d <- d %>% 
+    filter(!Comuna %in% c("Total")) %>% 
+    filter(!str_detect(Comuna, "Desconocido")) %>% 
+    gather(dia, nro_fallecidos,-Region, -Comuna, -Poblacion, -`Codigo region`, -`Codigo comuna`) %>% 
+    janitor::clean_names() %>% 
+    mutate(
+      dia = ymd(dia),
+      nro_fallecidos = as.numeric(nro_fallecidos)
+    )
+  
+  d
+  
+}
+
 get_data_producto_65 <- function(){
   
   d <- read_csv(
@@ -220,6 +270,29 @@ get_data_producto_65 <- function(){
     ) %>% 
     group_by(Region, dia) %>% 
     summarise(positividad = weighted.mean(positividad, Poblacion, na.rm = TRUE)) %>% 
+    janitor::clean_names() 
+  
+  d 
+}
+
+get_data_producto_65_comuna <- function(){
+  
+  d <- read_csv(
+    "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto65/PositividadPorComuna.csv",
+    col_types = cols(
+      .default = col_double(),
+      Region = col_character(),
+      Comuna = col_character()
+    )
+  )
+  
+  d
+  
+  d <- d %>% 
+    gather(dia, positividad, -Region, -`Codigo region`, -Comuna, -`Codigo comuna`, -Poblacion) %>% 
+    mutate(
+      dia = ymd(dia)
+    ) %>% 
     janitor::clean_names() 
   
   d 
@@ -444,4 +517,18 @@ get_data_consolidado_region <- function(){
   d
   
 }
+
+get_data_consolidado_region_comuna_fecha <- function(){ 
+  
+  dcasos <- get_data_producto_25()
+  dfallecidos <- get_data_producto_38() %>% select(-poblacion)
+    
+  d <- list(
+    dcasos,
+    dfallecidos
+  ) %>%
+    reduce(left_join, by = c("region", "codigo_region", "comuna", "codigo_comuna", "dia")) 
+  
+}
+
 
