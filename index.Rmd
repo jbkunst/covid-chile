@@ -1,5 +1,6 @@
 ---
 title: "Covid-Chile"
+author: "`r invisible((Sys.setlocale('LC_TIME', 'Spanish'))); format(Sys.Date(), '%d %B %Y')`"
 output: 
   flexdashboard::flex_dashboard:
     self_contained: false
@@ -105,6 +106,81 @@ grafico_pacientes_uci()
 ```{r}
 ```
 
+Region {data-icon="fa-map-marked-alt" data-orientation=columns}
+=====================================  
+
+Column {data-width=900}
+-----------------------------------------------------------------------
+
+### 
+
+<script src="geojson/regiones_geojson.js"></script>
+
+```{r una_de_dos}
+# tabla_region()
+tabla_region2()
+```
+
+Column
+-----------------------------------------------------------------------
+
+### 
+
+```{r}
+grafico_region()
+```
+ 
+### 
+
+```{r}
+grafico_defunciones_por_region_100k_hab()
+```
+
+<script>
+PARS = `r jsonlite::toJSON(PARS)`
+</script>
+
+```{js reactable}
+function myFunction(id) {
+
+  var hc_mapar = $('#hc_mapa_region').highcharts();
+  var hc_falle = $('#hc_fallecimientos_region').highcharts();
+  //var hc_act7m = $('#hc_activos_media_movil_7_dias_region').highcharts();
+
+  //hc_mapar.get('region').update({ mapData: Highcharts.maps[id] });
+  // while (hc_mapar.series.length) { hc_mapar.series[0].remove(); }
+  
+  if(id != hc_mapar.get('region').options.region) {
+    hc_mapar.get('region').remove();
+    hc_mapar.addSeries({id: 'region', mapData: Highcharts.maps[id], region: id});
+  }
+
+  for (var i = 0; i <= (16 - 1); i++) {
+    hc_falle.series[i].update({color: PARS.colors.gray[0], lineWidth: 1, zIndex: 0});
+    //hc_act7m.series[i].update({color: PARS.colors.gray[0], lineWidth: 1, zIndex: 0});
+  }
+  
+  hc_falle.get(id).update({color: PARS.colors.primary[0], lineWidth: 4, zIndex: 1});
+  //hc_act7m.get(id).update({color: PARS.colors.primary[0], lineWidth: 4, zIndex: 1});
+
+}
+```
+
+```{js DT, eval=FALSE}  
+document.addEventListener('DOMContentLoaded', function() {
+
+  var table = $('#DataTables_Table_0').DataTable()
+  
+  $('#tabla_region tbody').on('mouseover', 'tr', function () {
+  
+    var d = table.row( this ).data();
+    var idn = d[1]
+    myFunction(idn);
+    
+  });
+    
+}, false);
+```
 
 Vacunación {data-icon="fa-syringe"}
 =====================================  
@@ -121,7 +197,6 @@ grafico_porcentaje_vacunacion_edad()
 ### 
 
 ```{r}
-grafico_porcentaje_vacunacion_edad_fecha()
 ```
 
 Row 
@@ -130,11 +205,7 @@ Row
 ### 
 
 ```{r}
-```
-
-### 
-
-```{r}
+grafico_porcentaje_vacunacion_edad_fecha()
 ```
 
 Mortalidad {data-icon="fa-ribbon"}
@@ -169,95 +240,6 @@ grafico_defunciones_esperadas_arima()
 ```{r}
 grafico_defunciones_semanales_pandemia()
 ```
-
-Region {data-icon="fa-map-marked-alt" data-orientation=columns}
-=====================================  
-
-Column {data-width=900}
------------------------------------------------------------------------
-
-### 
-
-<script src="geojson/regiones_geojson.js"></script>
-
-```{r una_de_dos}
-# tabla_region()
-tabla_region2()
-```
-
-
-Column
------------------------------------------------------------------------
-
-### 
-
-```{r}
-grafico_region()
-```
- 
-### 
-
-```{r}
-grafico_defunciones_por_region_100k_hab()
-```
-
-### 
-
-```{r}
-grafico_activos_media_movil_7_dias_por_region_100k_hab()
-```
-
-
-<script>
-PARS = `r jsonlite::toJSON(PARS)`
-</script>
-
-```{js reactable}
-function myFunction(id) {
-
-  var hc_mapar = $('#hc_mapa_region').highcharts();
-  var hc_falle = $('#hc_fallecimientos_region').highcharts();
-  var hc_act7m = $('#hc_activos_media_movil_7_dias_region').highcharts();
-
-  //hc_mapar.get('region').update({ mapData: Highcharts.maps[id] });
-  // while (hc_mapar.series.length) { hc_mapar.series[0].remove(); }
-  
-  
-  
-  if(id != hc_mapar.get('region').options.region) {
-    hc_mapar.get('region').remove();
-    hc_mapar.addSeries({id: 'region', mapData: Highcharts.maps[id], region: id});
-  }
-  
-  
-
-  for (var i = 0; i <= (16 - 1); i++) {
-    hc_falle.series[i].update({color: PARS.colors.gray[0], lineWidth: 1, zIndex: 0});
-    hc_act7m.series[i].update({color: PARS.colors.gray[0], lineWidth: 1, zIndex: 0});
-  }
-  
-  hc_falle.get(id).update({color: PARS.colors.primary[0], lineWidth: 4, zIndex: 1});
-  hc_act7m.get(id).update({color: PARS.colors.primary[0], lineWidth: 4, zIndex: 1});
-
-}
-```
-
-```{js DT, eval=FALSE}  
-document.addEventListener('DOMContentLoaded', function() {
-
-  var table = $('#DataTables_Table_0').DataTable()
-  
-  $('#tabla_region tbody').on('mouseover', 'tr', function () {
-  
-    var d = table.row( this ).data();
-    var idn = d[1]
-    myFunction(idn);
-    
-  });
-    
-}, false);
-```
-
 
 Acerca {data-icon="fa-question-circle"}
 =====================================  

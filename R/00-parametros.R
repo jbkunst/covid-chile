@@ -42,8 +42,18 @@ Sys.setlocale("LC_ALL", "Spanish_Spain.1252")
 
 newlang_opts <- getOption("highcharter.lang")
 
-newlang_opts$thousandsSep <- "."
-newlang_opts$decimalPoint <- ","
+newlang_opts$thousandsSep   <- "."
+newlang_opts$decimalPoint   <- ","
+newlang_opts$resetZoom      <- "Resetear zoom"
+newlang_opts$downloadCSV    <- "Descargar CSV"
+newlang_opts$downloadJPEG   <- "Descargar JPEG"
+newlang_opts$downloadPDF    <- "Descargar PDF"
+newlang_opts$downloadPNG    <- "Descargar PNG"
+newlang_opts$downloadSVG    <- "Descargar SVG"
+newlang_opts$downloadXLS    <- "Descargar XLS"
+newlang_opts$printChart     <- "Imprimir gráfico"
+newlang_opts$viewFullscreen <- "Ver pantalla completa"
+
 newlang_opts$weekdays     <- c("domingo", "lunes", "martes", "miércoles", 
                                "jueves", "viernes", "sábado")
 newlang_opts$months       <- c("enero", "febrero", "marzo", "abril", "mayo",

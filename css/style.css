@@ -14,7 +14,9 @@ h1, h2, h3, h4, h5, h6, .navbar-brand, .inner > .value, .navbar-inverse {
   border-color: #CCC;
 }
 
-.navbar-inverse .navbar-brand {
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
   color: #666666;
 }
 
@@ -42,11 +44,28 @@ h1, h2, h3, h4, h5, h6, .navbar-brand, .inner > .value, .navbar-inverse {
 
 
 /* react-table */
+/* remueve bordes */
+.rt-td {
+  /* border-top: 1px solid #f2f2f2; */
+  border-top: none;
+}
+
+.rt-tr-group {
+  border-top: 1px solid #f2f2f2;
+}
+
+.rt-th {
+  /* border-bottom: 2px solid #e6e6e6; */
+  border-bottom: none;
+} 
+
+/* remueve intenta usar todo el espacio vertical */
 .rt-tbody {
   cursor: pointer;
   height: 90%;
 }
 
+/* centra items verticalmente */
 .rt-tr {
   align-items: center;
 }
