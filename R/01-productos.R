@@ -464,7 +464,8 @@ get_data_consolidado_region_comuna_fecha <- function(){
     select(-poblacion) %>% 
     arrange(dia) %>% 
     group_by(region, codigo_region, comuna, codigo_comuna) %>% 
-    mutate(nro_fallecidos_ultimo = nro_fallecidos - lag(nro_fallecidos))
+    mutate(nro_fallecidos_ultimo = nro_fallecidos - lag(nro_fallecidos)) %>% 
+    rename(nro_fallecidos_totales = nro_fallecidos)
   
   dfallecidos %>% filter(comuna == "Santiago") %>% tail()
   
@@ -497,8 +498,8 @@ get_data_consolidado_region_fecha <- function() {
       region_id = str_make_id(region_to_factor(region)),
       codigo_comuna = str_pad(codigo_comuna, width = 5, pad = "0")
       ) %>% 
-    select(-region, -comuna, -codigo_region) %>% 
-    gather(key, value, -region_id, -region_idn, -codigo_comuna) %>% 
+    select(-region, -codigo_region) %>% 
+    gather(key, value, -region_id, -region_idn, -codigo_comuna, -comuna) %>% 
     group_by(region_idn, region_id, key) %>% 
     nest() %>% 
     mutate(data = map(data, list_parse)) %>% 

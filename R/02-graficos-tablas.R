@@ -454,23 +454,23 @@ grafico_defunciones_esperadas_arima <- function(){
       name = "Intervalo 95% confianza"
     ) %>% 
     hc_add_series(
-      dnormal %>% filter(anio %in% 2019) %>% select(x = fecha, y = nro_fallecidos),
+      dnormal %>% filter(anio %in% 2019:2018) %>% select(x = fecha, y = nro_fallecidos),
       "line",
       hcaes(x, y),
-      name = "Fallecimientos semanales 2019",
+      name = "Fallecimientos semanales 2018-2019",
       showInLegend = TRUE,
       visible = FALSE,
       color = PARS$colors$gray
       ) %>% 
-    hc_add_series(
-      dnormal %>% filter(anio %in% 2010:2018) %>% select(x = fecha, y = nro_fallecidos),
-      "line",
-      hcaes(x, y),
-      name = "Fallecimientos semanales 2010-2018",
-      showInLegend = TRUE,
-      visible = FALSE,
-      color = PARS$colors$gray
-    ) %>% 
+    # hc_add_series(
+    #   dnormal %>% filter(anio %in% 2010:2018) %>% select(x = fecha, y = nro_fallecidos),
+    #   "line",
+    #   hcaes(x, y),
+    #   name = "Fallecimientos semanales 2010-2018",
+    #   showInLegend = TRUE,
+    #   visible = FALSE,
+    #   color = PARS$colors$gray
+    # ) %>% 
     hc_tooltip(shared = TRUE, valueDecimals = 0) %>% 
     hc_yAxis(title = list(text = "Número de fallecidos"), min = 0, endOndTick = FALSE) %>%
     hc_xAxis(title = list(text = "Fecha")) %>% 
@@ -762,16 +762,16 @@ grafico_region <- function(){
   
   # ruta_geojson <- dir("geojson", full.names = TRUE, pattern = "\\.json") %>% 
   #   sample(size = 1)
-  # 
   # gjson <- jsonlite::fromJSON(ruta_geojson)
-  # 
   # gjson <- geojsonio::as.json(gjson)
   
   hcm <- highchart(type = "map") %>%
+    hc_chart(map = JS("Highcharts.maps['tarapaca']")) %>% 
     hc_add_series(
       id = "region",
-      mapData = JS("Highcharts.maps['tarapaca']"),
-      region = 'tarapaca'
+      region = 'tarapaca',
+      name = "Casos activos",
+      data = JS("data_comunas['tarapaca']['casos_activos']")
       ) %>% 
     hc_colorAxis(
       stops = color_stops(n = 100, colors = paleta_colores(30)),
@@ -779,8 +779,24 @@ grafico_region <- function(){
       min = 0,
       endOnTick =  FALSE
     ) %>%
+    hc_plotOptions(
+      map = list(
+        joinBy = c("codigo_comuna", "codigo_comuna"),
+        borderColor = "#D3D3D3",
+        borderWidth = 0.3,
+        animation = list(duration = 250),
+        tooltip = list(pointFormat = "<b>{point.comuna}</b>: {point.value}"),
+        dataLabels = list(
+          enabled = TRUE, 
+          format = "{point.comuna}",
+          color =  "white",
+          style = list(fontSize = "12px", textOutline = "2px gray", fontWeight = "normal")
+          )
+        )
+      ) %>% 
     hc_legend(symbolWidth = 400, align = "center", verticalAlign = "top") %>% 
-    hc_elementId("hc_mapa_region") 
+    hc_elementId("hc_mapa_region") %>% 
+    hc_responsive()
   
   hcm$x$fonts <- ""
   

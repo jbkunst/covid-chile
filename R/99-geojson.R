@@ -22,14 +22,17 @@ d <- read_csv(
 d <- d %>% 
   select(1:4) %>% 
   janitor::clean_names() %>% 
+  mutate(codigo_comuna = str_pad(codigo_comuna, width = 5, pad = "0")) %>% 
   mutate(id_region = str_make_id(region), .before = 1)
+
+d
 
 dr <- d %>% 
   distinct(id_region, region, codigo_region)
 
 dr
 
-walk(regiones, function(r = 12) {
+walk(regiones, function(r = 6) {
 
   message(r)
     
@@ -39,6 +42,9 @@ walk(regiones, function(r = 12) {
   )
   
   gjson <- jsonlite::fromJSON(fl)
+  
+  gjson$features$properties <- gjson$features$properties %>% 
+    left_join(d %>% select(codigo_comuna, comuna), by = "codigo_comuna")
   
   if(r == 5) {
     
@@ -53,6 +59,8 @@ walk(regiones, function(r = 12) {
   }
   
   geojson <- geojsonio::as.json(gjson)
+  
+  geojson
   
   hc <- highchart(type = "map") %>%
     hc_add_series(mapData = geojson)

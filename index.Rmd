@@ -145,47 +145,48 @@ PARS = `r jsonlite::toJSON(PARS)`
 ```{js reactable}
 function myFunction(id, col) {
 
-
   var id = PARS.region_ids[id];
+  
+  console.log('region: ' + id);
+  console.log('variable: ' + col);
 
   //id region
   //col colname
 
   var hc_mapar = $('#hc_mapa_region').highcharts();
   var hc_falle = $('#hc_fallecimientos_region').highcharts();
-  //var hc_act7m = $('#hc_activos_media_movil_7_dias_region').highcharts();
 
   //hc_mapar.get('region').update({ mapData: Highcharts.maps[id] });
   // while (hc_mapar.series.length) { hc_mapar.series[0].remove(); }
   
   if(id != hc_mapar.get('region').options.region) {
+  
+    console.log('remuevo serie, agrego nueva data');
+    
     hc_mapar.get('region').remove();
+    
+    hc_mapar.update({ chart: {  map: Highcharts.maps[id] }});
+    
     hc_mapar.addSeries({
       id: 'region',
       region: id,
-      mapData: Highcharts.maps[id],
       data: data_comunas[id][col],
-      name: col,
-      joinBy: ['codigo_comuna','codigo_comuna']
+      name: col
       });
+      
   } else {
-    hc_mapar.get('region').update({
-      data: data_comunas[id][col],
-      name: col,
-      joinBy: ['codigo_comuna','codigo_comuna']
-      });
   
+    console.log('actualizo data');
   
+    hc_mapar.get('region').update({ data: data_comunas[id][col], name: col});
   
   }
 
   for (var i = 0; i <= (16 - 1); i++) {
     hc_falle.series[i].update({color: PARS.colors.gray[0], lineWidth: 1, zIndex: 0});
-    //hc_act7m.series[i].update({color: PARS.colors.gray[0], lineWidth: 1, zIndex: 0});
   }
   
   hc_falle.get(id).update({color: PARS.colors.primary[0], lineWidth: 4, zIndex: 1});
-  //hc_act7m.get(id).update({color: PARS.colors.primary[0], lineWidth: 4, zIndex: 1});
 
 }
 ```
