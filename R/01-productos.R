@@ -487,7 +487,7 @@ get_data_consolidado_region_fecha <- function() {
   
   d <- get_data_consolidado_region_comuna_fecha()
   
-  message("Exportando regiones_comuna_last_fecha.json")
+  message("Generando/exportando data_comunas.js")
   djson <- d %>%
     filter(dia == max(dia)) %>% 
     select(-dia)
@@ -521,6 +521,43 @@ get_data_consolidado_region_fecha <- function() {
     group_by(region, codigo_region, dia) %>% 
     summarise_all(sum, na.rm = TRUE) %>% 
     ungroup()
+  
+  message("Generando/exportando data_regiones.js")
+  djson <- d %>% 
+    # las siguientes lineas reducen los datos se forma semanal
+    group_by(region) %>% 
+    # filter(wday(dia) == 2 | row_number() == dplyr::n()) %>% 
+    # slice_tail(n = 10) %>% 
+    ungroup() %>% 
+    mutate(
+      region_idn = as.numeric(region_to_factor(region)),
+      region_id = str_make_id(region_to_factor(region))
+    ) %>% 
+    select(-codigo_region) %>% 
+    gather(key, value, -region_id, -region_idn, -poblacion, -dia, -region) %>% 
+    mutate(dia = datetime_to_timestamp(dia)) %>% 
+    mutate(value = round(100000 * value/poblacion)) %>% 
+    select(-poblacion) %>% 
+    rename(x = dia, y = value) %>% 
+    group_by(key, region, region_idn, region_id) %>% 
+    nest() %>% 
+    mutate(data = map(data, list_parse)) %>% 
+    ungroup() %>% 
+    arrange(region_idn, region_id) %>% 
+    mutate(
+      series = map(data, ~list()),
+      series = map2(region,    series, function(nm,  s){ s$name <- nm;  s}),
+      series = map2(region_id, series, function(id,  s){ s$id   <- id;  s}),
+      series = map2(data,      series, function(dat, s){ s$data <- dat; s})
+      ) %>% 
+    group_by(key) %>% 
+    summarise(data = list(series)) %>% 
+    deframe()
+  
+  jsonlines <- RJSONIO::toJSON(djson, pretty = TRUE) 
+  write_lines(jsonlines, "data/data_regiones.json")
+  jsonlines <- str_c("var data_regiones = ", jsonlines, ";")
+  write_lines(jsonlines, "data/data_regiones.js")
   
   d
   

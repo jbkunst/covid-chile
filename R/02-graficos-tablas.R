@@ -635,85 +635,6 @@ grafico_defunciones_por_edad <- function(){
   
 }
 
-grafico_defunciones_por_region_100k_hab <- function(){
-  
-  dpoblacion <- get_data_producto_1()
-  
-  dpoblacion <- dpoblacion %>% 
-    group_by(region = Region) %>% 
-    summarise(poblacion_total = sum(Poblacion, na.rm = TRUE))
-  
-  d <- get_data_producto_14()
-  
-  d <- d %>% 
-    left_join(dpoblacion, by = "region") %>% 
-    mutate(fallecimientos = round(100000 * fallecimientos / poblacion_total)) 
-  
-  d <- d %>% 
-    group_by(region) %>% 
-    filter(wday(dia) == 2 | row_number() == dplyr::n())
-   
-  d <- d %>% 
-    ungroup() %>% 
-    mutate(region = factor(region, levels = PARS$region_levels))
-  
-  d %>% count(region)
-  
-  hchart(
-    d %>% select(x = dia, y = fallecimientos, group = region),
-    hcaes(x, y, group = group),
-    type = "line",
-    showInLegend = FALSE,
-    lineWidth = 1,
-    color = PARS$colors$gray,
-    id = PARS$region_ids
-  ) %>% 
-    hc_elementId("hc_fallecimientos_region") %>% 
-    hc_yAxis(endOnTick = FALSE)
-
-}
-
-grafico_activos_media_movil_7_dias_por_region_100k_hab <- function(){
-  
-  dpoblacion <- get_data_producto_1()
-  
-  dpoblacion <- dpoblacion %>% 
-    group_by(region = Region) %>% 
-    summarise(poblacion_total = sum(Poblacion, na.rm = TRUE))
-  
-  d <- get_data_producto_75()
-  
-  d <- d %>%
-    select(-casos_media_movil_7_dias) %>% 
-    filter(!str_detect(region, "Total")) %>% 
-    filter(!is.na(activos_media_movil_7_dias)) %>% 
-    left_join(dpoblacion, by = "region") %>% 
-    mutate(activos_media_movil_7_dias = round(100000 * activos_media_movil_7_dias / poblacion_total)) 
-  
-  d <- d %>% 
-    group_by(region) %>% 
-    filter(wday(dia) == 2 | row_number() == dplyr::n())
-  
-  d <- d %>% 
-    ungroup() %>% 
-    mutate(region = factor(region, levels = PARS$region_levels))
-  
-  d %>% count(region)
-  
-  hchart(
-    d %>% select(x = dia, y = activos_media_movil_7_dias, group = region),
-    hcaes(x, y, group = group),
-    type = "line",
-    showInLegend = FALSE,
-    lineWidth = 1,
-    color = PARS$colors$gray,
-    id = PARS$region_ids
-  ) %>% 
-    hc_elementId("hc_activos_media_movil_7_dias_region") %>% 
-    hc_yAxis(endOnTick = FALSE)
-  
-}
-
 grafico_activos_media_movil_7_dias <- function(){
   
   d <- get_data_producto_75()
@@ -757,8 +678,43 @@ grafico_activos_media_movil_7_dias <- function(){
     )
   
 }
- 
-grafico_region <- function(){
+
+grafico_region_linea <- function(){
+  
+  hc <- highchart() %>% 
+    hc_chart(variable = "casos_activos", region = "") %>% 
+    hc_plotOptions(
+      line = list(
+        cursor = "pointer",
+        showInLegend = FALSE,
+        lineWidth = 1,
+        color = PARS$colors$gray,
+        events = list(
+          click = JS("function(){
+                        console.log('HC');
+                        console.log('region ' + this.options.id);
+                        console.log('col ' + this.chart.options.chart.variable);
+                        myFunction('' + this.options.id, this.chart.options.chart.variable);
+                        
+                     }")
+          )
+        )
+    ) %>% 
+    hc_xAxis(type = "datetime") %>% 
+    hc_elementId("hc_linea_region") %>% 
+    hc_yAxis(endOnTick = FALSE)
+  
+  d <- jsonlite::read_json("data/data_regiones.json")
+  
+  # d$casos_activos
+  
+  hc$x$hc_opts$series <- d$casos_activos
+  
+  hc
+  
+}
+
+grafico_region_mapa <- function(){
   
   # ruta_geojson <- dir("geojson", full.names = TRUE, pattern = "\\.json") %>% 
   #   sample(size = 1)
@@ -851,7 +807,7 @@ tabla_region2 <- function() {
   
   d <- get_data_consolidado_region()
   
-  d <- d %>% select(-id0, -id_region, -codigo_region) 
+  d <- d %>% select(-id0, -codigo_region) 
   
   d <- d %>% relocate(poblacion, .after = last_col())
   
@@ -894,7 +850,7 @@ tabla_region2 <- function() {
     highlight = TRUE,
     
     onClick = JS("function(rowInfo, colInfo) {
-                    myFunction(rowInfo.index, colInfo.id);
+                    myFunction(rowInfo.row.id_region, colInfo.id);
                 }"),
     
     defaultColDef = colDef(
@@ -902,6 +858,9 @@ tabla_region2 <- function() {
     ),
     
     columns = list(
+      id_region = colDef(
+        show = FALSE
+      ),
       nro_fallecidos  = colDef(
         # name = "Fallecimientos",
         header = with_tooltip("Fallecimientos", "Fallecimientos registrados desde 22 Marzo 2020"),

@@ -117,9 +117,10 @@ Column {data-width=900}
 
 <script src="geojson/regiones_geojson.js"></script>
 <script src="data/data_comunas.js"></script>
+<script src="data/data_regiones.js"></script>
+<script>PARS = `r jsonlite::toJSON(PARS)`</script>
 
 ```{r una_de_dos}
-# tabla_region()
 tabla_region2()
 ```
 
@@ -129,39 +130,34 @@ Column
 ### 
 
 ```{r}
-grafico_region()
+grafico_region_mapa()
 ```
  
 ### 
 
 ```{r}
-grafico_defunciones_por_region_100k_hab()
+grafico_region_linea()
 ```
-
-<script>
-PARS = `r jsonlite::toJSON(PARS)`
-</script>
 
 ```{js reactable}
 function myFunction(id, col) {
 
-  var id = PARS.region_ids[id];
+  // var id = PARS.region_ids[id];
   
   console.log('region: ' + id);
   console.log('variable: ' + col);
 
-  //id region
-  //col colname
+  //id region  //col colname
 
   var hc_mapar = $('#hc_mapa_region').highcharts();
-  var hc_falle = $('#hc_fallecimientos_region').highcharts();
+  var hc_liner = $('#hc_linea_region').highcharts();
 
   //hc_mapar.get('region').update({ mapData: Highcharts.maps[id] });
   // while (hc_mapar.series.length) { hc_mapar.series[0].remove(); }
   
   if(id != hc_mapar.get('region').options.region) {
   
-    console.log('remuevo serie, agrego nueva data');
+    console.log('MAPA:"remuevo serie, agrego nueva data');
     
     hc_mapar.get('region').remove();
     
@@ -176,17 +172,48 @@ function myFunction(id, col) {
       
   } else {
   
-    console.log('actualizo data');
+    console.log('MAPA: actualizo data');
   
     hc_mapar.get('region').update({ data: data_comunas[id][col], name: col});
   
   }
-
-  for (var i = 0; i <= (16 - 1); i++) {
-    hc_falle.series[i].update({color: PARS.colors.gray[0], lineWidth: 1, zIndex: 0});
+  
+  if(hc_liner.options.chart.variable != col) {
+    
+    console.log('Lineas: actualizo data');
+    
+    hc_liner.update({
+      chart: { variable: col },
+      series: data_regiones[col]
+    }, false);
+  
   }
   
-  hc_falle.get(id).update({color: PARS.colors.primary[0], lineWidth: 4, zIndex: 1});
+  if(hc_liner.options.chart.region != id) {
+  
+    console.log('Lineas: cambio color');
+    
+    for (var i = 0; i <= (16 - 1); i++) {
+      hc_liner.series[i].update({
+        color: PARS.colors.gray[0],
+        lineWidth: 1,
+        zIndex: 0,
+        showInLegend: false
+      });
+    }
+    
+    hc_liner.get(id).update({
+      color: PARS.colors.primary[0],
+      lineWidth: 4,
+      zIndex: 1,
+      showInLegend: true
+    }, false);
+    
+    hc_liner.update({ chart: { region: id }}, false); 
+  
+  }
+  
+  hc_liner.redraw();
 
 }
 ```
