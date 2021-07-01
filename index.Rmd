@@ -160,12 +160,7 @@ function myFunction(id, col) {
     
     hc_mapar.update({ chart: {  map: Highcharts.maps[id] }});
     
-    hc_mapar.addSeries({
-      id: 'region',
-      region: id,
-      data: data_comunas[id][col],
-      name: col
-      });
+    hc_mapar.addSeries({ id: 'region', region: id, data: data_comunas[id][col], name: col });
       
   } else {
   
@@ -179,10 +174,7 @@ function myFunction(id, col) {
     
     console.log('Lineas: actualizo data');
     
-    hc_liner.update({
-      chart: { variable: col },
-      series: data_regiones[col]
-    }, false);
+    hc_liner.update({ chart: { variable: col }, series: data_regiones[col] }, false);
   
   }
   
@@ -191,20 +183,10 @@ function myFunction(id, col) {
     console.log('Lineas: cambio color');
     
     for (var i = 0; i <= (16 - 1); i++) {
-      hc_liner.series[i].update({
-        color: PARS.colors.gray[0],
-        lineWidth: 1,
-        zIndex: 0,
-        showInLegend: false
-      });
+      hc_liner.series[i].update({ color: PARS.colors.gray[0], lineWidth: 1, zIndex: 0, showInLegend: false});
     }
     
-    hc_liner.get(id).update({
-      color: PARS.colors.primary[0],
-      lineWidth: 4,
-      zIndex: 1,
-      showInLegend: true
-    }, false);
+    hc_liner.get(id).update({ color: PARS.colors.primary[0], lineWidth: 4, zIndex: 1, showInLegend: true }, false);
     
     hc_liner.update({ chart: { region: id }}, false); 
   
