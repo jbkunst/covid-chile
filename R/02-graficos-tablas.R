@@ -690,6 +690,7 @@ grafico_region_linea <- function(){
         lineWidth = 1,
         color = PARS$colors$gray,
         events = list(
+          legendItemClick = JS("function(event) { event.preventDefault();} "),
           click = JS("function(){
                         console.log('HC');
                         console.log('region ' + this.options.id);
@@ -761,49 +762,6 @@ grafico_region_mapa <- function(){
 }
 
 tabla_region <- function() {
-  
-  d <- get_data_consolidado_region()
-  
-  id_num <- d %>%
-    map_lgl(is.numeric) %>% 
-    which(1:length(.)) %>% 
-    as.vector()
-  
-  DT::datatable(
-    d, 
-    elementId = "tabla_region",
-    options = list(
-      searching = FALSE,
-      bPaginate = FALSE,
-      bInfo = FALSE,
-      columnDefs = list(
-        list(visible = FALSE, targets = 0:1)
-      )
-      # initComplete = JS(
-      #   "function(settings, json) {",
-      #   "$('td').css({'cursor': 'pointer'});",
-      #   "$('th').css({'cursor': 'pointer'});",
-      # "$(this.api().tables().header()).css({'font-family': 'Alegreya Sans SC', sans-serif'});",
-      #   "$(this.api().tables().body()).css({'font-size': '0.7em'});",
-      #   "}")
-    ),
-    rownames = FALSE,
-    selection = "single",
-    extensions = "Responsive",
-    callback =   JS("table.on('mouseover', 'td', function() {
-      
-
-      
-      
-      });"),
-  ) 
-  
-  
-  
-  
-}
-
-tabla_region2 <- function() {
   
   d <- get_data_consolidado_region()
   

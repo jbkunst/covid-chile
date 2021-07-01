@@ -121,7 +121,7 @@ Column {data-width=900}
 <script>PARS = `r jsonlite::toJSON(PARS)`</script>
 
 ```{r una_de_dos}
-tabla_region2()
+tabla_region()
 ```
 
 Column
@@ -152,9 +152,6 @@ function myFunction(id, col) {
   var hc_mapar = $('#hc_mapa_region').highcharts();
   var hc_liner = $('#hc_linea_region').highcharts();
 
-  //hc_mapar.get('region').update({ mapData: Highcharts.maps[id] });
-  // while (hc_mapar.series.length) { hc_mapar.series[0].remove(); }
-  
   if(id != hc_mapar.get('region').options.region) {
   
     console.log('MAPA:"remuevo serie, agrego nueva data');
@@ -216,22 +213,6 @@ function myFunction(id, col) {
   hc_liner.redraw();
 
 }
-```
-
-```{js DT, eval=FALSE}  
-document.addEventListener('DOMContentLoaded', function() {
-
-  var table = $('#DataTables_Table_0').DataTable()
-  
-  $('#tabla_region tbody').on('mouseover', 'tr', function () {
-  
-    var d = table.row( this ).data();
-    var idn = d[1]
-    myFunction(idn);
-    
-  });
-    
-}, false);
 ```
 
 Vacunación {data-icon="fa-syringe"}
