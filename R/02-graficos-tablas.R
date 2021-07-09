@@ -478,61 +478,42 @@ grafico_defunciones_esperadas_arima <- function(){
   
 }
 
-grafico_defunciones_semanales_pandemia <- function(){
+grafico_defunciones_mensuales_pandemia <- function(){
   
-  d <- get_data_producto_32()
-  
-  d %>% count(region)
-  
+  d <- get_data_producto_10() 
+   
   d <- d %>% 
-    filter(dia >= ymd(20200401)) %>% 
-    mutate(group = ifelse(region == "Metropolitana de Santiago", "RM", "Regiones")) %>% 
-    group_by(group, anio, nro_semana) %>% 
-    summarise(
-      nro_fallecidos = sum(nro_fallecidos), 
-      dias = n_distinct(dia),
-      .groups = "drop"
+    group_by(dia) %>% 
+    summarise(fallecimientos = sum(fallecimientos)) %>% 
+    mutate(
+      fallecimientos_dia = fallecimientos - lag(fallecimientos),
+      fallecimientos_dia = ifelse(is.na(fallecimientos_dia), fallecimientos, fallecimientos_dia),
+      anio_mes = floor_date(dia, unit = "month")
       ) %>% 
-    filter(dias == 7)
+    group_by(anio_mes) %>% 
+    summarise(fallecimientos_dia = sum(fallecimientos_dia))
   
   d <- d %>% 
-    mutate(fecha_auxiliar = ymd(as.numeric(2020)*10000 + 101) + weeks(nro_semana - 1)) 
-    
-  dtot <- d %>% 
-    group_by(anio, nro_semana) %>% 
-    summarise(nro_fallecidos = sum(nro_fallecidos), .groups = "drop") %>% 
-    mutate(fecha = ymd(as.numeric(2020)*10000 + 101) + weeks(nro_semana - 1))
+    mutate(
+      mes_lbl = month(anio_mes, label = TRUE, abbr = FALSE, locale = "Spanish_Spain.1252"),
+      mes = month(anio_mes) - 1,
+      anio = year(anio_mes)
+      )
+  
+  meses <- d %>% pull(mes_lbl) %>% levels()
+  
+  titulo <- "Defunciones por año"
   
   hchart(
-    d %>% mutate(g = paste(anio, group)) %>% select(x = fecha_auxiliar, y = nro_fallecidos, group = g),
-    type = "line",
+    d %>% select(x = mes, y = fallecimientos_dia, group = anio),
+    type = "area",
     hcaes(x, y, group = group)
-  )
-  
-  titulo <- "Defunciones semanales 2020 vs 2021"
-  
-  hchart(
-    dtot %>% select(x = fecha, y = nro_fallecidos, group = anio),
-    type = "line",
-    hcaes(x, y, group = group),
-    # name = c("Totale 2020 2021", FALSE),
-    linkedTo = c(NULL, ":previous")
   ) %>% 
+    hc_xAxis(title = list(text = "Mes"), categories = meses) %>% 
+    
     hc_tooltip(shared = TRUE, valueDecimals = 0) %>% 
     hc_yAxis(title = list(text = "Número de fallecidos"), min = 0, endOndTick = FALSE) %>%
-    hc_xAxis(title = list(text = "Semana")) %>% 
     hc_subtitle(text = titulo)
-  # %>% 
-  #   hc_add_series(
-  #     d %>%
-  #       mutate(group = paste(anio, group)) %>%
-  #       select(x = fecha_auxiliar, y = nro_fallecidos, group),
-  #     type = "line",
-  #     hcaes(x, y, group = group),
-  #     id = c("a", NULL, NULL, NULL),
-  #     linkedTo = c(NULL, "a", "a", "a", "a")
-  #   )
-  
   
 }
 
@@ -807,13 +788,9 @@ tabla_region <- function() {
     sortable = TRUE, 
     highlight = TRUE,
     
-    onClick = JS("function(rowInfo, colInfo) {
-                    myFunction(rowInfo.row.id_region, colInfo.id);
-                }"),
+    onClick = JS("function(rowInfo, colInfo) { myFunction(rowInfo.row.id_region, colInfo.id); }"),
     
-    defaultColDef = colDef(
-      format = colFormat(digits = 0, separators = TRUE, locales = "es-CL")
-    ),
+    defaultColDef = colDef(format = colFormat(digits = 0, separators = TRUE, locales = "es-CL")),
     
     columns = list(
       id_region = colDef(
@@ -826,15 +803,7 @@ tabla_region <- function() {
         style = function(value) {
           bar_style(width = value / max(d$nro_fallecidos), fill = "hsl(208, 70%, 90%)", align = "right")
         }
-      )
-      # dosis_completa_pct = colDef(
-      #   name = "% Dosis completa",
-      #   align = "left",
-      #   cell = function(value) {
-      #     width <- paste0(value / 100 * 100, "%")
-      #     bar_chart(value, width = width, fill = "#fc5185", background = "#e1e1e1")
-      #     }
-      #   )
+        )
       )
     )
   

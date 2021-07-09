@@ -1,6 +1,6 @@
 ---
 title: "Covid-Chile"
-author: "`r invisible((Sys.setlocale('LC_TIME', 'Spanish'))); format(Sys.Date(), '%d %B %Y')`"
+author: "`r paste(lubridate::day(Sys.Date()), lubridate::month(Sys.Date(), label = TRUE, abbr = FALSE, locale = 'Spanish_Spain.1252'), lubridate::year(Sys.Date()))`"
 output: 
   flexdashboard::flex_dashboard:
     self_contained: false
@@ -20,6 +20,7 @@ library(lubridate)
 library(highcharter)
 library(RcppRoll)
 library(reactable)
+library(reactablefmtr)
 library(htmltools)
 
 source("R/00-parametros.R", encoding = "UTF-8")
@@ -253,7 +254,7 @@ grafico_defunciones_esperadas_arima()
 ### 
 
 ```{r}
-grafico_defunciones_semanales_pandemia()
+grafico_defunciones_mensuales_pandemia()
 ```
 
 Acerca {data-icon="fa-question-circle"}
