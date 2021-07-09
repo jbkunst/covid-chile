@@ -1,6 +1,6 @@
 ---
 title: "Covid-Chile"
-author: "`r paste(lubridate::day(Sys.Date()), lubridate::month(Sys.Date(), label = TRUE, abbr = FALSE, locale = 'Spanish_Spain.1252'), lubridate::year(Sys.Date()))`"
+author: "`r paste(lubridate::day(Sys.Date()), lubridate::month(Sys.Date(), label = TRUE, abbr = FALSE), lubridate::year(Sys.Date()))`"
 output: 
   flexdashboard::flex_dashboard:
     self_contained: false
