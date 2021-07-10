@@ -1,6 +1,6 @@
 ---
 title: "Covid-Chile"
-author: "`r paste(lubridate::day(Sys.Date()), lubridate::month(Sys.Date(), label = TRUE, abbr = FALSE), lubridate::year(Sys.Date()))`"
+author: "`r source('R/99-fecha.R'); fecha`"
 output: 
   flexdashboard::flex_dashboard:
     self_contained: false
@@ -121,7 +121,7 @@ Column {data-width=900}
 <script src="data/data_regiones.js"></script>
 <script>PARS = `r jsonlite::toJSON(PARS)`</script>
 
-```{r una_de_dos}
+```{r}
 tabla_region()
 ```
 
