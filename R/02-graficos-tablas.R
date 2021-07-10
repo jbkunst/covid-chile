@@ -495,7 +495,12 @@ grafico_defunciones_mensuales_pandemia <- function(){
   
   d <- d %>% 
     mutate(
-      mes_lbl = month(anio_mes, label = TRUE, abbr = FALSE, locale = "Spanish_Spain.1252"),
+      mes_lbl = month(
+        anio_mes, 
+        label = TRUE, 
+        # locale = "Spanish_Spain.1252"
+        abbr = FALSE
+        ),
       mes = month(anio_mes) - 1,
       anio = year(anio_mes)
       )
