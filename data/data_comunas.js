@@ -4,7 +4,7 @@ var data_comunas = {
 			{
 				"comuna" : "Arica",
 				"codigo_comuna" : "15101",
-				"value" : 415
+				"value" : 312
 			},
 			{
 				"comuna" : "Camarones",
@@ -19,14 +19,14 @@ var data_comunas = {
 			{
 				"comuna" : "Putre",
 				"codigo_comuna" : "15201",
-				"value" : 2
+				"value" : 1
 			}
 		],
 		"nro_fallecidos_totales" : [
 			{
 				"comuna" : "Arica",
 				"codigo_comuna" : "15101",
-				"value" : 595
+				"value" : 597
 			},
 			{
 				"comuna" : "Camarones",
@@ -48,7 +48,7 @@ var data_comunas = {
 			{
 				"comuna" : "Arica",
 				"codigo_comuna" : "15101",
-				"value" : 4
+				"value" : 2
 			},
 			{
 				"comuna" : "Camarones",
@@ -58,7 +58,7 @@ var data_comunas = {
 			{
 				"comuna" : "General Lagos",
 				"codigo_comuna" : "15202",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Putre",
@@ -94,12 +94,12 @@ var data_comunas = {
 			{
 				"comuna" : "Alto Hospicio",
 				"codigo_comuna" : "01107",
-				"value" : 130
+				"value" : 99
 			},
 			{
 				"comuna" : "Camina",
 				"codigo_comuna" : "01402",
-				"value" : 5
+				"value" : 4
 			},
 			{
 				"comuna" : "Colchane",
@@ -114,17 +114,17 @@ var data_comunas = {
 			{
 				"comuna" : "Iquique",
 				"codigo_comuna" : "01101",
-				"value" : 175
+				"value" : 169
 			},
 			{
 				"comuna" : "Pica",
 				"codigo_comuna" : "01405",
-				"value" : 7
+				"value" : 6
 			},
 			{
 				"comuna" : "Pozo Almonte",
 				"codigo_comuna" : "01401",
-				"value" : 10
+				"value" : 11
 			}
 		],
 		"nro_fallecidos_totales" : [
@@ -136,7 +136,7 @@ var data_comunas = {
 			{
 				"comuna" : "Camina",
 				"codigo_comuna" : "01402",
-				"value" : 8
+				"value" : 9
 			},
 			{
 				"comuna" : "Colchane",
@@ -168,7 +168,7 @@ var data_comunas = {
 			{
 				"comuna" : "Alto Hospicio",
 				"codigo_comuna" : "01107",
-				"value" : 2
+				"value" : 0
 			},
 			{
 				"comuna" : "Camina",
@@ -188,7 +188,7 @@ var data_comunas = {
 			{
 				"comuna" : "Iquique",
 				"codigo_comuna" : "01101",
-				"value" : 2
+				"value" : 0
 			},
 			{
 				"comuna" : "Pica",
@@ -244,22 +244,22 @@ var data_comunas = {
 			{
 				"comuna" : "Antofagasta",
 				"codigo_comuna" : "02101",
-				"value" : 280
+				"value" : 216
 			},
 			{
 				"comuna" : "Calama",
 				"codigo_comuna" : "02201",
-				"value" : 161
+				"value" : 109
 			},
 			{
 				"comuna" : "Maria Elena",
 				"codigo_comuna" : "02302",
-				"value" : 4
+				"value" : 6
 			},
 			{
 				"comuna" : "Mejillones",
 				"codigo_comuna" : "02102",
-				"value" : 10
+				"value" : 6
 			},
 			{
 				"comuna" : "Ollague",
@@ -269,7 +269,7 @@ var data_comunas = {
 			{
 				"comuna" : "San Pedro de Atacama",
 				"codigo_comuna" : "02203",
-				"value" : 50
+				"value" : 36
 			},
 			{
 				"comuna" : "Sierra Gorda",
@@ -279,24 +279,24 @@ var data_comunas = {
 			{
 				"comuna" : "Taltal",
 				"codigo_comuna" : "02104",
-				"value" : 9
+				"value" : 11
 			},
 			{
 				"comuna" : "Tocopilla",
 				"codigo_comuna" : "02301",
-				"value" : 24
+				"value" : 15
 			}
 		],
 		"nro_fallecidos_totales" : [
 			{
 				"comuna" : "Antofagasta",
 				"codigo_comuna" : "02101",
-				"value" : 690
+				"value" : 692
 			},
 			{
 				"comuna" : "Calama",
 				"codigo_comuna" : "02201",
-				"value" : 463
+				"value" : 465
 			},
 			{
 				"comuna" : "Maria Elena",
@@ -338,7 +338,7 @@ var data_comunas = {
 			{
 				"comuna" : "Antofagasta",
 				"codigo_comuna" : "02101",
-				"value" : 4
+				"value" : 2
 			},
 			{
 				"comuna" : "Calama",
@@ -363,7 +363,7 @@ var data_comunas = {
 			{
 				"comuna" : "San Pedro de Atacama",
 				"codigo_comuna" : "02203",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Sierra Gorda",
@@ -378,7 +378,7 @@ var data_comunas = {
 			{
 				"comuna" : "Tocopilla",
 				"codigo_comuna" : "02301",
-				"value" : 2
+				"value" : 0
 			}
 		],
 		"poblacion" : [
@@ -434,47 +434,47 @@ var data_comunas = {
 			{
 				"comuna" : "Alto del Carmen",
 				"codigo_comuna" : "03302",
-				"value" : 3
+				"value" : 4
 			},
 			{
 				"comuna" : "Caldera",
 				"codigo_comuna" : "03102",
-				"value" : 44
+				"value" : 41
 			},
 			{
 				"comuna" : "Chanaral",
 				"codigo_comuna" : "03201",
-				"value" : 31
+				"value" : 30
 			},
 			{
 				"comuna" : "Copiapo",
 				"codigo_comuna" : "03101",
-				"value" : 418
+				"value" : 343
 			},
 			{
 				"comuna" : "Diego de Almagro",
 				"codigo_comuna" : "03202",
-				"value" : 25
+				"value" : 14
 			},
 			{
 				"comuna" : "Freirina",
 				"codigo_comuna" : "03303",
-				"value" : 14
+				"value" : 8
 			},
 			{
 				"comuna" : "Huasco",
 				"codigo_comuna" : "03304",
-				"value" : 9
+				"value" : 8
 			},
 			{
 				"comuna" : "Tierra Amarilla",
 				"codigo_comuna" : "03103",
-				"value" : 78
+				"value" : 71
 			},
 			{
 				"comuna" : "Vallenar",
 				"codigo_comuna" : "03301",
-				"value" : 93
+				"value" : 103
 			}
 		],
 		"nro_fallecidos_totales" : [
@@ -543,7 +543,7 @@ var data_comunas = {
 			{
 				"comuna" : "Copiapo",
 				"codigo_comuna" : "03101",
-				"value" : 4
+				"value" : 0
 			},
 			{
 				"comuna" : "Diego de Almagro",
@@ -568,7 +568,7 @@ var data_comunas = {
 			{
 				"comuna" : "Vallenar",
 				"codigo_comuna" : "03301",
-				"value" : 1
+				"value" : 0
 			}
 		],
 		"poblacion" : [
@@ -624,52 +624,52 @@ var data_comunas = {
 			{
 				"comuna" : "Andacollo",
 				"codigo_comuna" : "04103",
-				"value" : 10
+				"value" : 6
 			},
 			{
 				"comuna" : "Canela",
 				"codigo_comuna" : "04202",
-				"value" : 14
+				"value" : 5
 			},
 			{
 				"comuna" : "Combarbala",
 				"codigo_comuna" : "04302",
-				"value" : 14
+				"value" : 16
 			},
 			{
 				"comuna" : "Coquimbo",
 				"codigo_comuna" : "04102",
-				"value" : 231
+				"value" : 181
 			},
 			{
 				"comuna" : "Illapel",
 				"codigo_comuna" : "04201",
-				"value" : 36
+				"value" : 18
 			},
 			{
 				"comuna" : "La Higuera",
 				"codigo_comuna" : "04104",
-				"value" : 13
+				"value" : 9
 			},
 			{
 				"comuna" : "La Serena",
 				"codigo_comuna" : "04101",
-				"value" : 215
+				"value" : 176
 			},
 			{
 				"comuna" : "Los Vilos",
 				"codigo_comuna" : "04203",
-				"value" : 11
+				"value" : 8
 			},
 			{
 				"comuna" : "Monte Patria",
 				"codigo_comuna" : "04303",
-				"value" : 43
+				"value" : 29
 			},
 			{
 				"comuna" : "Ovalle",
 				"codigo_comuna" : "04301",
-				"value" : 97
+				"value" : 78
 			},
 			{
 				"comuna" : "Paiguano",
@@ -679,12 +679,12 @@ var data_comunas = {
 			{
 				"comuna" : "Punitaqui",
 				"codigo_comuna" : "04304",
-				"value" : 14
+				"value" : 17
 			},
 			{
 				"comuna" : "Rio Hurtado",
 				"codigo_comuna" : "04305",
-				"value" : 7
+				"value" : 4
 			},
 			{
 				"comuna" : "Salamanca",
@@ -694,7 +694,7 @@ var data_comunas = {
 			{
 				"comuna" : "Vicuna",
 				"codigo_comuna" : "04106",
-				"value" : 53
+				"value" : 39
 			}
 		],
 		"nro_fallecidos_totales" : [
@@ -711,17 +711,17 @@ var data_comunas = {
 			{
 				"comuna" : "Combarbala",
 				"codigo_comuna" : "04302",
-				"value" : 25
+				"value" : 24
 			},
 			{
 				"comuna" : "Coquimbo",
 				"codigo_comuna" : "04102",
-				"value" : 298
+				"value" : 303
 			},
 			{
 				"comuna" : "Illapel",
 				"codigo_comuna" : "04201",
-				"value" : 39
+				"value" : 38
 			},
 			{
 				"comuna" : "La Higuera",
@@ -731,7 +731,7 @@ var data_comunas = {
 			{
 				"comuna" : "La Serena",
 				"codigo_comuna" : "04101",
-				"value" : 299
+				"value" : 303
 			},
 			{
 				"comuna" : "Los Vilos",
@@ -741,12 +741,12 @@ var data_comunas = {
 			{
 				"comuna" : "Monte Patria",
 				"codigo_comuna" : "04303",
-				"value" : 42
+				"value" : 41
 			},
 			{
 				"comuna" : "Ovalle",
 				"codigo_comuna" : "04301",
-				"value" : 203
+				"value" : 207
 			},
 			{
 				"comuna" : "Paiguano",
@@ -788,7 +788,7 @@ var data_comunas = {
 			{
 				"comuna" : "Combarbala",
 				"codigo_comuna" : "04302",
-				"value" : 0
+				"value" : -1
 			},
 			{
 				"comuna" : "Coquimbo",
@@ -798,7 +798,7 @@ var data_comunas = {
 			{
 				"comuna" : "Illapel",
 				"codigo_comuna" : "04201",
-				"value" : 0
+				"value" : -1
 			},
 			{
 				"comuna" : "La Higuera",
@@ -813,17 +813,17 @@ var data_comunas = {
 			{
 				"comuna" : "Los Vilos",
 				"codigo_comuna" : "04203",
-				"value" : -1
+				"value" : 0
 			},
 			{
 				"comuna" : "Monte Patria",
 				"codigo_comuna" : "04303",
-				"value" : 2
+				"value" : -1
 			},
 			{
 				"comuna" : "Ovalle",
 				"codigo_comuna" : "04301",
-				"value" : 0
+				"value" : 4
 			},
 			{
 				"comuna" : "Paiguano",
@@ -848,7 +848,7 @@ var data_comunas = {
 			{
 				"comuna" : "Vicuna",
 				"codigo_comuna" : "04106",
-				"value" : 1
+				"value" : 0
 			}
 		],
 		"poblacion" : [
@@ -934,57 +934,57 @@ var data_comunas = {
 			{
 				"comuna" : "Algarrobo",
 				"codigo_comuna" : "05602",
-				"value" : 22
+				"value" : 12
 			},
 			{
 				"comuna" : "Cabildo",
 				"codigo_comuna" : "05402",
-				"value" : 23
+				"value" : 26
 			},
 			{
 				"comuna" : "Calera",
 				"codigo_comuna" : "05502",
-				"value" : 42
+				"value" : 23
 			},
 			{
 				"comuna" : "Calle Larga",
 				"codigo_comuna" : "05302",
-				"value" : 10
+				"value" : 8
 			},
 			{
 				"comuna" : "Cartagena",
 				"codigo_comuna" : "05603",
-				"value" : 41
+				"value" : 21
 			},
 			{
 				"comuna" : "Casablanca",
 				"codigo_comuna" : "05102",
-				"value" : 41
+				"value" : 21
 			},
 			{
 				"comuna" : "Catemu",
 				"codigo_comuna" : "05702",
-				"value" : 12
+				"value" : 16
 			},
 			{
 				"comuna" : "Concon",
 				"codigo_comuna" : "05103",
-				"value" : 34
+				"value" : 25
 			},
 			{
 				"comuna" : "El Quisco",
 				"codigo_comuna" : "05604",
-				"value" : 13
+				"value" : 6
 			},
 			{
 				"comuna" : "El Tabo",
 				"codigo_comuna" : "05605",
-				"value" : 14
+				"value" : 17
 			},
 			{
 				"comuna" : "Hijuelas",
 				"codigo_comuna" : "05503",
-				"value" : 9
+				"value" : 4
 			},
 			{
 				"comuna" : "Isla de Pascua",
@@ -999,127 +999,127 @@ var data_comunas = {
 			{
 				"comuna" : "La Cruz",
 				"codigo_comuna" : "05504",
-				"value" : 40
+				"value" : 46
 			},
 			{
 				"comuna" : "La Ligua",
 				"codigo_comuna" : "05401",
-				"value" : 60
+				"value" : 55
 			},
 			{
 				"comuna" : "Limache",
 				"codigo_comuna" : "05802",
-				"value" : 34
+				"value" : 25
 			},
 			{
 				"comuna" : "Llaillay",
 				"codigo_comuna" : "05703",
-				"value" : 63
+				"value" : 45
 			},
 			{
 				"comuna" : "Los Andes",
 				"codigo_comuna" : "05301",
-				"value" : 86
+				"value" : 63
 			},
 			{
 				"comuna" : "Nogales",
 				"codigo_comuna" : "05506",
-				"value" : 24
+				"value" : 17
 			},
 			{
 				"comuna" : "Olmue",
 				"codigo_comuna" : "05803",
-				"value" : 18
+				"value" : 13
 			},
 			{
 				"comuna" : "Panquehue",
 				"codigo_comuna" : "05704",
-				"value" : 7
+				"value" : 6
 			},
 			{
 				"comuna" : "Papudo",
 				"codigo_comuna" : "05403",
-				"value" : 9
+				"value" : 7
 			},
 			{
 				"comuna" : "Petorca",
 				"codigo_comuna" : "05404",
-				"value" : 19
+				"value" : 23
 			},
 			{
 				"comuna" : "Puchuncavi",
 				"codigo_comuna" : "05105",
-				"value" : 35
+				"value" : 22
 			},
 			{
 				"comuna" : "Putaendo",
 				"codigo_comuna" : "05705",
-				"value" : 21
+				"value" : 22
 			},
 			{
 				"comuna" : "Quillota",
 				"codigo_comuna" : "05501",
-				"value" : 88
+				"value" : 74
 			},
 			{
 				"comuna" : "Quilpue",
 				"codigo_comuna" : "05801",
-				"value" : 145
+				"value" : 95
 			},
 			{
 				"comuna" : "Quintero",
 				"codigo_comuna" : "05107",
-				"value" : 37
+				"value" : 38
 			},
 			{
 				"comuna" : "Rinconada",
 				"codigo_comuna" : "05303",
-				"value" : 11
+				"value" : 13
 			},
 			{
 				"comuna" : "San Antonio",
 				"codigo_comuna" : "05601",
-				"value" : 137
+				"value" : 98
 			},
 			{
 				"comuna" : "San Esteban",
 				"codigo_comuna" : "05304",
-				"value" : 17
+				"value" : 14
 			},
 			{
 				"comuna" : "San Felipe",
 				"codigo_comuna" : "05701",
-				"value" : 81
+				"value" : 54
 			},
 			{
 				"comuna" : "Santa Maria",
 				"codigo_comuna" : "05706",
-				"value" : 16
+				"value" : 15
 			},
 			{
 				"comuna" : "Santo Domingo",
 				"codigo_comuna" : "05606",
-				"value" : 28
+				"value" : 31
 			},
 			{
 				"comuna" : "Valparaiso",
 				"codigo_comuna" : "05101",
-				"value" : 304
+				"value" : 222
 			},
 			{
 				"comuna" : "Villa Alemana",
 				"codigo_comuna" : "05804",
-				"value" : 137
+				"value" : 115
 			},
 			{
 				"comuna" : "Vina del Mar",
 				"codigo_comuna" : "05109",
-				"value" : 282
+				"value" : 214
 			},
 			{
 				"comuna" : "Zapallar",
 				"codigo_comuna" : "05405",
-				"value" : 11
+				"value" : 8
 			}
 		],
 		"nro_fallecidos_totales" : [
@@ -1131,27 +1131,27 @@ var data_comunas = {
 			{
 				"comuna" : "Cabildo",
 				"codigo_comuna" : "05402",
-				"value" : 42
+				"value" : 43
 			},
 			{
 				"comuna" : "Calera",
 				"codigo_comuna" : "05502",
-				"value" : 143
+				"value" : 145
 			},
 			{
 				"comuna" : "Calle Larga",
 				"codigo_comuna" : "05302",
-				"value" : 23
+				"value" : 22
 			},
 			{
 				"comuna" : "Cartagena",
 				"codigo_comuna" : "05603",
-				"value" : 40
+				"value" : 41
 			},
 			{
 				"comuna" : "Casablanca",
 				"codigo_comuna" : "05102",
-				"value" : 32
+				"value" : 33
 			},
 			{
 				"comuna" : "Catemu",
@@ -1161,7 +1161,7 @@ var data_comunas = {
 			{
 				"comuna" : "Concon",
 				"codigo_comuna" : "05103",
-				"value" : 67
+				"value" : 68
 			},
 			{
 				"comuna" : "El Quisco",
@@ -1171,7 +1171,7 @@ var data_comunas = {
 			{
 				"comuna" : "El Tabo",
 				"codigo_comuna" : "05605",
-				"value" : 31
+				"value" : 32
 			},
 			{
 				"comuna" : "Hijuelas",
@@ -1201,7 +1201,7 @@ var data_comunas = {
 			{
 				"comuna" : "Limache",
 				"codigo_comuna" : "05802",
-				"value" : 134
+				"value" : 135
 			},
 			{
 				"comuna" : "Llaillay",
@@ -1221,7 +1221,7 @@ var data_comunas = {
 			{
 				"comuna" : "Olmue",
 				"codigo_comuna" : "05803",
-				"value" : 44
+				"value" : 45
 			},
 			{
 				"comuna" : "Panquehue",
@@ -1236,7 +1236,7 @@ var data_comunas = {
 			{
 				"comuna" : "Petorca",
 				"codigo_comuna" : "05404",
-				"value" : 14
+				"value" : 15
 			},
 			{
 				"comuna" : "Puchuncavi",
@@ -1251,12 +1251,12 @@ var data_comunas = {
 			{
 				"comuna" : "Quillota",
 				"codigo_comuna" : "05501",
-				"value" : 185
+				"value" : 187
 			},
 			{
 				"comuna" : "Quilpue",
 				"codigo_comuna" : "05801",
-				"value" : 299
+				"value" : 298
 			},
 			{
 				"comuna" : "Quintero",
@@ -1271,12 +1271,12 @@ var data_comunas = {
 			{
 				"comuna" : "San Antonio",
 				"codigo_comuna" : "05601",
-				"value" : 182
+				"value" : 188
 			},
 			{
 				"comuna" : "San Esteban",
 				"codigo_comuna" : "05304",
-				"value" : 22
+				"value" : 23
 			},
 			{
 				"comuna" : "San Felipe",
@@ -1296,22 +1296,22 @@ var data_comunas = {
 			{
 				"comuna" : "Valparaiso",
 				"codigo_comuna" : "05101",
-				"value" : 776
+				"value" : 784
 			},
 			{
 				"comuna" : "Villa Alemana",
 				"codigo_comuna" : "05804",
-				"value" : 218
+				"value" : 224
 			},
 			{
 				"comuna" : "Vina del Mar",
 				"codigo_comuna" : "05109",
-				"value" : 695
+				"value" : 697
 			},
 			{
 				"comuna" : "Zapallar",
 				"codigo_comuna" : "05405",
-				"value" : 14
+				"value" : 15
 			}
 		],
 		"nro_fallecidos_ultimo" : [
@@ -1323,37 +1323,37 @@ var data_comunas = {
 			{
 				"comuna" : "Cabildo",
 				"codigo_comuna" : "05402",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Calera",
 				"codigo_comuna" : "05502",
-				"value" : 0
+				"value" : 2
 			},
 			{
 				"comuna" : "Calle Larga",
 				"codigo_comuna" : "05302",
-				"value" : 0
+				"value" : -1
 			},
 			{
 				"comuna" : "Cartagena",
 				"codigo_comuna" : "05603",
-				"value" : -1
+				"value" : 1
 			},
 			{
 				"comuna" : "Casablanca",
 				"codigo_comuna" : "05102",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Catemu",
 				"codigo_comuna" : "05702",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Concon",
 				"codigo_comuna" : "05103",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "El Quisco",
@@ -1363,7 +1363,7 @@ var data_comunas = {
 			{
 				"comuna" : "El Tabo",
 				"codigo_comuna" : "05605",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Hijuelas",
@@ -1383,12 +1383,12 @@ var data_comunas = {
 			{
 				"comuna" : "La Cruz",
 				"codigo_comuna" : "05504",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "La Ligua",
 				"codigo_comuna" : "05401",
-				"value" : -1
+				"value" : 0
 			},
 			{
 				"comuna" : "Limache",
@@ -1398,27 +1398,27 @@ var data_comunas = {
 			{
 				"comuna" : "Llaillay",
 				"codigo_comuna" : "05703",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Los Andes",
 				"codigo_comuna" : "05301",
-				"value" : 4
+				"value" : 0
 			},
 			{
 				"comuna" : "Nogales",
 				"codigo_comuna" : "05506",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Olmue",
 				"codigo_comuna" : "05803",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Panquehue",
 				"codigo_comuna" : "05704",
-				"value" : -1
+				"value" : 0
 			},
 			{
 				"comuna" : "Papudo",
@@ -1428,7 +1428,7 @@ var data_comunas = {
 			{
 				"comuna" : "Petorca",
 				"codigo_comuna" : "05404",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Puchuncavi",
@@ -1443,12 +1443,12 @@ var data_comunas = {
 			{
 				"comuna" : "Quillota",
 				"codigo_comuna" : "05501",
-				"value" : 3
+				"value" : 2
 			},
 			{
 				"comuna" : "Quilpue",
 				"codigo_comuna" : "05801",
-				"value" : 3
+				"value" : -1
 			},
 			{
 				"comuna" : "Quintero",
@@ -1463,7 +1463,7 @@ var data_comunas = {
 			{
 				"comuna" : "San Antonio",
 				"codigo_comuna" : "05601",
-				"value" : 3
+				"value" : 6
 			},
 			{
 				"comuna" : "San Esteban",
@@ -1473,7 +1473,7 @@ var data_comunas = {
 			{
 				"comuna" : "San Felipe",
 				"codigo_comuna" : "05701",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Santa Maria",
@@ -1488,22 +1488,22 @@ var data_comunas = {
 			{
 				"comuna" : "Valparaiso",
 				"codigo_comuna" : "05101",
-				"value" : 9
+				"value" : 8
 			},
 			{
 				"comuna" : "Villa Alemana",
 				"codigo_comuna" : "05804",
-				"value" : 5
+				"value" : 6
 			},
 			{
 				"comuna" : "Vina del Mar",
 				"codigo_comuna" : "05109",
-				"value" : 1
+				"value" : 2
 			},
 			{
 				"comuna" : "Zapallar",
 				"codigo_comuna" : "05405",
-				"value" : 0
+				"value" : 1
 			}
 		],
 		"poblacion" : [
@@ -1704,172 +1704,172 @@ var data_comunas = {
 			{
 				"comuna" : "Alhue",
 				"codigo_comuna" : "13502",
-				"value" : 8
+				"value" : 9
 			},
 			{
 				"comuna" : "Buin",
 				"codigo_comuna" : "13402",
-				"value" : 102
+				"value" : 82
 			},
 			{
 				"comuna" : "Calera de Tango",
 				"codigo_comuna" : "13403",
-				"value" : 32
+				"value" : 23
 			},
 			{
 				"comuna" : "Cerrillos",
 				"codigo_comuna" : "13102",
-				"value" : 63
+				"value" : 49
 			},
 			{
 				"comuna" : "Cerro Navia",
 				"codigo_comuna" : "13103",
-				"value" : 124
+				"value" : 111
 			},
 			{
 				"comuna" : "Colina",
 				"codigo_comuna" : "13301",
-				"value" : 154
+				"value" : 110
 			},
 			{
 				"comuna" : "Conchali",
 				"codigo_comuna" : "13104",
-				"value" : 112
+				"value" : 105
 			},
 			{
 				"comuna" : "Curacavi",
 				"codigo_comuna" : "13503",
-				"value" : 42
+				"value" : 34
 			},
 			{
 				"comuna" : "El Bosque",
 				"codigo_comuna" : "13105",
-				"value" : 168
+				"value" : 141
 			},
 			{
 				"comuna" : "El Monte",
 				"codigo_comuna" : "13602",
-				"value" : 44
+				"value" : 33
 			},
 			{
 				"comuna" : "Estacion Central",
 				"codigo_comuna" : "13106",
-				"value" : 103
+				"value" : 91
 			},
 			{
 				"comuna" : "Huechuraba",
 				"codigo_comuna" : "13107",
-				"value" : 70
+				"value" : 53
 			},
 			{
 				"comuna" : "Independencia",
 				"codigo_comuna" : "13108",
-				"value" : 115
+				"value" : 102
 			},
 			{
 				"comuna" : "Isla de Maipo",
 				"codigo_comuna" : "13603",
-				"value" : 44
+				"value" : 31
 			},
 			{
 				"comuna" : "La Cisterna",
 				"codigo_comuna" : "13109",
-				"value" : 67
+				"value" : 47
 			},
 			{
 				"comuna" : "La Florida",
 				"codigo_comuna" : "13110",
-				"value" : 310
+				"value" : 221
 			},
 			{
 				"comuna" : "La Granja",
 				"codigo_comuna" : "13111",
-				"value" : 76
+				"value" : 66
 			},
 			{
 				"comuna" : "La Pintana",
 				"codigo_comuna" : "13112",
-				"value" : 163
+				"value" : 125
 			},
 			{
 				"comuna" : "La Reina",
 				"codigo_comuna" : "13113",
-				"value" : 63
+				"value" : 71
 			},
 			{
 				"comuna" : "Lampa",
 				"codigo_comuna" : "13302",
-				"value" : 119
+				"value" : 94
 			},
 			{
 				"comuna" : "Las Condes",
 				"codigo_comuna" : "13114",
-				"value" : 162
+				"value" : 153
 			},
 			{
 				"comuna" : "Lo Barnechea",
 				"codigo_comuna" : "13115",
-				"value" : 117
+				"value" : 95
 			},
 			{
 				"comuna" : "Lo Espejo",
 				"codigo_comuna" : "13116",
-				"value" : 77
+				"value" : 63
 			},
 			{
 				"comuna" : "Lo Prado",
 				"codigo_comuna" : "13117",
-				"value" : 116
+				"value" : 78
 			},
 			{
 				"comuna" : "Macul",
 				"codigo_comuna" : "13118",
-				"value" : 89
+				"value" : 77
 			},
 			{
 				"comuna" : "Maipu",
 				"codigo_comuna" : "13119",
-				"value" : 332
+				"value" : 301
 			},
 			{
 				"comuna" : "Maria Pinto",
 				"codigo_comuna" : "13504",
-				"value" : 18
+				"value" : 22
 			},
 			{
 				"comuna" : "Melipilla",
 				"codigo_comuna" : "13501",
-				"value" : 137
+				"value" : 117
 			},
 			{
 				"comuna" : "Nunoa",
 				"codigo_comuna" : "13120",
-				"value" : 125
+				"value" : 122
 			},
 			{
 				"comuna" : "Padre Hurtado",
 				"codigo_comuna" : "13604",
-				"value" : 89
+				"value" : 64
 			},
 			{
 				"comuna" : "Paine",
 				"codigo_comuna" : "13404",
-				"value" : 79
+				"value" : 52
 			},
 			{
 				"comuna" : "Pedro Aguirre Cerda",
 				"codigo_comuna" : "13121",
-				"value" : 89
+				"value" : 67
 			},
 			{
 				"comuna" : "Penaflor",
 				"codigo_comuna" : "13605",
-				"value" : 99
+				"value" : 80
 			},
 			{
 				"comuna" : "Penalolen",
 				"codigo_comuna" : "13122",
-				"value" : 306
+				"value" : 217
 			},
 			{
 				"comuna" : "Pirque",
@@ -1879,87 +1879,87 @@ var data_comunas = {
 			{
 				"comuna" : "Providencia",
 				"codigo_comuna" : "13123",
-				"value" : 70
+				"value" : 65
 			},
 			{
 				"comuna" : "Pudahuel",
 				"codigo_comuna" : "13124",
-				"value" : 210
+				"value" : 179
 			},
 			{
 				"comuna" : "Puente Alto",
 				"codigo_comuna" : "13201",
-				"value" : 510
+				"value" : 419
 			},
 			{
 				"comuna" : "Quilicura",
 				"codigo_comuna" : "13125",
-				"value" : 168
+				"value" : 142
 			},
 			{
 				"comuna" : "Quinta Normal",
 				"codigo_comuna" : "13126",
-				"value" : 139
+				"value" : 105
 			},
 			{
 				"comuna" : "Recoleta",
 				"codigo_comuna" : "13127",
-				"value" : 124
+				"value" : 103
 			},
 			{
 				"comuna" : "Renca",
 				"codigo_comuna" : "13128",
-				"value" : 188
+				"value" : 150
 			},
 			{
 				"comuna" : "San Bernardo",
 				"codigo_comuna" : "13401",
-				"value" : 251
+				"value" : 217
 			},
 			{
 				"comuna" : "San Joaquin",
 				"codigo_comuna" : "13129",
-				"value" : 96
+				"value" : 77
 			},
 			{
 				"comuna" : "San Jose de Maipo",
 				"codigo_comuna" : "13203",
-				"value" : 17
+				"value" : 12
 			},
 			{
 				"comuna" : "San Miguel",
 				"codigo_comuna" : "13130",
-				"value" : 89
+				"value" : 72
 			},
 			{
 				"comuna" : "San Pedro",
 				"codigo_comuna" : "13505",
-				"value" : 2
+				"value" : 0
 			},
 			{
 				"comuna" : "San Ramon",
 				"codigo_comuna" : "13131",
-				"value" : 67
+				"value" : 50
 			},
 			{
 				"comuna" : "Santiago",
 				"codigo_comuna" : "13101",
-				"value" : 308
+				"value" : 295
 			},
 			{
 				"comuna" : "Talagante",
 				"codigo_comuna" : "13601",
-				"value" : 58
+				"value" : 42
 			},
 			{
 				"comuna" : "Tiltil",
 				"codigo_comuna" : "13303",
-				"value" : 28
+				"value" : 20
 			},
 			{
 				"comuna" : "Vitacura",
 				"codigo_comuna" : "13132",
-				"value" : 47
+				"value" : 51
 			}
 		],
 		"nro_fallecidos_totales" : [
@@ -1971,7 +1971,7 @@ var data_comunas = {
 			{
 				"comuna" : "Buin",
 				"codigo_comuna" : "13402",
-				"value" : 222
+				"value" : 224
 			},
 			{
 				"comuna" : "Calera de Tango",
@@ -1981,42 +1981,42 @@ var data_comunas = {
 			{
 				"comuna" : "Cerrillos",
 				"codigo_comuna" : "13102",
-				"value" : 228
+				"value" : 229
 			},
 			{
 				"comuna" : "Cerro Navia",
 				"codigo_comuna" : "13103",
-				"value" : 571
+				"value" : 577
 			},
 			{
 				"comuna" : "Colina",
 				"codigo_comuna" : "13301",
-				"value" : 286
+				"value" : 288
 			},
 			{
 				"comuna" : "Conchali",
 				"codigo_comuna" : "13104",
-				"value" : 550
+				"value" : 556
 			},
 			{
 				"comuna" : "Curacavi",
 				"codigo_comuna" : "13503",
-				"value" : 64
+				"value" : 65
 			},
 			{
 				"comuna" : "El Bosque",
 				"codigo_comuna" : "13105",
-				"value" : 566
+				"value" : 573
 			},
 			{
 				"comuna" : "El Monte",
 				"codigo_comuna" : "13602",
-				"value" : 105
+				"value" : 106
 			},
 			{
 				"comuna" : "Estacion Central",
 				"codigo_comuna" : "13106",
-				"value" : 374
+				"value" : 377
 			},
 			{
 				"comuna" : "Huechuraba",
@@ -2031,7 +2031,7 @@ var data_comunas = {
 			{
 				"comuna" : "Isla de Maipo",
 				"codigo_comuna" : "13603",
-				"value" : 74
+				"value" : 76
 			},
 			{
 				"comuna" : "La Cisterna",
@@ -2041,32 +2041,32 @@ var data_comunas = {
 			{
 				"comuna" : "La Florida",
 				"codigo_comuna" : "13110",
-				"value" : 1194
+				"value" : 1207
 			},
 			{
 				"comuna" : "La Granja",
 				"codigo_comuna" : "13111",
-				"value" : 465
+				"value" : 467
 			},
 			{
 				"comuna" : "La Pintana",
 				"codigo_comuna" : "13112",
-				"value" : 706
+				"value" : 712
 			},
 			{
 				"comuna" : "La Reina",
 				"codigo_comuna" : "13113",
-				"value" : 190
+				"value" : 193
 			},
 			{
 				"comuna" : "Lampa",
 				"codigo_comuna" : "13302",
-				"value" : 191
+				"value" : 192
 			},
 			{
 				"comuna" : "Las Condes",
 				"codigo_comuna" : "13114",
-				"value" : 654
+				"value" : 663
 			},
 			{
 				"comuna" : "Lo Barnechea",
@@ -2076,22 +2076,22 @@ var data_comunas = {
 			{
 				"comuna" : "Lo Espejo",
 				"codigo_comuna" : "13116",
-				"value" : 456
+				"value" : 460
 			},
 			{
 				"comuna" : "Lo Prado",
 				"codigo_comuna" : "13117",
-				"value" : 343
+				"value" : 350
 			},
 			{
 				"comuna" : "Macul",
 				"codigo_comuna" : "13118",
-				"value" : 344
+				"value" : 347
 			},
 			{
 				"comuna" : "Maipu",
 				"codigo_comuna" : "13119",
-				"value" : 1185
+				"value" : 1192
 			},
 			{
 				"comuna" : "Maria Pinto",
@@ -2101,97 +2101,97 @@ var data_comunas = {
 			{
 				"comuna" : "Melipilla",
 				"codigo_comuna" : "13501",
-				"value" : 346
+				"value" : 351
 			},
 			{
 				"comuna" : "Nunoa",
 				"codigo_comuna" : "13120",
-				"value" : 584
+				"value" : 588
 			},
 			{
 				"comuna" : "Padre Hurtado",
 				"codigo_comuna" : "13604",
-				"value" : 139
+				"value" : 142
 			},
 			{
 				"comuna" : "Paine",
 				"codigo_comuna" : "13404",
-				"value" : 155
+				"value" : 156
 			},
 			{
 				"comuna" : "Pedro Aguirre Cerda",
 				"codigo_comuna" : "13121",
-				"value" : 490
+				"value" : 496
 			},
 			{
 				"comuna" : "Penaflor",
 				"codigo_comuna" : "13605",
-				"value" : 302
+				"value" : 304
 			},
 			{
 				"comuna" : "Penalolen",
 				"codigo_comuna" : "13122",
-				"value" : 718
+				"value" : 726
 			},
 			{
 				"comuna" : "Pirque",
 				"codigo_comuna" : "13202",
-				"value" : 69
+				"value" : 70
 			},
 			{
 				"comuna" : "Providencia",
 				"codigo_comuna" : "13123",
-				"value" : 326
+				"value" : 331
 			},
 			{
 				"comuna" : "Pudahuel",
 				"codigo_comuna" : "13124",
-				"value" : 556
+				"value" : 565
 			},
 			{
 				"comuna" : "Puente Alto",
 				"codigo_comuna" : "13201",
-				"value" : 1568
+				"value" : 1583
 			},
 			{
 				"comuna" : "Quilicura",
 				"codigo_comuna" : "13125",
-				"value" : 409
+				"value" : 412
 			},
 			{
 				"comuna" : "Quinta Normal",
 				"codigo_comuna" : "13126",
-				"value" : 400
+				"value" : 402
 			},
 			{
 				"comuna" : "Recoleta",
 				"codigo_comuna" : "13127",
-				"value" : 608
+				"value" : 612
 			},
 			{
 				"comuna" : "Renca",
 				"codigo_comuna" : "13128",
-				"value" : 528
+				"value" : 541
 			},
 			{
 				"comuna" : "San Bernardo",
 				"codigo_comuna" : "13401",
-				"value" : 872
+				"value" : 879
 			},
 			{
 				"comuna" : "San Joaquin",
 				"codigo_comuna" : "13129",
-				"value" : 374
+				"value" : 379
 			},
 			{
 				"comuna" : "San Jose de Maipo",
 				"codigo_comuna" : "13203",
-				"value" : 91
+				"value" : 92
 			},
 			{
 				"comuna" : "San Miguel",
 				"codigo_comuna" : "13130",
-				"value" : 422
+				"value" : 429
 			},
 			{
 				"comuna" : "San Pedro",
@@ -2201,17 +2201,17 @@ var data_comunas = {
 			{
 				"comuna" : "San Ramon",
 				"codigo_comuna" : "13131",
-				"value" : 389
+				"value" : 391
 			},
 			{
 				"comuna" : "Santiago",
 				"codigo_comuna" : "13101",
-				"value" : 682
+				"value" : 690
 			},
 			{
 				"comuna" : "Talagante",
 				"codigo_comuna" : "13601",
-				"value" : 171
+				"value" : 173
 			},
 			{
 				"comuna" : "Tiltil",
@@ -2221,7 +2221,7 @@ var data_comunas = {
 			{
 				"comuna" : "Vitacura",
 				"codigo_comuna" : "13132",
-				"value" : 123
+				"value" : 125
 			}
 		],
 		"nro_fallecidos_ultimo" : [
@@ -2233,7 +2233,7 @@ var data_comunas = {
 			{
 				"comuna" : "Buin",
 				"codigo_comuna" : "13402",
-				"value" : 3
+				"value" : 2
 			},
 			{
 				"comuna" : "Calera de Tango",
@@ -2243,22 +2243,22 @@ var data_comunas = {
 			{
 				"comuna" : "Cerrillos",
 				"codigo_comuna" : "13102",
-				"value" : 2
+				"value" : 1
 			},
 			{
 				"comuna" : "Cerro Navia",
 				"codigo_comuna" : "13103",
-				"value" : 4
+				"value" : 6
 			},
 			{
 				"comuna" : "Colina",
 				"codigo_comuna" : "13301",
-				"value" : 3
+				"value" : 2
 			},
 			{
 				"comuna" : "Conchali",
 				"codigo_comuna" : "13104",
-				"value" : 9
+				"value" : 6
 			},
 			{
 				"comuna" : "Curacavi",
@@ -2268,37 +2268,37 @@ var data_comunas = {
 			{
 				"comuna" : "El Bosque",
 				"codigo_comuna" : "13105",
-				"value" : 1
+				"value" : 7
 			},
 			{
 				"comuna" : "El Monte",
 				"codigo_comuna" : "13602",
-				"value" : 3
+				"value" : 1
 			},
 			{
 				"comuna" : "Estacion Central",
 				"codigo_comuna" : "13106",
-				"value" : 5
+				"value" : 3
 			},
 			{
 				"comuna" : "Huechuraba",
 				"codigo_comuna" : "13107",
-				"value" : 3
+				"value" : 0
 			},
 			{
 				"comuna" : "Independencia",
 				"codigo_comuna" : "13108",
-				"value" : 8
+				"value" : 0
 			},
 			{
 				"comuna" : "Isla de Maipo",
 				"codigo_comuna" : "13603",
-				"value" : 0
+				"value" : 2
 			},
 			{
 				"comuna" : "La Cisterna",
 				"codigo_comuna" : "13109",
-				"value" : 3
+				"value" : 0
 			},
 			{
 				"comuna" : "La Florida",
@@ -2308,27 +2308,27 @@ var data_comunas = {
 			{
 				"comuna" : "La Granja",
 				"codigo_comuna" : "13111",
-				"value" : 4
+				"value" : 2
 			},
 			{
 				"comuna" : "La Pintana",
 				"codigo_comuna" : "13112",
-				"value" : 1
+				"value" : 6
 			},
 			{
 				"comuna" : "La Reina",
 				"codigo_comuna" : "13113",
-				"value" : 5
+				"value" : 3
 			},
 			{
 				"comuna" : "Lampa",
 				"codigo_comuna" : "13302",
-				"value" : 3
+				"value" : 1
 			},
 			{
 				"comuna" : "Las Condes",
 				"codigo_comuna" : "13114",
-				"value" : 4
+				"value" : 9
 			},
 			{
 				"comuna" : "Lo Barnechea",
@@ -2343,17 +2343,17 @@ var data_comunas = {
 			{
 				"comuna" : "Lo Prado",
 				"codigo_comuna" : "13117",
-				"value" : 6
+				"value" : 7
 			},
 			{
 				"comuna" : "Macul",
 				"codigo_comuna" : "13118",
-				"value" : 0
+				"value" : 3
 			},
 			{
 				"comuna" : "Maipu",
 				"codigo_comuna" : "13119",
-				"value" : 14
+				"value" : 7
 			},
 			{
 				"comuna" : "Maria Pinto",
@@ -2363,87 +2363,87 @@ var data_comunas = {
 			{
 				"comuna" : "Melipilla",
 				"codigo_comuna" : "13501",
-				"value" : 3
+				"value" : 5
 			},
 			{
 				"comuna" : "Nunoa",
 				"codigo_comuna" : "13120",
-				"value" : 5
+				"value" : 4
 			},
 			{
 				"comuna" : "Padre Hurtado",
 				"codigo_comuna" : "13604",
-				"value" : 0
+				"value" : 3
 			},
 			{
 				"comuna" : "Paine",
 				"codigo_comuna" : "13404",
-				"value" : 4
+				"value" : 1
 			},
 			{
 				"comuna" : "Pedro Aguirre Cerda",
 				"codigo_comuna" : "13121",
-				"value" : 1
+				"value" : 6
 			},
 			{
 				"comuna" : "Penaflor",
 				"codigo_comuna" : "13605",
-				"value" : 3
+				"value" : 2
 			},
 			{
 				"comuna" : "Penalolen",
 				"codigo_comuna" : "13122",
-				"value" : 12
+				"value" : 8
 			},
 			{
 				"comuna" : "Pirque",
 				"codigo_comuna" : "13202",
-				"value" : -1
+				"value" : 1
 			},
 			{
 				"comuna" : "Providencia",
 				"codigo_comuna" : "13123",
-				"value" : 6
+				"value" : 5
 			},
 			{
 				"comuna" : "Pudahuel",
 				"codigo_comuna" : "13124",
-				"value" : 5
+				"value" : 9
 			},
 			{
 				"comuna" : "Puente Alto",
 				"codigo_comuna" : "13201",
-				"value" : 14
+				"value" : 15
 			},
 			{
 				"comuna" : "Quilicura",
 				"codigo_comuna" : "13125",
-				"value" : 4
+				"value" : 3
 			},
 			{
 				"comuna" : "Quinta Normal",
 				"codigo_comuna" : "13126",
-				"value" : 5
+				"value" : 2
 			},
 			{
 				"comuna" : "Recoleta",
 				"codigo_comuna" : "13127",
-				"value" : 2
+				"value" : 4
 			},
 			{
 				"comuna" : "Renca",
 				"codigo_comuna" : "13128",
-				"value" : 8
+				"value" : 13
 			},
 			{
 				"comuna" : "San Bernardo",
 				"codigo_comuna" : "13401",
-				"value" : 13
+				"value" : 7
 			},
 			{
 				"comuna" : "San Joaquin",
 				"codigo_comuna" : "13129",
-				"value" : 4
+				"value" : 5
 			},
 			{
 				"comuna" : "San Jose de Maipo",
@@ -2453,12 +2453,12 @@ var data_comunas = {
 			{
 				"comuna" : "San Miguel",
 				"codigo_comuna" : "13130",
-				"value" : 2
+				"value" : 7
 			},
 			{
 				"comuna" : "San Pedro",
 				"codigo_comuna" : "13505",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "San Ramon",
@@ -2468,22 +2468,22 @@ var data_comunas = {
 			{
 				"comuna" : "Santiago",
 				"codigo_comuna" : "13101",
-				"value" : 14
+				"value" : 8
 			},
 			{
 				"comuna" : "Talagante",
 				"codigo_comuna" : "13601",
-				"value" : 1
+				"value" : 2
 			},
 			{
 				"comuna" : "Tiltil",
 				"codigo_comuna" : "13303",
-				"value" : 2
+				"value" : 0
 			},
 			{
 				"comuna" : "Vitacura",
 				"codigo_comuna" : "13132",
-				"value" : 0
+				"value" : 2
 			}
 		],
 		"poblacion" : [
@@ -2759,162 +2759,162 @@ var data_comunas = {
 			{
 				"comuna" : "Chimbarongo",
 				"codigo_comuna" : "06303",
-				"value" : 20
+				"value" : 19
 			},
 			{
 				"comuna" : "Codegua",
 				"codigo_comuna" : "06102",
-				"value" : 15
+				"value" : 12
 			},
 			{
 				"comuna" : "Coinco",
 				"codigo_comuna" : "06103",
-				"value" : 22
+				"value" : 9
 			},
 			{
 				"comuna" : "Coltauco",
 				"codigo_comuna" : "06104",
-				"value" : 6
+				"value" : 4
 			},
 			{
 				"comuna" : "Donihue",
 				"codigo_comuna" : "06105",
-				"value" : 18
+				"value" : 17
 			},
 			{
 				"comuna" : "Graneros",
 				"codigo_comuna" : "06106",
-				"value" : 34
+				"value" : 20
 			},
 			{
 				"comuna" : "La Estrella",
 				"codigo_comuna" : "06202",
-				"value" : 2
+				"value" : 9
 			},
 			{
 				"comuna" : "Las Cabras",
 				"codigo_comuna" : "06107",
-				"value" : 46
+				"value" : 34
 			},
 			{
 				"comuna" : "Litueche",
 				"codigo_comuna" : "06203",
-				"value" : 4
+				"value" : 10
 			},
 			{
 				"comuna" : "Lolol",
 				"codigo_comuna" : "06304",
-				"value" : 5
+				"value" : 4
 			},
 			{
 				"comuna" : "Machali",
 				"codigo_comuna" : "06108",
-				"value" : 26
+				"value" : 23
 			},
 			{
 				"comuna" : "Malloa",
 				"codigo_comuna" : "06109",
-				"value" : 7
+				"value" : 3
 			},
 			{
 				"comuna" : "Marchihue",
 				"codigo_comuna" : "06204",
-				"value" : 6
+				"value" : 4
 			},
 			{
 				"comuna" : "Mostazal",
 				"codigo_comuna" : "06110",
-				"value" : 25
+				"value" : 15
 			},
 			{
 				"comuna" : "Nancagua",
 				"codigo_comuna" : "06305",
-				"value" : 3
+				"value" : 4
 			},
 			{
 				"comuna" : "Navidad",
 				"codigo_comuna" : "06205",
-				"value" : 10
+				"value" : 7
 			},
 			{
 				"comuna" : "Olivar",
 				"codigo_comuna" : "06111",
-				"value" : 10
+				"value" : 7
 			},
 			{
 				"comuna" : "Palmilla",
 				"codigo_comuna" : "06306",
-				"value" : 3
+				"value" : 7
 			},
 			{
 				"comuna" : "Paredones",
 				"codigo_comuna" : "06206",
-				"value" : 6
+				"value" : 2
 			},
 			{
 				"comuna" : "Peralillo",
 				"codigo_comuna" : "06307",
-				"value" : 5
+				"value" : 9
 			},
 			{
 				"comuna" : "Peumo",
 				"codigo_comuna" : "06112",
-				"value" : 12
+				"value" : 2
 			},
 			{
 				"comuna" : "Pichidegua",
 				"codigo_comuna" : "06113",
-				"value" : 13
+				"value" : 14
 			},
 			{
 				"comuna" : "Pichilemu",
 				"codigo_comuna" : "06201",
-				"value" : 12
+				"value" : 8
 			},
 			{
 				"comuna" : "Placilla",
 				"codigo_comuna" : "06308",
-				"value" : 5
+				"value" : 3
 			},
 			{
 				"comuna" : "Pumanque",
 				"codigo_comuna" : "06309",
-				"value" : 5
+				"value" : 1
 			},
 			{
 				"comuna" : "Quinta de Tilcoco",
 				"codigo_comuna" : "06114",
-				"value" : 8
+				"value" : 1
 			},
 			{
 				"comuna" : "Rancagua",
 				"codigo_comuna" : "06101",
-				"value" : 176
+				"value" : 127
 			},
 			{
 				"comuna" : "Rengo",
 				"codigo_comuna" : "06115",
-				"value" : 26
+				"value" : 13
 			},
 			{
 				"comuna" : "Requinoa",
 				"codigo_comuna" : "06116",
-				"value" : 16
+				"value" : 6
 			},
 			{
 				"comuna" : "San Fernando",
 				"codigo_comuna" : "06301",
-				"value" : 25
+				"value" : 18
 			},
 			{
 				"comuna" : "San Vicente",
 				"codigo_comuna" : "06117",
-				"value" : 29
+				"value" : 23
 			},
 			{
 				"comuna" : "Santa Cruz",
 				"codigo_comuna" : "06310",
-				"value" : 9
+				"value" : 10
 			}
 		],
 		"nro_fallecidos_totales" : [
@@ -2951,7 +2951,7 @@ var data_comunas = {
 			{
 				"comuna" : "Graneros",
 				"codigo_comuna" : "06106",
-				"value" : 65
+				"value" : 66
 			},
 			{
 				"comuna" : "La Estrella",
@@ -2991,7 +2991,7 @@ var data_comunas = {
 			{
 				"comuna" : "Mostazal",
 				"codigo_comuna" : "06110",
-				"value" : 50
+				"value" : 52
 			},
 			{
 				"comuna" : "Nancagua",
@@ -3001,7 +3001,7 @@ var data_comunas = {
 			{
 				"comuna" : "Navidad",
 				"codigo_comuna" : "06205",
-				"value" : 16
+				"value" : 17
 			},
 			{
 				"comuna" : "Olivar",
@@ -3021,7 +3021,7 @@ var data_comunas = {
 			{
 				"comuna" : "Peralillo",
 				"codigo_comuna" : "06307",
-				"value" : 10
+				"value" : 11
 			},
 			{
 				"comuna" : "Peumo",
@@ -3031,7 +3031,7 @@ var data_comunas = {
 			{
 				"comuna" : "Pichidegua",
 				"codigo_comuna" : "06113",
-				"value" : 34
+				"value" : 35
 			},
 			{
 				"comuna" : "Pichilemu",
@@ -3041,7 +3041,7 @@ var data_comunas = {
 			{
 				"comuna" : "Placilla",
 				"codigo_comuna" : "06308",
-				"value" : 10
+				"value" : 11
 			},
 			{
 				"comuna" : "Pumanque",
@@ -3056,7 +3056,7 @@ var data_comunas = {
 			{
 				"comuna" : "Rancagua",
 				"codigo_comuna" : "06101",
-				"value" : 524
+				"value" : 528
 			},
 			{
 				"comuna" : "Rengo",
@@ -3066,17 +3066,17 @@ var data_comunas = {
 			{
 				"comuna" : "Requinoa",
 				"codigo_comuna" : "06116",
-				"value" : 37
+				"value" : 38
 			},
 			{
 				"comuna" : "San Fernando",
 				"codigo_comuna" : "06301",
-				"value" : 120
+				"value" : 121
 			},
 			{
 				"comuna" : "San Vicente",
 				"codigo_comuna" : "06117",
-				"value" : 88
+				"value" : 87
 			},
 			{
 				"comuna" : "Santa Cruz",
@@ -3098,7 +3098,7 @@ var data_comunas = {
 			{
 				"comuna" : "Codegua",
 				"codigo_comuna" : "06102",
-				"value" : 2
+				"value" : 0
 			},
 			{
 				"comuna" : "Coinco",
@@ -3118,7 +3118,7 @@ var data_comunas = {
 			{
 				"comuna" : "Graneros",
 				"codigo_comuna" : "06106",
-				"value" : 2
+				"value" : 1
 			},
 			{
 				"comuna" : "La Estrella",
@@ -3143,7 +3143,7 @@ var data_comunas = {
 			{
 				"comuna" : "Machali",
 				"codigo_comuna" : "06108",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Malloa",
@@ -3158,7 +3158,7 @@ var data_comunas = {
 			{
 				"comuna" : "Mostazal",
 				"codigo_comuna" : "06110",
-				"value" : 1
+				"value" : 2
 			},
 			{
 				"comuna" : "Nancagua",
@@ -3168,17 +3168,17 @@ var data_comunas = {
 			{
 				"comuna" : "Navidad",
 				"codigo_comuna" : "06205",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Olivar",
 				"codigo_comuna" : "06111",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Palmilla",
 				"codigo_comuna" : "06306",
-				"value" : -1
+				"value" : 0
 			},
 			{
 				"comuna" : "Paredones",
@@ -3188,17 +3188,17 @@ var data_comunas = {
 			{
 				"comuna" : "Peralillo",
 				"codigo_comuna" : "06307",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Peumo",
 				"codigo_comuna" : "06112",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Pichidegua",
 				"codigo_comuna" : "06113",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Pichilemu",
@@ -3208,7 +3208,7 @@ var data_comunas = {
 			{
 				"comuna" : "Placilla",
 				"codigo_comuna" : "06308",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Pumanque",
@@ -3223,7 +3223,7 @@ var data_comunas = {
 			{
 				"comuna" : "Rancagua",
 				"codigo_comuna" : "06101",
-				"value" : 8
+				"value" : 4
 			},
 			{
 				"comuna" : "Rengo",
@@ -3233,17 +3233,17 @@ var data_comunas = {
 			{
 				"comuna" : "Requinoa",
 				"codigo_comuna" : "06116",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "San Fernando",
 				"codigo_comuna" : "06301",
-				"value" : -1
+				"value" : 1
 			},
 			{
 				"comuna" : "San Vicente",
 				"codigo_comuna" : "06117",
-				"value" : 2
+				"value" : -1
 			},
 			{
 				"comuna" : "Santa Cruz",
@@ -3424,72 +3424,72 @@ var data_comunas = {
 			{
 				"comuna" : "Cauquenes",
 				"codigo_comuna" : "07201",
-				"value" : 60
+				"value" : 45
 			},
 			{
 				"comuna" : "Chanco",
 				"codigo_comuna" : "07202",
-				"value" : 7
+				"value" : 6
 			},
 			{
 				"comuna" : "Colbun",
 				"codigo_comuna" : "07402",
-				"value" : 35
+				"value" : 21
 			},
 			{
 				"comuna" : "Constitucion",
 				"codigo_comuna" : "07102",
-				"value" : 53
+				"value" : 35
 			},
 			{
 				"comuna" : "Curepto",
 				"codigo_comuna" : "07103",
-				"value" : 5
+				"value" : 3
 			},
 			{
 				"comuna" : "Curico",
 				"codigo_comuna" : "07301",
-				"value" : 125
+				"value" : 91
 			},
 			{
 				"comuna" : "Empedrado",
 				"codigo_comuna" : "07104",
-				"value" : 2
+				"value" : 0
 			},
 			{
 				"comuna" : "Hualane",
 				"codigo_comuna" : "07302",
-				"value" : 19
+				"value" : 8
 			},
 			{
 				"comuna" : "Licanten",
 				"codigo_comuna" : "07303",
-				"value" : 14
+				"value" : 8
 			},
 			{
 				"comuna" : "Linares",
 				"codigo_comuna" : "07401",
-				"value" : 154
+				"value" : 272
 			},
 			{
 				"comuna" : "Longavi",
 				"codigo_comuna" : "07403",
-				"value" : 15
+				"value" : 12
 			},
 			{
 				"comuna" : "Maule",
 				"codigo_comuna" : "07105",
-				"value" : 39
+				"value" : 15
 			},
 			{
 				"comuna" : "Molina",
 				"codigo_comuna" : "07304",
-				"value" : 29
+				"value" : 17
 			},
 			{
 				"comuna" : "Parral",
 				"codigo_comuna" : "07404",
-				"value" : 54
+				"value" : 41
 			},
 			{
 				"comuna" : "Pelarco",
@@ -3499,77 +3499,77 @@ var data_comunas = {
 			{
 				"comuna" : "Pelluhue",
 				"codigo_comuna" : "07203",
-				"value" : 7
+				"value" : 5
 			},
 			{
 				"comuna" : "Pencahue",
 				"codigo_comuna" : "07107",
-				"value" : 2
+				"value" : 3
 			},
 			{
 				"comuna" : "Rauco",
 				"codigo_comuna" : "07305",
-				"value" : 7
+				"value" : 13
 			},
 			{
 				"comuna" : "Retiro",
 				"codigo_comuna" : "07405",
-				"value" : 39
+				"value" : 27
 			},
 			{
 				"comuna" : "Rio Claro",
 				"codigo_comuna" : "07108",
-				"value" : 31
+				"value" : 27
 			},
 			{
 				"comuna" : "Romeral",
 				"codigo_comuna" : "07306",
-				"value" : 17
+				"value" : 12
 			},
 			{
 				"comuna" : "Sagrada Familia",
 				"codigo_comuna" : "07307",
-				"value" : 22
+				"value" : 18
 			},
 			{
 				"comuna" : "San Clemente",
 				"codigo_comuna" : "07109",
-				"value" : 49
+				"value" : 41
 			},
 			{
 				"comuna" : "San Javier",
 				"codigo_comuna" : "07406",
-				"value" : 49
+				"value" : 53
 			},
 			{
 				"comuna" : "San Rafael",
 				"codigo_comuna" : "07110",
-				"value" : 23
+				"value" : 19
 			},
 			{
 				"comuna" : "Talca",
 				"codigo_comuna" : "07101",
-				"value" : 186
+				"value" : 144
 			},
 			{
 				"comuna" : "Teno",
 				"codigo_comuna" : "07308",
-				"value" : 49
+				"value" : 43
 			},
 			{
 				"comuna" : "Vichuquen",
 				"codigo_comuna" : "07309",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Villa Alegre",
 				"codigo_comuna" : "07407",
-				"value" : 18
+				"value" : 22
 			},
 			{
 				"comuna" : "Yerbas Buenas",
 				"codigo_comuna" : "07408",
-				"value" : 19
+				"value" : 10
 			}
 		],
 		"nro_fallecidos_totales" : [
@@ -3586,12 +3586,12 @@ var data_comunas = {
 			{
 				"comuna" : "Colbun",
 				"codigo_comuna" : "07402",
-				"value" : 28
+				"value" : 29
 			},
 			{
 				"comuna" : "Constitucion",
 				"codigo_comuna" : "07102",
-				"value" : 61
+				"value" : 62
 			},
 			{
 				"comuna" : "Curepto",
@@ -3601,7 +3601,7 @@ var data_comunas = {
 			{
 				"comuna" : "Curico",
 				"codigo_comuna" : "07301",
-				"value" : 370
+				"value" : 372
 			},
 			{
 				"comuna" : "Empedrado",
@@ -3611,7 +3611,7 @@ var data_comunas = {
 			{
 				"comuna" : "Hualane",
 				"codigo_comuna" : "07302",
-				"value" : 17
+				"value" : 18
 			},
 			{
 				"comuna" : "Licanten",
@@ -3621,7 +3621,7 @@ var data_comunas = {
 			{
 				"comuna" : "Linares",
 				"codigo_comuna" : "07401",
-				"value" : 168
+				"value" : 171
 			},
 			{
 				"comuna" : "Longavi",
@@ -3631,7 +3631,7 @@ var data_comunas = {
 			{
 				"comuna" : "Maule",
 				"codigo_comuna" : "07105",
-				"value" : 56
+				"value" : 57
 			},
 			{
 				"comuna" : "Molina",
@@ -3661,12 +3661,12 @@ var data_comunas = {
 			{
 				"comuna" : "Rauco",
 				"codigo_comuna" : "07305",
-				"value" : 16
+				"value" : 17
 			},
 			{
 				"comuna" : "Retiro",
 				"codigo_comuna" : "07405",
-				"value" : 16
+				"value" : 18
 			},
 			{
 				"comuna" : "Rio Claro",
@@ -3691,7 +3691,7 @@ var data_comunas = {
 			{
 				"comuna" : "San Javier",
 				"codigo_comuna" : "07406",
-				"value" : 84
+				"value" : 85
 			},
 			{
 				"comuna" : "San Rafael",
@@ -3701,7 +3701,7 @@ var data_comunas = {
 			{
 				"comuna" : "Talca",
 				"codigo_comuna" : "07101",
-				"value" : 403
+				"value" : 407
 			},
 			{
 				"comuna" : "Teno",
@@ -3721,7 +3721,7 @@ var data_comunas = {
 			{
 				"comuna" : "Yerbas Buenas",
 				"codigo_comuna" : "07408",
-				"value" : 32
+				"value" : 33
 			}
 		],
 		"nro_fallecidos_ultimo" : [
@@ -3738,7 +3738,7 @@ var data_comunas = {
 			{
 				"comuna" : "Colbun",
 				"codigo_comuna" : "07402",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Constitucion",
@@ -3753,7 +3753,7 @@ var data_comunas = {
 			{
 				"comuna" : "Curico",
 				"codigo_comuna" : "07301",
-				"value" : -1
+				"value" : 2
 			},
 			{
 				"comuna" : "Empedrado",
@@ -3763,17 +3763,17 @@ var data_comunas = {
 			{
 				"comuna" : "Hualane",
 				"codigo_comuna" : "07302",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Licanten",
 				"codigo_comuna" : "07303",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Linares",
 				"codigo_comuna" : "07401",
-				"value" : 0
+				"value" : 3
 			},
 			{
 				"comuna" : "Longavi",
@@ -3793,12 +3793,12 @@ var data_comunas = {
 			{
 				"comuna" : "Parral",
 				"codigo_comuna" : "07404",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Pelarco",
 				"codigo_comuna" : "07106",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Pelluhue",
@@ -3808,22 +3808,22 @@ var data_comunas = {
 			{
 				"comuna" : "Pencahue",
 				"codigo_comuna" : "07107",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Rauco",
 				"codigo_comuna" : "07305",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Retiro",
 				"codigo_comuna" : "07405",
-				"value" : 0
+				"value" : 2
 			},
 			{
 				"comuna" : "Rio Claro",
 				"codigo_comuna" : "07108",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Romeral",
@@ -3838,7 +3838,7 @@ var data_comunas = {
 			{
 				"comuna" : "San Clemente",
 				"codigo_comuna" : "07109",
-				"value" : 2
+				"value" : 0
 			},
 			{
 				"comuna" : "San Javier",
@@ -3853,12 +3853,12 @@ var data_comunas = {
 			{
 				"comuna" : "Talca",
 				"codigo_comuna" : "07101",
-				"value" : 1
+				"value" : 4
 			},
 			{
 				"comuna" : "Teno",
 				"codigo_comuna" : "07308",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Vichuquen",
@@ -3868,12 +3868,12 @@ var data_comunas = {
 			{
 				"comuna" : "Villa Alegre",
 				"codigo_comuna" : "07407",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Yerbas Buenas",
 				"codigo_comuna" : "07408",
-				"value" : 0
+				"value" : 1
 			}
 		],
 		"poblacion" : [
@@ -4034,17 +4034,17 @@ var data_comunas = {
 			{
 				"comuna" : "Bulnes",
 				"codigo_comuna" : "16102",
-				"value" : 8
+				"value" : 10
 			},
 			{
 				"comuna" : "Chillan",
 				"codigo_comuna" : "16101",
-				"value" : 163
+				"value" : 124
 			},
 			{
 				"comuna" : "Chillan Viejo",
 				"codigo_comuna" : "16103",
-				"value" : 28
+				"value" : 23
 			},
 			{
 				"comuna" : "Cobquecura",
@@ -4054,52 +4054,52 @@ var data_comunas = {
 			{
 				"comuna" : "Coelemu",
 				"codigo_comuna" : "16203",
-				"value" : 13
+				"value" : 9
 			},
 			{
 				"comuna" : "Coihueco",
 				"codigo_comuna" : "16302",
-				"value" : 10
+				"value" : 7
 			},
 			{
 				"comuna" : "El Carmen",
 				"codigo_comuna" : "16104",
-				"value" : 22
+				"value" : 17
 			},
 			{
 				"comuna" : "Ninhue",
 				"codigo_comuna" : "16204",
-				"value" : 5
+				"value" : 4
 			},
 			{
 				"comuna" : "Niquen",
 				"codigo_comuna" : "16303",
-				"value" : 9
+				"value" : 8
 			},
 			{
 				"comuna" : "Pemuco",
 				"codigo_comuna" : "16105",
-				"value" : 5
+				"value" : 1
 			},
 			{
 				"comuna" : "Pinto",
 				"codigo_comuna" : "16106",
-				"value" : 4
+				"value" : 6
 			},
 			{
 				"comuna" : "Portezuelo",
 				"codigo_comuna" : "16205",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Quillon",
 				"codigo_comuna" : "16107",
-				"value" : 13
+				"value" : 10
 			},
 			{
 				"comuna" : "Quirihue",
 				"codigo_comuna" : "16201",
-				"value" : 9
+				"value" : 6
 			},
 			{
 				"comuna" : "Ranquil",
@@ -4109,22 +4109,22 @@ var data_comunas = {
 			{
 				"comuna" : "San Carlos",
 				"codigo_comuna" : "16301",
-				"value" : 66
+				"value" : 49
 			},
 			{
 				"comuna" : "San Fabian",
 				"codigo_comuna" : "16304",
-				"value" : 6
+				"value" : 5
 			},
 			{
 				"comuna" : "San Ignacio",
 				"codigo_comuna" : "16108",
-				"value" : 8
+				"value" : 5
 			},
 			{
 				"comuna" : "San Nicolas",
 				"codigo_comuna" : "16305",
-				"value" : 41
+				"value" : 17
 			},
 			{
 				"comuna" : "Treguaco",
@@ -4134,7 +4134,7 @@ var data_comunas = {
 			{
 				"comuna" : "Yungay",
 				"codigo_comuna" : "16109",
-				"value" : 20
+				"value" : 21
 			}
 		],
 		"nro_fallecidos_totales" : [
@@ -4146,7 +4146,7 @@ var data_comunas = {
 			{
 				"comuna" : "Chillan",
 				"codigo_comuna" : "16101",
-				"value" : 259
+				"value" : 261
 			},
 			{
 				"comuna" : "Chillan Viejo",
@@ -4161,12 +4161,12 @@ var data_comunas = {
 			{
 				"comuna" : "Coelemu",
 				"codigo_comuna" : "16203",
-				"value" : 24
+				"value" : 27
 			},
 			{
 				"comuna" : "Coihueco",
 				"codigo_comuna" : "16302",
-				"value" : 36
+				"value" : 35
 			},
 			{
 				"comuna" : "El Carmen",
@@ -4196,12 +4196,12 @@ var data_comunas = {
 			{
 				"comuna" : "Portezuelo",
 				"codigo_comuna" : "16205",
-				"value" : 6
+				"value" : 7
 			},
 			{
 				"comuna" : "Quillon",
 				"codigo_comuna" : "16107",
-				"value" : 28
+				"value" : 29
 			},
 			{
 				"comuna" : "Quirihue",
@@ -4216,7 +4216,7 @@ var data_comunas = {
 			{
 				"comuna" : "San Carlos",
 				"codigo_comuna" : "16301",
-				"value" : 82
+				"value" : 83
 			},
 			{
 				"comuna" : "San Fabian",
@@ -4253,7 +4253,7 @@ var data_comunas = {
 			{
 				"comuna" : "Chillan",
 				"codigo_comuna" : "16101",
-				"value" : -1
+				"value" : 2
 			},
 			{
 				"comuna" : "Chillan Viejo",
@@ -4268,12 +4268,12 @@ var data_comunas = {
 			{
 				"comuna" : "Coelemu",
 				"codigo_comuna" : "16203",
-				"value" : 1
+				"value" : 3
 			},
 			{
 				"comuna" : "Coihueco",
 				"codigo_comuna" : "16302",
-				"value" : 1
+				"value" : -1
 			},
 			{
 				"comuna" : "El Carmen",
@@ -4303,12 +4303,12 @@ var data_comunas = {
 			{
 				"comuna" : "Portezuelo",
 				"codigo_comuna" : "16205",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Quillon",
 				"codigo_comuna" : "16107",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Quirihue",
@@ -4318,12 +4318,12 @@ var data_comunas = {
 			{
 				"comuna" : "Ranquil",
 				"codigo_comuna" : "16206",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "San Carlos",
 				"codigo_comuna" : "16301",
-				"value" : 2
+				"value" : 1
 			},
 			{
 				"comuna" : "San Fabian",
@@ -4464,7 +4464,7 @@ var data_comunas = {
 			{
 				"comuna" : "Alto Biobio",
 				"codigo_comuna" : "08314",
-				"value" : 6
+				"value" : 4
 			},
 			{
 				"comuna" : "Antuco",
@@ -4474,17 +4474,17 @@ var data_comunas = {
 			{
 				"comuna" : "Arauco",
 				"codigo_comuna" : "08202",
-				"value" : 70
+				"value" : 68
 			},
 			{
 				"comuna" : "Cabrero",
 				"codigo_comuna" : "08303",
-				"value" : 44
+				"value" : 27
 			},
 			{
 				"comuna" : "Canete",
 				"codigo_comuna" : "08203",
-				"value" : 43
+				"value" : 26
 			},
 			{
 				"comuna" : "Chiguayante",
@@ -4494,137 +4494,137 @@ var data_comunas = {
 			{
 				"comuna" : "Concepcion",
 				"codigo_comuna" : "08101",
-				"value" : 249
+				"value" : 201
 			},
 			{
 				"comuna" : "Contulmo",
 				"codigo_comuna" : "08204",
-				"value" : 33
+				"value" : 17
 			},
 			{
 				"comuna" : "Coronel",
 				"codigo_comuna" : "08102",
-				"value" : 115
+				"value" : 130
 			},
 			{
 				"comuna" : "Curanilahue",
 				"codigo_comuna" : "08205",
-				"value" : 24
+				"value" : 21
 			},
 			{
 				"comuna" : "Florida",
 				"codigo_comuna" : "08104",
-				"value" : 14
+				"value" : 10
 			},
 			{
 				"comuna" : "Hualpen",
 				"codigo_comuna" : "08112",
-				"value" : 101
+				"value" : 95
 			},
 			{
 				"comuna" : "Hualqui",
 				"codigo_comuna" : "08105",
-				"value" : 26
+				"value" : 28
 			},
 			{
 				"comuna" : "Laja",
 				"codigo_comuna" : "08304",
-				"value" : 15
+				"value" : 11
 			},
 			{
 				"comuna" : "Lebu",
 				"codigo_comuna" : "08201",
-				"value" : 30
+				"value" : 28
 			},
 			{
 				"comuna" : "Los Alamos",
 				"codigo_comuna" : "08206",
-				"value" : 41
+				"value" : 22
 			},
 			{
 				"comuna" : "Los Angeles",
 				"codigo_comuna" : "08301",
-				"value" : 162
+				"value" : 138
 			},
 			{
 				"comuna" : "Lota",
 				"codigo_comuna" : "08106",
-				"value" : 35
+				"value" : 27
 			},
 			{
 				"comuna" : "Mulchen",
 				"codigo_comuna" : "08305",
-				"value" : 20
+				"value" : 22
 			},
 			{
 				"comuna" : "Nacimiento",
 				"codigo_comuna" : "08306",
-				"value" : 32
+				"value" : 19
 			},
 			{
 				"comuna" : "Negrete",
 				"codigo_comuna" : "08307",
-				"value" : 7
+				"value" : 5
 			},
 			{
 				"comuna" : "Penco",
 				"codigo_comuna" : "08107",
-				"value" : 56
+				"value" : 47
 			},
 			{
 				"comuna" : "Quilaco",
 				"codigo_comuna" : "08308",
-				"value" : 10
+				"value" : 11
 			},
 			{
 				"comuna" : "Quilleco",
 				"codigo_comuna" : "08309",
-				"value" : 19
+				"value" : 5
 			},
 			{
 				"comuna" : "San Pedro de la Paz",
 				"codigo_comuna" : "08108",
-				"value" : 159
+				"value" : 147
 			},
 			{
 				"comuna" : "San Rosendo",
 				"codigo_comuna" : "08310",
-				"value" : 5
+				"value" : 8
 			},
 			{
 				"comuna" : "Santa Barbara",
 				"codigo_comuna" : "08311",
-				"value" : 11
+				"value" : 7
 			},
 			{
 				"comuna" : "Santa Juana",
 				"codigo_comuna" : "08109",
-				"value" : 19
+				"value" : 9
 			},
 			{
 				"comuna" : "Talcahuano",
 				"codigo_comuna" : "08110",
-				"value" : 144
+				"value" : 157
 			},
 			{
 				"comuna" : "Tirua",
 				"codigo_comuna" : "08207",
-				"value" : 32
+				"value" : 22
 			},
 			{
 				"comuna" : "Tome",
 				"codigo_comuna" : "08111",
-				"value" : 70
+				"value" : 56
 			},
 			{
 				"comuna" : "Tucapel",
 				"codigo_comuna" : "08312",
-				"value" : 25
+				"value" : 19
 			},
 			{
 				"comuna" : "Yumbel",
 				"codigo_comuna" : "08313",
-				"value" : 9
+				"value" : 6
 			}
 		],
 		"nro_fallecidos_totales" : [
@@ -4656,12 +4656,12 @@ var data_comunas = {
 			{
 				"comuna" : "Chiguayante",
 				"codigo_comuna" : "08103",
-				"value" : 156
+				"value" : 157
 			},
 			{
 				"comuna" : "Concepcion",
 				"codigo_comuna" : "08101",
-				"value" : 441
+				"value" : 448
 			},
 			{
 				"comuna" : "Contulmo",
@@ -4671,12 +4671,12 @@ var data_comunas = {
 			{
 				"comuna" : "Coronel",
 				"codigo_comuna" : "08102",
-				"value" : 261
+				"value" : 265
 			},
 			{
 				"comuna" : "Curanilahue",
 				"codigo_comuna" : "08205",
-				"value" : 68
+				"value" : 69
 			},
 			{
 				"comuna" : "Florida",
@@ -4706,12 +4706,12 @@ var data_comunas = {
 			{
 				"comuna" : "Los Alamos",
 				"codigo_comuna" : "08206",
-				"value" : 32
+				"value" : 33
 			},
 			{
 				"comuna" : "Los Angeles",
 				"codigo_comuna" : "08301",
-				"value" : 269
+				"value" : 270
 			},
 			{
 				"comuna" : "Lota",
@@ -4751,7 +4751,7 @@ var data_comunas = {
 			{
 				"comuna" : "San Pedro de la Paz",
 				"codigo_comuna" : "08108",
-				"value" : 203
+				"value" : 204
 			},
 			{
 				"comuna" : "San Rosendo",
@@ -4771,17 +4771,17 @@ var data_comunas = {
 			{
 				"comuna" : "Talcahuano",
 				"codigo_comuna" : "08110",
-				"value" : 310
+				"value" : 311
 			},
 			{
 				"comuna" : "Tirua",
 				"codigo_comuna" : "08207",
-				"value" : 22
+				"value" : 23
 			},
 			{
 				"comuna" : "Tome",
 				"codigo_comuna" : "08111",
-				"value" : 92
+				"value" : 93
 			},
 			{
 				"comuna" : "Tucapel",
@@ -4818,7 +4818,7 @@ var data_comunas = {
 			{
 				"comuna" : "Canete",
 				"codigo_comuna" : "08203",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Chiguayante",
@@ -4828,7 +4828,7 @@ var data_comunas = {
 			{
 				"comuna" : "Concepcion",
 				"codigo_comuna" : "08101",
-				"value" : 4
+				"value" : 7
 			},
 			{
 				"comuna" : "Contulmo",
@@ -4838,17 +4838,17 @@ var data_comunas = {
 			{
 				"comuna" : "Coronel",
 				"codigo_comuna" : "08102",
-				"value" : 5
+				"value" : 4
 			},
 			{
 				"comuna" : "Curanilahue",
 				"codigo_comuna" : "08205",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Florida",
 				"codigo_comuna" : "08104",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Hualpen",
@@ -4863,7 +4863,7 @@ var data_comunas = {
 			{
 				"comuna" : "Laja",
 				"codigo_comuna" : "08304",
-				"value" : -1
+				"value" : 0
 			},
 			{
 				"comuna" : "Lebu",
@@ -4873,7 +4873,7 @@ var data_comunas = {
 			{
 				"comuna" : "Los Alamos",
 				"codigo_comuna" : "08206",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Los Angeles",
@@ -4893,7 +4893,7 @@ var data_comunas = {
 			{
 				"comuna" : "Nacimiento",
 				"codigo_comuna" : "08306",
-				"value" : -1
+				"value" : 0
 			},
 			{
 				"comuna" : "Negrete",
@@ -4903,7 +4903,7 @@ var data_comunas = {
 			{
 				"comuna" : "Penco",
 				"codigo_comuna" : "08107",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Quilaco",
@@ -4918,7 +4918,7 @@ var data_comunas = {
 			{
 				"comuna" : "San Pedro de la Paz",
 				"codigo_comuna" : "08108",
-				"value" : 3
+				"value" : 1
 			},
 			{
 				"comuna" : "San Rosendo",
@@ -4933,17 +4933,17 @@ var data_comunas = {
 			{
 				"comuna" : "Santa Juana",
 				"codigo_comuna" : "08109",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Talcahuano",
 				"codigo_comuna" : "08110",
-				"value" : 2
+				"value" : 1
 			},
 			{
 				"comuna" : "Tirua",
 				"codigo_comuna" : "08207",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Tome",
@@ -4953,12 +4953,12 @@ var data_comunas = {
 			{
 				"comuna" : "Tucapel",
 				"codigo_comuna" : "08312",
-				"value" : 2
+				"value" : 0
 			},
 			{
 				"comuna" : "Yumbel",
 				"codigo_comuna" : "08313",
-				"value" : 1
+				"value" : 0
 			}
 		],
 		"poblacion" : [
@@ -5134,37 +5134,37 @@ var data_comunas = {
 			{
 				"comuna" : "Angol",
 				"codigo_comuna" : "09201",
-				"value" : 19
+				"value" : 17
 			},
 			{
 				"comuna" : "Carahue",
 				"codigo_comuna" : "09102",
-				"value" : 19
+				"value" : 10
 			},
 			{
 				"comuna" : "Cholchol",
 				"codigo_comuna" : "09121",
-				"value" : 12
+				"value" : 9
 			},
 			{
 				"comuna" : "Collipulli",
 				"codigo_comuna" : "09202",
-				"value" : 21
+				"value" : 8
 			},
 			{
 				"comuna" : "Cunco",
 				"codigo_comuna" : "09103",
-				"value" : 9
+				"value" : 11
 			},
 			{
 				"comuna" : "Curacautin",
 				"codigo_comuna" : "09203",
-				"value" : 26
+				"value" : 18
 			},
 			{
 				"comuna" : "Curarrehue",
 				"codigo_comuna" : "09104",
-				"value" : 12
+				"value" : 11
 			},
 			{
 				"comuna" : "Ercilla",
@@ -5174,27 +5174,27 @@ var data_comunas = {
 			{
 				"comuna" : "Freire",
 				"codigo_comuna" : "09105",
-				"value" : 17
+				"value" : 10
 			},
 			{
 				"comuna" : "Galvarino",
 				"codigo_comuna" : "09106",
-				"value" : 19
+				"value" : 6
 			},
 			{
 				"comuna" : "Gorbea",
 				"codigo_comuna" : "09107",
-				"value" : 41
+				"value" : 23
 			},
 			{
 				"comuna" : "Lautaro",
 				"codigo_comuna" : "09108",
-				"value" : 43
+				"value" : 26
 			},
 			{
 				"comuna" : "Loncoche",
 				"codigo_comuna" : "09109",
-				"value" : 29
+				"value" : 24
 			},
 			{
 				"comuna" : "Lonquimay",
@@ -5204,7 +5204,7 @@ var data_comunas = {
 			{
 				"comuna" : "Los Sauces",
 				"codigo_comuna" : "09206",
-				"value" : 3
+				"value" : 2
 			},
 			{
 				"comuna" : "Lumaco",
@@ -5214,57 +5214,57 @@ var data_comunas = {
 			{
 				"comuna" : "Melipeuco",
 				"codigo_comuna" : "09110",
-				"value" : 14
+				"value" : 16
 			},
 			{
 				"comuna" : "Nueva Imperial",
 				"codigo_comuna" : "09111",
-				"value" : 40
+				"value" : 25
 			},
 			{
 				"comuna" : "Padre Las Casas",
 				"codigo_comuna" : "09112",
-				"value" : 54
+				"value" : 58
 			},
 			{
 				"comuna" : "Perquenco",
 				"codigo_comuna" : "09113",
-				"value" : 10
+				"value" : 2
 			},
 			{
 				"comuna" : "Pitrufquen",
 				"codigo_comuna" : "09114",
-				"value" : 29
+				"value" : 23
 			},
 			{
 				"comuna" : "Pucon",
 				"codigo_comuna" : "09115",
-				"value" : 55
+				"value" : 33
 			},
 			{
 				"comuna" : "Puren",
 				"codigo_comuna" : "09208",
-				"value" : 20
+				"value" : 23
 			},
 			{
 				"comuna" : "Renaico",
 				"codigo_comuna" : "09209",
-				"value" : 2
+				"value" : 1
 			},
 			{
 				"comuna" : "Saavedra",
 				"codigo_comuna" : "09116",
-				"value" : 18
+				"value" : 11
 			},
 			{
 				"comuna" : "Temuco",
 				"codigo_comuna" : "09101",
-				"value" : 205
+				"value" : 216
 			},
 			{
 				"comuna" : "Teodoro Schmidt",
 				"codigo_comuna" : "09117",
-				"value" : 65
+				"value" : 58
 			},
 			{
 				"comuna" : "Tolten",
@@ -5274,29 +5274,29 @@ var data_comunas = {
 			{
 				"comuna" : "Traiguen",
 				"codigo_comuna" : "09210",
-				"value" : 21
+				"value" : 26
 			},
 			{
 				"comuna" : "Victoria",
 				"codigo_comuna" : "09211",
-				"value" : 19
+				"value" : 13
 			},
 			{
 				"comuna" : "Vilcun",
 				"codigo_comuna" : "09119",
-				"value" : 33
+				"value" : 24
 			},
 			{
 				"comuna" : "Villarrica",
 				"codigo_comuna" : "09120",
-				"value" : 110
+				"value" : 83
 			}
 		],
 		"nro_fallecidos_totales" : [
 			{
 				"comuna" : "Angol",
 				"codigo_comuna" : "09201",
-				"value" : 119
+				"value" : 118
 			},
 			{
 				"comuna" : "Carahue",
@@ -5306,12 +5306,12 @@ var data_comunas = {
 			{
 				"comuna" : "Cholchol",
 				"codigo_comuna" : "09121",
-				"value" : 26
+				"value" : 25
 			},
 			{
 				"comuna" : "Collipulli",
 				"codigo_comuna" : "09202",
-				"value" : 43
+				"value" : 44
 			},
 			{
 				"comuna" : "Cunco",
@@ -5341,17 +5341,17 @@ var data_comunas = {
 			{
 				"comuna" : "Galvarino",
 				"codigo_comuna" : "09106",
-				"value" : 35
+				"value" : 36
 			},
 			{
 				"comuna" : "Gorbea",
 				"codigo_comuna" : "09107",
-				"value" : 36
+				"value" : 37
 			},
 			{
 				"comuna" : "Lautaro",
 				"codigo_comuna" : "09108",
-				"value" : 48
+				"value" : 50
 			},
 			{
 				"comuna" : "Loncoche",
@@ -5361,7 +5361,7 @@ var data_comunas = {
 			{
 				"comuna" : "Lonquimay",
 				"codigo_comuna" : "09205",
-				"value" : 20
+				"value" : 21
 			},
 			{
 				"comuna" : "Los Sauces",
@@ -5381,12 +5381,12 @@ var data_comunas = {
 			{
 				"comuna" : "Nueva Imperial",
 				"codigo_comuna" : "09111",
-				"value" : 65
+				"value" : 67
 			},
 			{
 				"comuna" : "Padre Las Casas",
 				"codigo_comuna" : "09112",
-				"value" : 117
+				"value" : 119
 			},
 			{
 				"comuna" : "Perquenco",
@@ -5396,12 +5396,12 @@ var data_comunas = {
 			{
 				"comuna" : "Pitrufquen",
 				"codigo_comuna" : "09114",
-				"value" : 48
+				"value" : 50
 			},
 			{
 				"comuna" : "Pucon",
 				"codigo_comuna" : "09115",
-				"value" : 40
+				"value" : 41
 			},
 			{
 				"comuna" : "Puren",
@@ -5421,7 +5421,7 @@ var data_comunas = {
 			{
 				"comuna" : "Temuco",
 				"codigo_comuna" : "09101",
-				"value" : 395
+				"value" : 397
 			},
 			{
 				"comuna" : "Teodoro Schmidt",
@@ -5431,12 +5431,12 @@ var data_comunas = {
 			{
 				"comuna" : "Tolten",
 				"codigo_comuna" : "09118",
-				"value" : 25
+				"value" : 26
 			},
 			{
 				"comuna" : "Traiguen",
 				"codigo_comuna" : "09210",
-				"value" : 41
+				"value" : 42
 			},
 			{
 				"comuna" : "Victoria",
@@ -5446,34 +5446,34 @@ var data_comunas = {
 			{
 				"comuna" : "Vilcun",
 				"codigo_comuna" : "09119",
-				"value" : 40
+				"value" : 41
 			},
 			{
 				"comuna" : "Villarrica",
 				"codigo_comuna" : "09120",
-				"value" : 76
+				"value" : 79
 			}
 		],
 		"nro_fallecidos_ultimo" : [
 			{
 				"comuna" : "Angol",
 				"codigo_comuna" : "09201",
-				"value" : 0
+				"value" : -1
 			},
 			{
 				"comuna" : "Carahue",
 				"codigo_comuna" : "09102",
-				"value" : 2
+				"value" : 0
 			},
 			{
 				"comuna" : "Cholchol",
 				"codigo_comuna" : "09121",
-				"value" : 0
+				"value" : -1
 			},
 			{
 				"comuna" : "Collipulli",
 				"codigo_comuna" : "09202",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Cunco",
@@ -5488,17 +5488,17 @@ var data_comunas = {
 			{
 				"comuna" : "Curarrehue",
 				"codigo_comuna" : "09104",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Ercilla",
 				"codigo_comuna" : "09204",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Freire",
 				"codigo_comuna" : "09105",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Galvarino",
@@ -5508,22 +5508,22 @@ var data_comunas = {
 			{
 				"comuna" : "Gorbea",
 				"codigo_comuna" : "09107",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Lautaro",
 				"codigo_comuna" : "09108",
-				"value" : 1
+				"value" : 2
 			},
 			{
 				"comuna" : "Loncoche",
 				"codigo_comuna" : "09109",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Lonquimay",
 				"codigo_comuna" : "09205",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Los Sauces",
@@ -5543,32 +5543,32 @@ var data_comunas = {
 			{
 				"comuna" : "Nueva Imperial",
 				"codigo_comuna" : "09111",
-				"value" : 1
+				"value" : 2
 			},
 			{
 				"comuna" : "Padre Las Casas",
 				"codigo_comuna" : "09112",
-				"value" : 0
+				"value" : 2
 			},
 			{
 				"comuna" : "Perquenco",
 				"codigo_comuna" : "09113",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Pitrufquen",
 				"codigo_comuna" : "09114",
-				"value" : 1
+				"value" : 2
 			},
 			{
 				"comuna" : "Pucon",
 				"codigo_comuna" : "09115",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Puren",
 				"codigo_comuna" : "09208",
-				"value" : -1
+				"value" : 0
 			},
 			{
 				"comuna" : "Renaico",
@@ -5578,12 +5578,12 @@ var data_comunas = {
 			{
 				"comuna" : "Saavedra",
 				"codigo_comuna" : "09116",
-				"value" : 3
+				"value" : 0
 			},
 			{
 				"comuna" : "Temuco",
 				"codigo_comuna" : "09101",
-				"value" : 4
+				"value" : 2
 			},
 			{
 				"comuna" : "Teodoro Schmidt",
@@ -5593,27 +5593,27 @@ var data_comunas = {
 			{
 				"comuna" : "Tolten",
 				"codigo_comuna" : "09118",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Traiguen",
 				"codigo_comuna" : "09210",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Victoria",
 				"codigo_comuna" : "09211",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Vilcun",
 				"codigo_comuna" : "09119",
-				"value" : -1
+				"value" : 1
 			},
 			{
 				"comuna" : "Villarrica",
 				"codigo_comuna" : "09120",
-				"value" : 1
+				"value" : 3
 			}
 		],
 		"poblacion" : [
@@ -5784,62 +5784,62 @@ var data_comunas = {
 			{
 				"comuna" : "Corral",
 				"codigo_comuna" : "14102",
-				"value" : 16
+				"value" : 4
 			},
 			{
 				"comuna" : "Futrono",
 				"codigo_comuna" : "14202",
-				"value" : 84
+				"value" : 57
 			},
 			{
 				"comuna" : "La Union",
 				"codigo_comuna" : "14201",
-				"value" : 54
+				"value" : 45
 			},
 			{
 				"comuna" : "Lago Ranco",
 				"codigo_comuna" : "14203",
-				"value" : 42
+				"value" : 47
 			},
 			{
 				"comuna" : "Lanco",
 				"codigo_comuna" : "14103",
-				"value" : 49
+				"value" : 31
 			},
 			{
 				"comuna" : "Los Lagos",
 				"codigo_comuna" : "14104",
-				"value" : 81
+				"value" : 54
 			},
 			{
 				"comuna" : "Mafil",
 				"codigo_comuna" : "14105",
-				"value" : 4
+				"value" : 2
 			},
 			{
 				"comuna" : "Mariquina",
 				"codigo_comuna" : "14106",
-				"value" : 5
+				"value" : 12
 			},
 			{
 				"comuna" : "Paillaco",
 				"codigo_comuna" : "14107",
-				"value" : 60
+				"value" : 56
 			},
 			{
 				"comuna" : "Panguipulli",
 				"codigo_comuna" : "14108",
-				"value" : 191
+				"value" : 179
 			},
 			{
 				"comuna" : "Rio Bueno",
 				"codigo_comuna" : "14204",
-				"value" : 63
+				"value" : 44
 			},
 			{
 				"comuna" : "Valdivia",
 				"codigo_comuna" : "14101",
-				"value" : 210
+				"value" : 174
 			}
 		],
 		"nro_fallecidos_totales" : [
@@ -5851,7 +5851,7 @@ var data_comunas = {
 			{
 				"comuna" : "Futrono",
 				"codigo_comuna" : "14202",
-				"value" : 36
+				"value" : 37
 			},
 			{
 				"comuna" : "La Union",
@@ -5881,27 +5881,27 @@ var data_comunas = {
 			{
 				"comuna" : "Mariquina",
 				"codigo_comuna" : "14106",
-				"value" : 46
+				"value" : 47
 			},
 			{
 				"comuna" : "Paillaco",
 				"codigo_comuna" : "14107",
-				"value" : 46
+				"value" : 47
 			},
 			{
 				"comuna" : "Panguipulli",
 				"codigo_comuna" : "14108",
-				"value" : 59
+				"value" : 61
 			},
 			{
 				"comuna" : "Rio Bueno",
 				"codigo_comuna" : "14204",
-				"value" : 72
+				"value" : 73
 			},
 			{
 				"comuna" : "Valdivia",
 				"codigo_comuna" : "14101",
-				"value" : 258
+				"value" : 261
 			}
 		],
 		"nro_fallecidos_ultimo" : [
@@ -5913,17 +5913,17 @@ var data_comunas = {
 			{
 				"comuna" : "Futrono",
 				"codigo_comuna" : "14202",
-				"value" : 4
+				"value" : 1
 			},
 			{
 				"comuna" : "La Union",
 				"codigo_comuna" : "14201",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Lago Ranco",
 				"codigo_comuna" : "14203",
-				"value" : 2
+				"value" : 0
 			},
 			{
 				"comuna" : "Lanco",
@@ -5938,7 +5938,7 @@ var data_comunas = {
 			{
 				"comuna" : "Mafil",
 				"codigo_comuna" : "14105",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Mariquina",
@@ -5953,7 +5953,7 @@ var data_comunas = {
 			{
 				"comuna" : "Panguipulli",
 				"codigo_comuna" : "14108",
-				"value" : 0
+				"value" : 2
 			},
 			{
 				"comuna" : "Rio Bueno",
@@ -5963,7 +5963,7 @@ var data_comunas = {
 			{
 				"comuna" : "Valdivia",
 				"codigo_comuna" : "14101",
-				"value" : 6
+				"value" : 3
 			}
 		],
 		"poblacion" : [
@@ -6034,17 +6034,17 @@ var data_comunas = {
 			{
 				"comuna" : "Ancud",
 				"codigo_comuna" : "10202",
-				"value" : 16
+				"value" : 18
 			},
 			{
 				"comuna" : "Calbuco",
 				"codigo_comuna" : "10102",
-				"value" : 15
+				"value" : 10
 			},
 			{
 				"comuna" : "Castro",
 				"codigo_comuna" : "10201",
-				"value" : 45
+				"value" : 33
 			},
 			{
 				"comuna" : "Chaiten",
@@ -6054,7 +6054,7 @@ var data_comunas = {
 			{
 				"comuna" : "Chonchi",
 				"codigo_comuna" : "10203",
-				"value" : 13
+				"value" : 11
 			},
 			{
 				"comuna" : "Cochamo",
@@ -6064,7 +6064,7 @@ var data_comunas = {
 			{
 				"comuna" : "Curaco de Velez",
 				"codigo_comuna" : "10204",
-				"value" : 2
+				"value" : 1
 			},
 			{
 				"comuna" : "Dalcahue",
@@ -6074,17 +6074,17 @@ var data_comunas = {
 			{
 				"comuna" : "Fresia",
 				"codigo_comuna" : "10104",
-				"value" : 14
+				"value" : 10
 			},
 			{
 				"comuna" : "Frutillar",
 				"codigo_comuna" : "10105",
-				"value" : 23
+				"value" : 18
 			},
 			{
 				"comuna" : "Futaleufu",
 				"codigo_comuna" : "10402",
-				"value" : 4
+				"value" : 6
 			},
 			{
 				"comuna" : "Hualaihue",
@@ -6094,104 +6094,104 @@ var data_comunas = {
 			{
 				"comuna" : "Llanquihue",
 				"codigo_comuna" : "10107",
-				"value" : 16
+				"value" : 6
 			},
 			{
 				"comuna" : "Los Muermos",
 				"codigo_comuna" : "10106",
-				"value" : 19
+				"value" : 15
 			},
 			{
 				"comuna" : "Maullin",
 				"codigo_comuna" : "10108",
-				"value" : 12
+				"value" : 7
 			},
 			{
 				"comuna" : "Osorno",
 				"codigo_comuna" : "10301",
-				"value" : 182
+				"value" : 145
 			},
 			{
 				"comuna" : "Palena",
 				"codigo_comuna" : "10404",
-				"value" : 1
+				"value" : 4
 			},
 			{
 				"comuna" : "Puerto Montt",
 				"codigo_comuna" : "10101",
-				"value" : 174
+				"value" : 147
 			},
 			{
 				"comuna" : "Puerto Octay",
 				"codigo_comuna" : "10302",
-				"value" : 17
+				"value" : 8
 			},
 			{
 				"comuna" : "Puerto Varas",
 				"codigo_comuna" : "10109",
-				"value" : 30
+				"value" : 27
 			},
 			{
 				"comuna" : "Puqueldon",
 				"codigo_comuna" : "10206",
-				"value" : 9
+				"value" : 2
 			},
 			{
 				"comuna" : "Purranque",
 				"codigo_comuna" : "10303",
-				"value" : 32
+				"value" : 19
 			},
 			{
 				"comuna" : "Puyehue",
 				"codigo_comuna" : "10304",
-				"value" : 29
+				"value" : 21
 			},
 			{
 				"comuna" : "Queilen",
 				"codigo_comuna" : "10207",
-				"value" : 10
+				"value" : 12
 			},
 			{
 				"comuna" : "Quellon",
 				"codigo_comuna" : "10208",
-				"value" : 28
+				"value" : 23
 			},
 			{
 				"comuna" : "Quemchi",
 				"codigo_comuna" : "10209",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Quinchao",
 				"codigo_comuna" : "10210",
-				"value" : 5
+				"value" : 2
 			},
 			{
 				"comuna" : "Rio Negro",
 				"codigo_comuna" : "10305",
-				"value" : 47
+				"value" : 41
 			},
 			{
 				"comuna" : "San Juan de la Costa",
 				"codigo_comuna" : "10306",
-				"value" : 7
+				"value" : 8
 			},
 			{
 				"comuna" : "San Pablo",
 				"codigo_comuna" : "10307",
-				"value" : 23
+				"value" : 17
 			}
 		],
 		"nro_fallecidos_totales" : [
 			{
 				"comuna" : "Ancud",
 				"codigo_comuna" : "10202",
-				"value" : 83
+				"value" : 84
 			},
 			{
 				"comuna" : "Calbuco",
 				"codigo_comuna" : "10102",
-				"value" : 61
+				"value" : 62
 			},
 			{
 				"comuna" : "Castro",
@@ -6226,12 +6226,12 @@ var data_comunas = {
 			{
 				"comuna" : "Fresia",
 				"codigo_comuna" : "10104",
-				"value" : 25
+				"value" : 24
 			},
 			{
 				"comuna" : "Frutillar",
 				"codigo_comuna" : "10105",
-				"value" : 37
+				"value" : 39
 			},
 			{
 				"comuna" : "Futaleufu",
@@ -6271,7 +6271,7 @@ var data_comunas = {
 			{
 				"comuna" : "Puerto Montt",
 				"codigo_comuna" : "10101",
-				"value" : 386
+				"value" : 389
 			},
 			{
 				"comuna" : "Puerto Octay",
@@ -6281,7 +6281,7 @@ var data_comunas = {
 			{
 				"comuna" : "Puerto Varas",
 				"codigo_comuna" : "10109",
-				"value" : 39
+				"value" : 40
 			},
 			{
 				"comuna" : "Puqueldon",
@@ -6321,7 +6321,7 @@ var data_comunas = {
 			{
 				"comuna" : "Rio Negro",
 				"codigo_comuna" : "10305",
-				"value" : 34
+				"value" : 35
 			},
 			{
 				"comuna" : "San Juan de la Costa",
@@ -6331,24 +6331,24 @@ var data_comunas = {
 			{
 				"comuna" : "San Pablo",
 				"codigo_comuna" : "10307",
-				"value" : 30
+				"value" : 31
 			}
 		],
 		"nro_fallecidos_ultimo" : [
 			{
 				"comuna" : "Ancud",
 				"codigo_comuna" : "10202",
-				"value" : 0
+				"value" : 1
 			},
 			{
 				"comuna" : "Calbuco",
 				"codigo_comuna" : "10102",
-				"value" : -6
+				"value" : 1
 			},
 			{
 				"comuna" : "Castro",
 				"codigo_comuna" : "10201",
-				"value" : 2
+				"value" : 0
 			},
 			{
 				"comuna" : "Chaiten",
@@ -6358,7 +6358,7 @@ var data_comunas = {
 			{
 				"comuna" : "Chonchi",
 				"codigo_comuna" : "10203",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Cochamo",
@@ -6368,7 +6368,7 @@ var data_comunas = {
 			{
 				"comuna" : "Curaco de Velez",
 				"codigo_comuna" : "10204",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Dalcahue",
@@ -6378,12 +6378,12 @@ var data_comunas = {
 			{
 				"comuna" : "Fresia",
 				"codigo_comuna" : "10104",
-				"value" : 1
+				"value" : -1
 			},
 			{
 				"comuna" : "Frutillar",
 				"codigo_comuna" : "10105",
-				"value" : 0
+				"value" : 2
 			},
 			{
 				"comuna" : "Futaleufu",
@@ -6393,7 +6393,7 @@ var data_comunas = {
 			{
 				"comuna" : "Hualaihue",
 				"codigo_comuna" : "10403",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Llanquihue",
@@ -6403,12 +6403,12 @@ var data_comunas = {
 			{
 				"comuna" : "Los Muermos",
 				"codigo_comuna" : "10106",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Maullin",
 				"codigo_comuna" : "10108",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Osorno",
@@ -6423,7 +6423,7 @@ var data_comunas = {
 			{
 				"comuna" : "Puerto Montt",
 				"codigo_comuna" : "10101",
-				"value" : -1
+				"value" : 3
 			},
 			{
 				"comuna" : "Puerto Octay",
@@ -6433,7 +6433,7 @@ var data_comunas = {
 			{
 				"comuna" : "Puerto Varas",
 				"codigo_comuna" : "10109",
-				"value" : 2
+				"value" : 1
 			},
 			{
 				"comuna" : "Puqueldon",
@@ -6443,12 +6443,12 @@ var data_comunas = {
 			{
 				"comuna" : "Purranque",
 				"codigo_comuna" : "10303",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Puyehue",
 				"codigo_comuna" : "10304",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Queilen",
@@ -6463,7 +6463,7 @@ var data_comunas = {
 			{
 				"comuna" : "Quemchi",
 				"codigo_comuna" : "10209",
-				"value" : -3
+				"value" : 0
 			},
 			{
 				"comuna" : "Quinchao",
@@ -6483,7 +6483,7 @@ var data_comunas = {
 			{
 				"comuna" : "San Pablo",
 				"codigo_comuna" : "10307",
-				"value" : 0
+				"value" : 1
 			}
 		],
 		"poblacion" : [
@@ -6644,27 +6644,27 @@ var data_comunas = {
 			{
 				"comuna" : "Aysen",
 				"codigo_comuna" : "11201",
-				"value" : 68
+				"value" : 42
 			},
 			{
 				"comuna" : "Chile Chico",
 				"codigo_comuna" : "11401",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Cisnes",
 				"codigo_comuna" : "11202",
-				"value" : 6
+				"value" : 3
 			},
 			{
 				"comuna" : "Cochrane",
 				"codigo_comuna" : "11301",
-				"value" : 9
+				"value" : 5
 			},
 			{
 				"comuna" : "Coyhaique",
 				"codigo_comuna" : "11101",
-				"value" : 66
+				"value" : 33
 			},
 			{
 				"comuna" : "Guaitecas",
@@ -6684,7 +6684,7 @@ var data_comunas = {
 			{
 				"comuna" : "Rio Ibanez",
 				"codigo_comuna" : "11402",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Tortel",
@@ -6768,7 +6768,7 @@ var data_comunas = {
 			{
 				"comuna" : "Coyhaique",
 				"codigo_comuna" : "11101",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Guaitecas",
@@ -6869,12 +6869,12 @@ var data_comunas = {
 			{
 				"comuna" : "Natales",
 				"codigo_comuna" : "12401",
-				"value" : 6
+				"value" : 8
 			},
 			{
 				"comuna" : "Porvenir",
 				"codigo_comuna" : "12301",
-				"value" : 11
+				"value" : 14
 			},
 			{
 				"comuna" : "Primavera",
@@ -6884,7 +6884,7 @@ var data_comunas = {
 			{
 				"comuna" : "Punta Arenas",
 				"codigo_comuna" : "12101",
-				"value" : 52
+				"value" : 19
 			},
 			{
 				"comuna" : "Rio Verde",
@@ -6894,7 +6894,7 @@ var data_comunas = {
 			{
 				"comuna" : "San Gregorio",
 				"codigo_comuna" : "12104",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Timaukel",
@@ -6941,7 +6941,7 @@ var data_comunas = {
 			{
 				"comuna" : "Punta Arenas",
 				"codigo_comuna" : "12101",
-				"value" : 434
+				"value" : 435
 			},
 			{
 				"comuna" : "Rio Verde",
@@ -6983,12 +6983,12 @@ var data_comunas = {
 			{
 				"comuna" : "Natales",
 				"codigo_comuna" : "12401",
-				"value" : 1
+				"value" : 0
 			},
 			{
 				"comuna" : "Porvenir",
 				"codigo_comuna" : "12301",
-				"value" : 2
+				"value" : 0
 			},
 			{
 				"comuna" : "Primavera",
