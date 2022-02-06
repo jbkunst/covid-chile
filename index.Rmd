@@ -8,7 +8,9 @@ output:
     orientation: rows
     css: css/style.css
     favicon: www/favicon.png    
-    social: ["twitter", "facebook", "linkedin"]
+    navbar:
+    - { icon: "fa-github-alt", href: "https://github.com/jbkunst/covid-chile", align: right }
+    - { icon: "fa-twitter", href: "https://twitter.com/jbkunst", align: right}
 editor_options: 
   chunk_output_type: console
 ---
@@ -33,38 +35,38 @@ source("R/04-value-boxes.R", encoding = "UTF-8")
 Inicio {data-icon="fa-tachometer-alt"}
 =====================================  
 
-Row {data-height=230}
------------------------------------------------------------------------
+<!-- Row {data-height=230} -->
+<!-- ----------------------------------------------------------------------- -->
 
-### 
+<!-- ###  -->
 
-```{r}
-# value <- vb_confirmados() %>% filter(tipo == "casos_totales") %>% pull(descripcion)
-# caption <- "Confirmados"
-# info <- vb_confirmados() %>% filter(tipo != "casos_totales") %>% pull(descripcion)
+<!-- ```{r} -->
+<!-- # value <- vb_confirmados() %>% filter(tipo == "casos_totales") %>% pull(descripcion) -->
+<!-- # caption <- "Confirmados" -->
+<!-- # info <- vb_confirmados() %>% filter(tipo != "casos_totales") %>% pull(descripcion) -->
 
-# valueBoxCaptions(value, caption, info)
-valueBox("1.4 millones", caption = "Fallecidos", icon = NULL, color = NULL, href = NULL)
+<!-- # valueBoxCaptions(value, caption, info) -->
+<!-- valueBox("1.4 millones", caption = "Fallecidos", icon = NULL, color = NULL, href = NULL) -->
 
-```
+<!-- ``` -->
 
-### 
+<!-- ###  -->
 
-```{r}
-valueBox("31.234", caption = "Fallecidos", icon = NULL, color = NULL, href = NULL)
-```
+<!-- ```{r} -->
+<!-- valueBox("31.234", caption = "Fallecidos", icon = NULL, color = NULL, href = NULL) -->
+<!-- ``` -->
 
-### 
+<!-- ###  -->
 
-```{r}
-valueBox("65%", caption = "Vacunación", icon = NULL, color = NULL, href = NULL)
-```
+<!-- ```{r} -->
+<!-- valueBox("65%", caption = "Vacunación", icon = NULL, color = NULL, href = NULL) -->
+<!-- ``` -->
 
-### 
+<!-- ###  -->
 
-```{r}
-valueBox("3.230", caption = "UCI", icon = NULL, color = NULL, href = NULL)
-```
+<!-- ```{r} -->
+<!-- valueBox("3.230", caption = "UCI", icon = NULL, color = NULL, href = NULL) -->
+<!-- ``` -->
 
 
 Row 
@@ -82,11 +84,11 @@ grafico_confirmados_diarios()
 grafico_defunciones_diarias()
 ```
 
-###
+<!-- ### -->
 
-```{r}
-grafico_porcentaje_vacunacion()
-```
+<!-- ```{r} -->
+<!-- grafico_porcentaje_vacunacion() -->
+<!-- ``` -->
 
 Row 
 ----------------------------------------------------------------------- 
@@ -103,10 +105,6 @@ grafico_activos_media_movil_7_dias()
 grafico_pacientes_uci()
 ```
 
-###
-
-```{r}
-```
 
 Region {data-icon="fa-map-marked-alt" data-orientation=columns}
 =====================================  
@@ -210,11 +208,6 @@ Row
 grafico_porcentaje_vacunacion_edad()
 ```
 
-### 
-
-```{r}
-```
-
 Row 
 -----------------------------------------------------------------------
 
@@ -255,15 +248,4 @@ grafico_defunciones_esperadas_arima()
 
 ```{r}
 grafico_defunciones_mensuales_pandemia()
-```
-
-Acerca {data-icon="fa-question-circle"}
-=====================================  
-
-Row {data-height=500}
------------------------------------------------------------------------
-
-### 
-
-```{r}
 ```

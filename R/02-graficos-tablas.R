@@ -247,7 +247,7 @@ grafico_porcentaje_vacunacion_edad <- function(){
       ) %>% 
     hc_tooltip(table = TRUE, valueDecimals = 2, valueSuffix =  "{value:.0f}%") %>%
     hc_xAxis(title = list(text = "Rango Etáreo")) %>%
-    hc_yAxis(title = list(text = "Porcentaje"), labels = list(format =  "{value:.0f}%")) %>% 
+    hc_yAxis(title = list(text = "Porcentaje"), labels = list(format =  "{value:.0f}%"), max = 100) %>% 
     hc_subtitle(text = titulo) 
   
 }
@@ -291,9 +291,8 @@ grafico_porcentaje_vacunacion_edad_fecha <- function(){
   ) %>% 
     hc_tooltip(table = TRUE, valueDecimals = 2, valueSuffix =  "{value:.0f}%", sort = TRUE) %>%
     hc_xAxis(title = list(text = "Fecha")) %>%
-    hc_yAxis(title = list(text = "Porcentaje"), labels = list(format =  "{value:.0f}%")) %>% 
+    hc_yAxis(title = list(text = "Porcentaje"), labels = list(format =  "{value:.0f}%"), max = 100) %>% 
     hc_subtitle(text = titulo) 
-  
 }
 
 grafico_letalidad <- function() {
@@ -512,6 +511,8 @@ grafico_defunciones_mensuales_pandemia <- function(){
   hchart(
     d %>% select(x = mes, y = fallecimientos_dia, group = anio),
     type = "area",
+    fillColor = hex_to_rgba("#CCCCCC", 0.2),
+    lineWidth = 5,
     hcaes(x, y, group = group)
   ) %>% 
     hc_xAxis(title = list(text = "Mes"), categories = meses) %>% 
